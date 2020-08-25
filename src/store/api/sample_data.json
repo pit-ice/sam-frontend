@@ -1,5 +1,6 @@
 [
     {
+      "open" : false,
       "id": 1,
       "category": "computers",
       "img": "https://pixinvent.com/demo/vuexy-vuejs-admin-dashboard-template/products/01.png",
@@ -9,6 +10,7 @@
       "price": 69.99
     },
     {
+      "open" : true,
       "id": 2,
       "category": "fitness",
       "img": "https://pixinvent.com/demo/vuexy-vuejs-admin-dashboard-template/products/02.png",
