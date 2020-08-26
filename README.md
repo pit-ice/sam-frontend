@@ -1,12 +1,12 @@
 # sam-frontend
 
-## 로컬 구동 명령
+## 로컬 실행 명령어
 
 ```sh
 # 최초 설치
 npm install
 
-# 개발서버 구동
+# 개발서버 실행
 npm run serve
 
 # 배포를 위한 빌드
