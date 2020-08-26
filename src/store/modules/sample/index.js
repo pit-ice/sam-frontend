@@ -2,10 +2,10 @@
  * Sample Module
  */
 
-import { sampleService } from "../../api";
+import { sampleService } from '../../api';
 
 const state = {
-  samples: []
+  samples: [],
 };
 
 // getters
@@ -16,18 +16,18 @@ const actions = {
   async getSampleData(context) {
     try {
       let samples = await sampleService.getSampleData();
-      context.commit("getSampleData", samples);
+      context.commit('getSampleData', samples);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  },
 };
 
 // mutations
 const mutations = {
   getSampleData(state, samples) {
     state.samples = samples;
-  }
+  },
 };
 
 export default {
@@ -35,5 +35,5 @@ export default {
   state,
   getters,
   actions,
-  mutations
+  mutations,
 };

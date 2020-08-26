@@ -9,21 +9,11 @@
       <form name="form">
         <div class="form-group">
           <label for="username">Username</label>
-          <input
-            type="text"
-            class="form-control"
-            name="username"
-          />
-         
+          <input type="text" class="form-control" name="username" />
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            name="password"
-          />
-         
+          <input type="password" class="form-control" name="password" />
         </div>
         <div class="form-group">
           <button class="btn btn-primary btn-block" :disabled="loading">
@@ -43,18 +33,16 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
-  name: "Login",
+  name: 'Login',
   data() {
     return {
       user: {},
       loading: false,
-      message: ""
+      message: '',
     };
   },
-  
 };
 </script>
 

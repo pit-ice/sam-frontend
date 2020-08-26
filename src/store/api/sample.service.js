@@ -1,14 +1,17 @@
-
-import HttpRequest from './base/http_request'
+import HttpRequest from './base/http_request';
 
 class SampleService extends HttpRequest {
-
-  
   getSampleData() {
     //return this.get('/sample');
-    return require('./sample_data.json')
-  }
 
+    let data = require('./sample_data.json');
+
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(data);
+      }, 2000);
+    });
+  }
 }
 
-export default SampleService
+export default SampleService;

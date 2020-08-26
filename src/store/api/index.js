@@ -1,6 +1,5 @@
+import AuthService from './auth.service';
+import SampleService from './sample.service';
 
-import AuthService from './auth.service'
-import SampleService from './sample.service'
-
-export const authService = new AuthService()
-export const sampleService = new SampleService()
+export const authService = new AuthService();
+export const sampleService = new SampleService();
