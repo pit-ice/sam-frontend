@@ -2,10 +2,10 @@
  * Sample Module
  */
 
-import { faqService } from "../../api";
+import { faqService } from '../../api';
 
 const state = {
-  faqs: []
+  faqs: [],
 };
 
 // getters
@@ -16,18 +16,18 @@ const actions = {
   async getFaqData(context) {
     try {
       let faqs = await faqService.getFaqData();
-      context.commit("getFaqData", faqs);
+      context.commit('getFaqData', faqs);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  },
 };
 
 // mutations
 const mutations = {
   getFaqData(state, faqs) {
     state.faqs = faqs;
-  }
+  },
 };
 
 export default {
@@ -35,5 +35,5 @@ export default {
   state,
   getters,
   actions,
-  mutations
+  mutations,
 };
