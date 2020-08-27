@@ -9,7 +9,7 @@
       </thead>
       <tbody v-for="faq in faqs" :key="faq.id">
         <!-- <tr @click="faq.open = !faq.open"> -->
-        <tr @click="open1(faq.id)">
+        <tr @click="openCheck(faq.id)">
           <th scope="row" width="30%">{{ faq.id }}</th>
           <td width="*">{{ faq.name }}</td>
         </tr>
@@ -40,7 +40,7 @@ export default {
   },
 
   methods: {
-    open1: function (id) {
+    openCheck: function (id) {
       if (this.clickOpen) {
         this.clickId = id;
         this.clickOpen = false;
