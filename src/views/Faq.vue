@@ -8,11 +8,12 @@
         </tr>
       </thead>
       <tbody v-for="faq in faqs" :key="faq.id">
-        <tr @click="faq.open = !faq.open">
+        <!-- <tr @click="faq.open = !faq.open"> -->
+        <tr @click="open1(faq.id)">
           <th scope="row" width="30%">{{ faq.id }}</th>
           <td width="*">{{ faq.name }}</td>
         </tr>
-        <tr v-show="faq.open">
+        <tr v-if="clickId === faq.id && clickOpen">
           <td colspan="2" width="*">{{ faq.name }}</td>
         </tr>
       </tbody>
@@ -24,7 +25,10 @@
 export default {
   name: 'Faq',
   data() {
-    return {};
+    return {
+      clickId: '',
+      clickOpen: false,
+    };
   },
   computed: {
     faqs() {
@@ -33,6 +37,18 @@ export default {
   },
   created() {
     this.$store.dispatch('faq/getFaqData');
+  },
+
+  methods: {
+    open1: function (id) {
+      if (this.clickOpen) {
+        this.clickId = id;
+        this.clickOpen = false;
+      } else {
+        this.clickId = id;
+        this.clickOpen = true;
+      }
+    },
   },
 };
 </script>
