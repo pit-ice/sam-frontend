@@ -14,7 +14,8 @@
           <td width="*">{{ faq.name }}</td>
         </tr>
         <tr v-if="clickId === faq.id && clickOpen">
-          <td colspan="2" width="*">{{ faq.name }}</td>
+          <th scope="row" width="30%"></th>
+          <td width="*">{{ faq.name }}</td>
         </tr>
       </tbody>
     </table>
