@@ -22,6 +22,7 @@ spec:
       containers:
       - name: sam-frontend
         image: bekube/sam-frontend:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
         resources:
