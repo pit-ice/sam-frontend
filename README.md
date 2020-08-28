@@ -30,3 +30,21 @@ npm run build
     
 - Vue VSCode Snippets
     - vue 코드 조각 자동완성
+
+## 로컬 배포
+
+- dockerize
+```sh
+docker build -t sam-frontend .
+docker images
+docker tag sam-frontend bekube/sam-frontend:latest
+docker push bekube/sam-frontend:latest
+```
+
+- deploy k8s
+```
+kubectl apply -f ./k8s -n vrd-dev
+```
+
+
+
