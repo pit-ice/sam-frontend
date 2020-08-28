@@ -31,7 +31,7 @@ npm run build
 - Vue VSCode Snippets
     - vue 코드 조각 자동완성
 
-## 로컬 배포
+## 배포
 
 - dockerize
 ```sh
