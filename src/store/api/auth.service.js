@@ -1,11 +1,11 @@
 import HttpRequest from './base/http_request';
 
 class AuthService extends HttpRequest {
-  signin(user) {
+  login(user) {
     return this.post('/auth/signin', user);
   }
 
-  signup(user) {
+  register(user) {
     return this.post('/auth/signup', user);
   }
 }

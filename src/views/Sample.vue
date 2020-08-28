@@ -1,14 +1,8 @@
 <template>
   <div class="col-md-12">
-    <button type="button" class="btn btn-primary" @click="refreshSampleData">
-      refresh
-    </button>
+    <button type="button" class="btn btn-primary" @click="refreshSampleData">refresh</button>
     <div class="d-flex justify-content-center mb-3">
-      <b-spinner
-        class="align-self-end"
-        label="Loading..."
-        v-if="loading"
-      ></b-spinner>
+      <b-spinner class="align-self-end" label="Loading..." v-if="loading"></b-spinner>
       <table class="table table-striped" v-if="!loading">
         <thead>
           <tr>

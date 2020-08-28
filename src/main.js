@@ -8,6 +8,11 @@ import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
+import '@/assets/scss/main.scss';
+
+// vee-validation
+import '@/vee-validate';
+
 Vue.use(BootstrapVue);
 
 Vue.config.productionTip = false;

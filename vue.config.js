@@ -6,6 +6,7 @@ module.exports = {
     resolve: {
       alias: {
         '@': path.join(__dirname, 'src/'),
+        Views: path.join(__dirname, 'src/views/'),
       },
     },
   },

@@ -8,29 +8,26 @@ let axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   function (config) {
-    // Do something before request is sent
-    let token = localStorage.getItem('user-token');
-    if (token) config.headers['x-access-token'] = token;
+    let user = JSON.parse(localStorage.getItem('user'));
+    if (user && user.accessToken) {
+      config.headers['Authorization'] = 'Bearer ' + user.accessToken;
+    }
 
     return config;
   },
   function (error) {
-    // Do something with request error
     return Promise.reject(error);
   }
 );
 
-// Add a response interceptor
 axiosInstance.interceptors.response.use(
   function (response) {
-    // Do something with response data
     return response;
   },
   function (error) {
     console.log(error);
     if (error.response.status === 403) {
       console.log('unauthorized, logging out ...');
-      //auth.logout();
       router.replace('/session/login');
     }
 
@@ -45,8 +42,7 @@ class HttpRequest {
 
   setHeader(header) {
     axiosInstance.defaults.headers.common[header.key] = header.value;
-    axiosInstance.defaults.headers.post['Content-Type'] =
-      'application/x-www-form-urlencoded';
+    axiosInstance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
   }
 
   get(methodName, data) {
