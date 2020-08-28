@@ -4,18 +4,18 @@
       <thead>
         <tr>
           <th scope="col" width="30%">#</th>
-          <th scope="col" width="*">Name</th>
+          <th scope="col" width="*">Title</th>
         </tr>
       </thead>
-      <tbody v-for="faq in faqs" :key="faq.id">
+      <tbody v-for="(faq, index) in faqs" :key="faq.title">
         <!-- <tr @click="faq.open = !faq.open"> -->
-        <tr @click="openCheck(faq.id)">
-          <th scope="row" width="30%">{{ faq.id }}</th>
-          <td width="*">{{ faq.name }}</td>
+        <tr @click="openCheck(index)">
+          <th scope="row" width="30%">{{ index + 1 }}</th>
+          <td width="*">{{ faq.title }}</td>
         </tr>
-        <tr v-if="clickId === faq.id && clickOpen">
+        <tr v-if="clickId === index && clickOpen">
           <th scope="row" width="30%"></th>
-          <td width="*">{{ faq.name }}</td>
+          <td width="*">{{ faq.contents }}</td>
         </tr>
       </tbody>
     </table>
@@ -33,6 +33,7 @@ export default {
   },
   computed: {
     faqs() {
+      console.log(this.$store.state.faq.faqs);
       return this.$store.state.faq.faqs;
     },
   },

@@ -15,8 +15,8 @@ const getters = {};
 const actions = {
   async getFaqData(context) {
     try {
-      let faqs = await faqService.getFaqData();
-      context.commit('getFaqData', faqs);
+      let response = await faqService.getFaqData();
+      context.commit('getFaqData', response.data);
     } catch (error) {
       console.log(error);
     }
