@@ -1,12 +1,26 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> | <router-link to="/sample">Sample</router-link> | <router-link to="/login">Login</router-link> |
-      <router-link to="/register">Register</router-link> | <router-link to="/faq">Faq</router-link>
+      <router-link to="/">Home</router-link> | <router-link to="/sample">Sample</router-link> |
+      <router-link to="/login" v-if="!loggedIn">Login</router-link><router-link to="/logout" v-else>Logout1</router-link> |
+      <router-link to="/register">Register</router-link> |
+      <router-link to="/faq">Faq</router-link>
     </div>
+    {{ loggedIn }}
     <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  name: 'App',
+  computed: {
+    loggedIn() {
+      return localStorage.getItem('user');
+    },
+  },
+};
+</script>
 
 <style lang="scss">
 #app {

@@ -4,6 +4,7 @@ import Login from 'Views/Login.vue';
 import Register from 'Views/Register.vue';
 import Sample from 'Views/Sample.vue';
 import Faq from 'Views/Faq.vue';
+import Logout from 'Views/Logout.vue';
 
 Vue.use(VueRouter);
 
@@ -22,6 +23,11 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login,
+  },
+  {
+    path: '/logout',
+    name: 'Logout',
+    component: Logout,
   },
   {
     path: '/register',
@@ -46,6 +52,7 @@ router.beforeEach((to, from, next) => {
   const authRequired = !publicPages.includes(to.path);
   const loggedIn = localStorage.getItem('user');
 
+  console.log('loggedIn : ' + loggedIn);
   if (authRequired && !loggedIn) {
     next('/login');
   } else {

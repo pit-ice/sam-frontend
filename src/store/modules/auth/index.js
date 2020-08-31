@@ -28,6 +28,9 @@ const actions = {
       console.log(error);
     }
   },
+  async logout(context) {
+    context.commit('logout');
+  },
   async register(context, user) {
     try {
       let params = {
@@ -54,6 +57,11 @@ const mutations = {
     if (user.accessToken) {
       localStorage.setItem('user', JSON.stringify(user));
     }
+  },
+  logout(state) {
+    state.status.loggedIn = false;
+    state.user = null;
+    localStorage.removeItem('user');
   },
   loginFailure(state) {
     state.status.loggedIn = false;

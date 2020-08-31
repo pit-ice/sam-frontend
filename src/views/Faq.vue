@@ -33,7 +33,6 @@ export default {
   },
   computed: {
     faqs() {
-      console.log(this.$store.state.faq.faqs);
       return this.$store.state.faq.faqs;
     },
   },
