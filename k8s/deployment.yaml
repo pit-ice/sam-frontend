@@ -11,22 +11,54 @@ spec:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 1
-  minReadySeconds: 5 
+  minReadySeconds: 5
   template:
     metadata:
       labels:
         app: sam-frontend
     spec:
       nodeSelector:
-        "beta.kubernetes.io/os": linux
+        'beta.kubernetes.io/os': linux
       containers:
-      - name: sam-frontend
-        image: bekube/sam-frontend:latest
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 80
-        resources:
-          requests:
-            cpu: 250m
-          limits:
-            cpu: 500m
+        - name: sam-frontend
+          image: bekube/sam-frontend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1  
+          resources:
+            requests:
+              cpu: 250m
+            limits:
+              cpu: 500m
+          volumeMounts:
+            - name: config
+              mountPath: "/etc/nginx/conf.d"
+              readOnly: true
+
+      volumes:
+        - name: config
+          configMap:
+            name: sam-frontend-configmap
+            items:
+              - key: default.conf
+                path: default.conf 
