@@ -36,7 +36,7 @@ const actions = {
       let params = {
         username: user.username,
         password: user.password,
-        eamil: user.email,
+        email: user.email,
       };
       await authService.register(params);
 
