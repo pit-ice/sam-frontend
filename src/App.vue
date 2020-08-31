@@ -6,7 +6,6 @@
       <router-link to="/register">Register</router-link> |
       <router-link to="/faq">Faq</router-link>
     </div>
-    ss{{ this.$store.state.user }}
     <router-view />
   </div>
 </template>
