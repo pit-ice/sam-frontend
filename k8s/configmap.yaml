@@ -18,6 +18,11 @@ data:
         try_files $uri $uri/ @rewrites;
       }
 
+      location /healthz {
+          access_log off;
+          return 200 "healthy\n";
+      }
+
       location @rewrites {
         rewrite ^(.+)$ /index.html last;
       }
