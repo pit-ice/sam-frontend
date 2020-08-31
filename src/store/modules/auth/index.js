@@ -29,7 +29,11 @@ const actions = {
     }
   },
   async logout(context) {
-    context.commit('logout');
+    try {
+      context.commit('logout');
+    } catch (error) {
+      console.log(error);
+    }
   },
   async register(context, user) {
     try {
@@ -58,14 +62,14 @@ const mutations = {
       localStorage.setItem('user', JSON.stringify(user));
     }
   },
+  loginFailure(state) {
+    state.status.loggedIn = false;
+    state.user = null;
+  },
   logout(state) {
     state.status.loggedIn = false;
     state.user = null;
     localStorage.removeItem('user');
-  },
-  loginFailure(state) {
-    state.status.loggedIn = false;
-    state.user = null;
   },
 };
 
