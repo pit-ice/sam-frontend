@@ -15,7 +15,7 @@
         </tr>
         <tr v-if="clickId === index && clickOpen">
           <th scope="row" width="30%"></th>
-          <td width="*" class="aa">{{ faq.contents }}</td>
+          <td width="*">{{ faq.contents }}</td>
         </tr>
       </tbody>
     </table>
