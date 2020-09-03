@@ -5,6 +5,7 @@ import Register from 'Views/Register.vue';
 import Sample from 'Views/Sample.vue';
 import Faq from 'Views/Faq.vue';
 import Logout from 'Views/Logout.vue';
+import Header from 'Views/Header.vue';
 
 Vue.use(VueRouter);
 
@@ -18,6 +19,11 @@ const routes = [
     path: '/sample',
     name: 'Sample',
     component: Sample,
+  },
+  {
+    path: '/header',
+    name: 'Header',
+    component: Header,
   },
   {
     path: '/login',
