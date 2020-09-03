@@ -9,7 +9,6 @@
 import LayoutNavi from '@/layout/LayoutNavi.vue';
 
 export default {
-  name: 'Header',
   components: {
     LayoutNavi,
   },
