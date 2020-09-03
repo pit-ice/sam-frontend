@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  name: 'layout-footer',
+  name: 'footer',
 };
 </script>

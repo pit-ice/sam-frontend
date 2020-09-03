@@ -14,6 +14,26 @@ const routes = [
     name: 'About',
     component: () => import('Views/About.vue'),
   },
+  {
+    path: '/auto',
+    name: 'Auto',
+    component: () => import('Views/Auto.vue'),
+  },
+  {
+    path: '/info',
+    name: 'Info',
+    component: () => import('Views/Info.vue'),
+  },
+  {
+    path: '/virtual',
+    name: 'Virtual',
+    component: () => import('Views/Virtual.vue'),
+  },
+  {
+    path: '/tech',
+    name: 'Tech',
+    component: () => import('Views/Tech.vue'),
+  },
 ];
 
 const router = new VueRouter({
