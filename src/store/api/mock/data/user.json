@@ -1,0 +1,16 @@
+[
+  {
+    "username": "test@test.com",
+    "email": "test@test.com",
+    "password": "1111",
+    "accessToken": "mgfi5juf74j",
+    "role": "user"
+  },
+  {
+    "username": "admin@test.com",
+    "email": "admin@test.com",
+    "password": "1111",
+    "accessToken": "fgj8fjdfk43",
+    "role": "admin"
+  }
+]

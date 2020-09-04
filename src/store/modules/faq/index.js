@@ -2,7 +2,7 @@
  * Sample Module
  */
 
-import { faqService } from '../../api';
+import ApiService from '@/store/api/api.service';
 
 const state = {
   faqs: [],
@@ -15,7 +15,7 @@ const getters = {};
 const actions = {
   async getFaqData(context) {
     try {
-      let response = await faqService.getFaqData();
+      let response = await ApiService.get('/techsupport/bbs');
       context.commit('getFaqData', response.data);
     } catch (error) {
       console.log(error);

@@ -1,10 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Login from 'Views/Login.vue';
-import Register from 'Views/Register.vue';
+import store from './store/store';
 import Sample from 'Views/Sample.vue';
-import Faq from 'Views/Faq.vue';
-import Logout from 'Views/Logout.vue';
 import Fileupload from 'Views/Fileupload.vue';
 
 Vue.use(VueRouter);
@@ -12,33 +9,52 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: () => import(/* webpackChunkName: "home" */ 'Views/Home.vue'),
+    component: () => import('@/layouts/FullPage'),
+    children: [
+      {
+        path: '/',
+        name: 'Home',
+        component: () => import('Views/Home.vue'),
+      },
+    ],
+  },
+  {
+    path: '/auth',
+    component: () => import('@/layouts/FullPage'),
+    children: [
+      {
+        path: 'login',
+        name: 'Login',
+        component: () => import('Views/auth/Login.vue'),
+      },
+      {
+        path: 'register',
+        name: 'Register',
+        component: () => import('Views/auth/Register.vue'),
+      },
+      {
+        path: 'logout',
+        name: 'Logout',
+        component: () => import('Views/auth/Logout.vue'),
+      },
+    ],
+  },
+  {
+    path: '/support',
+    component: () => import('@/layouts/FullPage'),
+    children: [
+      {
+        path: 'faq',
+        name: 'Faq',
+        component: () => import('Views/support/Faq.vue'),
+      },
+    ],
   },
   {
     path: '/sample',
     name: 'Sample',
     component: Sample,
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login,
-  },
-  {
-    path: '/logout',
-    name: 'Logout',
-    component: Logout,
-  },
-  {
-    path: '/register',
-    name: 'Register',
-    component: Register,
-  },
-  {
-    path: '/faq',
-    name: 'Faq',
-    component: Faq,
+    meta: { roles: ['admin'] },
   },
   {
     path: '/file',
@@ -54,15 +70,25 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const publicPages = ['/login', '/register', '/'];
+  const publicPages = ['/auth/login', '/auth/register', '/'];
   const authRequired = !publicPages.includes(to.path);
-  const loggedIn = localStorage.getItem('user');
+  const isAuthenticated = store.state.auth.isAuthenticated;
 
-  if (authRequired && !loggedIn) {
-    next('/login');
-  } else {
-    next();
+  // 인증처리 (auth)
+  if (authRequired && !isAuthenticated) {
+    return next('/auth/login');
   }
+
+  // 권한처리 (role)
+  const lacksRole = to.matched.some((route) => {
+    return route.meta.roles && !route.meta.roles.includes(store.state.auth.user.role);
+  });
+  if (lacksRole) {
+    //TODO. 접근처리 추가 필요
+    return next(false);
+  }
+
+  next();
 });
 
 export default router;

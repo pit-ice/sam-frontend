@@ -2,7 +2,7 @@
  * Auth Module
  */
 
-import { fileService } from '@/store/api';
+import ApiService from '@/store/api/api.service';
 
 const state = {
   formdata: [],
@@ -20,7 +20,11 @@ const actions = {
       //   size: formdata.size,
       //   attcFileData1: formdata,
       // };
-      await fileService.upload(formdata);
+      await ApiService.post('/sample/file', formdata, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
 
       //context.commit('registerSuccess', response.data);
     } catch (error) {

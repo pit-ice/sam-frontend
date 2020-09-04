@@ -23,7 +23,7 @@
           </button>
         </div>
       </form>
-      <div class="text-center">Create an Account <router-link to="/register">Sign up</router-link></div>
+      <div class="text-center">Create an Account <router-link to="/auth/register">Sign up</router-link></div>
     </ValidationObserver>
   </div>
 </template>
@@ -47,7 +47,7 @@ export default {
 
         this.$store.dispatch('auth/login', { email: this.email, password: this.password }).then(
           () => {
-            this.$router.push('/faq');
+            this.$router.push('/support/faq');
           },
           (error) => {
             alert(error.message);

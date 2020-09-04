@@ -2,7 +2,7 @@
  * Sample Module
  */
 
-import { sampleService } from '../../api';
+import ApiService from '@/store/api/api.service';
 
 const state = {
   samples: [],
@@ -15,8 +15,8 @@ const getters = {};
 const actions = {
   async getSampleData(context) {
     try {
-      let samples = await sampleService.getSampleData();
-      context.commit('getSampleData', samples);
+      let response = await ApiService.get('/sample');
+      context.commit('getSampleData', response.data);
     } catch (error) {
       console.log(error);
     }

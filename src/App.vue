@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> | <router-link to="/sample">Sample</router-link> |
-      <router-link to="/login" v-if="!loggedIn">Login</router-link>
-      <router-link to="/logout" v-else>Logout</router-link> | <router-link to="/register">Register</router-link> |
-      <router-link to="/faq">Faq</router-link> | <router-link to="/file">File</router-link>
+      <router-link to="/">Home</router-link> | <router-link to="/sample" v-if="isAdmin">Sample</router-link> |
+      <router-link to="/auth/login" v-if="!loggedIn">Login</router-link>
+      <router-link to="/auth/logout" v-else>Logout</router-link> | <router-link to="/auth/register">Register</router-link> |
+      <router-link to="/support/faq">Faq</router-link> | <router-link to="/file">File</router-link>
     </div>
     USER Email : {{ userEmail }}
     <router-view />
@@ -16,10 +16,13 @@ export default {
   name: 'App',
   computed: {
     loggedIn() {
-      return this.$store.state.auth.status.loggedIn;
+      return this.$store.state.auth.isAuthenticated;
     },
     userEmail() {
       return this.$store.state.auth.user?.email;
+    },
+    isAdmin() {
+      return this.$store.state.auth.user?.role == 'admin';
     },
   },
 };

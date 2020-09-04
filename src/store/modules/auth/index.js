@@ -2,12 +2,14 @@
  * Auth Module
  */
 
-import { authService } from '@/store/api';
+import ApiService from '@/store/api/api.service';
+import JwtService from '@/store/api/jwt.service';
 
-const user = localStorage.getItem('user');
-const initialState = user ? { status: { loggedIn: true }, user: JSON.parse(user) } : { status: { loggedIn: false }, user: null };
-
-const state = initialState;
+const state = {
+  errors: null,
+  user: {},
+  isAuthenticated: !!JwtService.getToken(),
+};
 
 // getters
 const getters = {};
@@ -20,7 +22,7 @@ const actions = {
         username: user.email,
         password: user.password,
       };
-      let response = await authService.login(params);
+      let response = await ApiService.post('/auth/signin', params);
 
       context.commit('loginSuccess', response.data);
     } catch (error) {
@@ -42,7 +44,7 @@ const actions = {
         password: user.password,
         email: user.email,
       };
-      await authService.register(params);
+      await ApiService.post('/auth/signup', params);
 
       //context.commit('registerSuccess', response.data);
     } catch (error) {
@@ -55,21 +57,20 @@ const actions = {
 // mutations
 const mutations = {
   loginSuccess(state, user) {
-    state.status.loggedIn = true;
-    state.user = user;
-
     if (user.accessToken) {
-      localStorage.setItem('user', JSON.stringify(user));
+      state.isAuthenticated = true;
+      state.user = user;
+      JwtService.saveToken(state.user.accessToken);
     }
   },
   loginFailure(state) {
-    state.status.loggedIn = false;
+    state.status.isAuthenticated = false;
     state.user = null;
   },
   logout(state) {
-    state.status.loggedIn = false;
+    state.isAuthenticated = false;
     state.user = null;
-    localStorage.removeItem('user');
+    JwtService.destroyToken();
   },
 };
 
