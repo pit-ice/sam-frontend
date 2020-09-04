@@ -5,6 +5,7 @@ import Register from 'Views/Register.vue';
 import Sample from 'Views/Sample.vue';
 import Faq from 'Views/Faq.vue';
 import Logout from 'Views/Logout.vue';
+import Fileupload from 'Views/Fileupload.vue';
 
 Vue.use(VueRouter);
 
@@ -38,6 +39,11 @@ const routes = [
     path: '/faq',
     name: 'Faq',
     component: Faq,
+  },
+  {
+    path: '/file',
+    name: 'Fileupload',
+    component: Fileupload,
   },
 ];
 

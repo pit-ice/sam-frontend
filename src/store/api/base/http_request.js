@@ -42,7 +42,7 @@ class HttpRequest {
 
   setHeader(header) {
     axiosInstance.defaults.headers.common[header.key] = header.value;
-    axiosInstance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+    //   axiosInstance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
   }
 
   get(methodName, data) {
