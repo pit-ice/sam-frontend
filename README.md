@@ -7,7 +7,14 @@
 npm install
 
 # 개발서버 실행
+#  .env.development 환경파일 사용됨
 npm run serve
+
+# local 환경 실행 
+#  .env.local 환경파일 사용됨
+npm run serve -- --mode local
+# or
+npm run serve-local
 
 # 배포를 위한 빌드
 npm run build
