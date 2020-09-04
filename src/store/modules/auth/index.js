@@ -61,6 +61,7 @@ const mutations = {
       state.isAuthenticated = true;
       state.user = user;
       JwtService.saveToken(state.user.accessToken);
+      ApiService.setHeader();
     }
   },
   loginFailure(state) {

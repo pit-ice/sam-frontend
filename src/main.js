@@ -15,8 +15,8 @@ import '@/vee-validate';
 
 import ApiService from '@/store/api/api.service';
 ApiService.init();
-import MockService from '@/store/api/mock/mock.service';
-MockService.init();
+//import MockService from '@/store/api/mock/mock.service';
+//MockService.init();
 
 Vue.use(BootstrapVue);
 
