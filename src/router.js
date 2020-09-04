@@ -5,34 +5,34 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'Home',
     component: () => import('Views/Home.vue'),
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('Views/About.vue'),
+    path: '/introduce/SV',
+    name: 'SV',
+    component: () => import('Views/introduce/SV.vue'),
   },
   {
-    path: '/auto',
-    name: 'Auto',
-    component: () => import('Views/Auto.vue'),
+    path: '/product/Search',
+    name: 'Search',
+    component: () => import('Views/product/Search.vue'),
   },
   {
-    path: '/info',
-    name: 'Info',
-    component: () => import('Views/Info.vue'),
+    path: '/autoic/Company',
+    name: 'Company',
+    component: () => import('Views/autoic/Company.vue'),
   },
   {
-    path: '/virtual',
-    name: 'Virtual',
-    component: () => import('Views/Virtual.vue'),
+    path: '/support/Notice',
+    name: 'Notice',
+    component: () => import('Views/support/Notice.vue'),
   },
   {
-    path: '/tech',
-    name: 'Tech',
-    component: () => import('Views/Tech.vue'),
+    path: '/vrdlab/Introduce',
+    name: 'Introduce',
+    component: () => import('Views/vrdlab/Introduce.vue'),
   },
 ];
 

@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>소개</h1>
-    <div>소개</div>
+    <h1>SKGC SV</h1>
+    <div>introduce</div>
   </div>
 </template>

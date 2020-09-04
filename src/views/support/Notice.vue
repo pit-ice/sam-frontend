@@ -1,5 +1,5 @@
 <template>
   <div class="tech">
-    <h1>tech</h1>
+    <h1>공지사항</h1>
   </div>
 </template>

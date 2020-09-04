@@ -1,5 +1,24 @@
 <template>
-  <div class="home">
-    <h1>home</h1>
+  <div class="wrap-home">
+    <div class="machine-learninig">
+      <VueSlickCarousel :arrows="true" :dots="true">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+      </VueSlickCarousel>
+    </div>
   </div>
 </template>
+
+<script>
+import VueSlickCarousel from 'vue-slick-carousel';
+import 'vue-slick-carousel/dist/vue-slick-carousel.css';
+// optional style for arrows & dots
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
+
+export default {
+  name: 'MyComponent',
+  components: { VueSlickCarousel },
+};
+</script>

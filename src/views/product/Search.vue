@@ -1,6 +1,6 @@
 <template>
   <div class="auto">
-    <h1>auto</h1>
+    <h1>제품 검색</h1>
     <div>
       <b-tabs content-class="mt-3">
         <b-tab title="First" active><p>I'm the first tab</p></b-tab>
