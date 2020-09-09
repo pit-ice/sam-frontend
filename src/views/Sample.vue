@@ -10,16 +10,24 @@
     </b-tabs>
 
     <h3>캐로셀</h3>
-    <carousel :autoplay="true" :nav="false" :items="1">
+    <carousel :autoplay="true" :nav="true" :items="1" :loop="true">
       <template slot="prev"><span class="prev">prev</span></template>
       <template slot="next"><span class="next">next</span></template>
-
-      <div tabindex="0">1</div>
-      <div tabindex="0">2</div>
-      <div tabindex="0">3</div>
-      <div tabindex="0">4</div>
-      <div tabindex="0">5</div>
-      <div tabindex="0">6</div>
+      <div>
+        <p>stop play 필요</p>
+      </div>
+      <div>
+        <p>22</p>
+      </div>
+      <div>
+        <p>33</p>
+      </div>
+      <div>
+        <p>44</p>
+      </div>
+      <div>
+        <p>55</p>
+      </div>
     </carousel>
   </div>
 </template>
