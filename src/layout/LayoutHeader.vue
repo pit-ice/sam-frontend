@@ -1,16 +1,21 @@
 <template>
   <div class="header">
-    <h1>header</h1>
-    <LayoutNavi></LayoutNavi>
+    <div class="inner">
+      <h1 class="logo">LOGO</h1>
+      <Navi></Navi>
+      <UtilMenu></UtilMenu>
+    </div>
   </div>
 </template>
 
 <script>
-import LayoutNavi from '@/layout/LayoutNavi.vue';
+import Navi from '@/layout/Navi.vue';
+import UtilMenu from '@/layout/UtilMenu.vue';
 
 export default {
   components: {
-    LayoutNavi,
+    Navi,
+    UtilMenu,
   },
 };
 </script>
