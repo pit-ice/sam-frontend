@@ -5,15 +5,21 @@
       <router-link to="/auth/login" v-if="!loggedIn">Login</router-link>
       <router-link to="/auth/logout" v-else>Logout</router-link> | <router-link to="/auth/register">Register</router-link> |
       <router-link to="/support/faq">Faq</router-link> | <router-link to="/file">File</router-link>
+      <notification v-if="loggedIn"></notification>
     </div>
-    USER Email : {{ userEmail }}
+
     <router-view />
   </div>
 </template>
 
 <script>
+import Notification from '@/components/Notification.vue';
+
 export default {
   name: 'App',
+  components: {
+    Notification,
+  },
   computed: {
     loggedIn() {
       return this.$store.state.auth.isAuthenticated;

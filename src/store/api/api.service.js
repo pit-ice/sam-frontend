@@ -2,7 +2,7 @@ import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import router from '@/router';
-import JwtService from './jwt.service';
+import StorageService from './storage.service';
 
 /**
  * Service to call HTTP request via Axios
@@ -27,13 +27,17 @@ const ApiService = {
         return Promise.reject(error);
       }
     );
+
+    this.setHeader();
   },
 
   /**
    * Set the default HTTP request headers
    */
   setHeader() {
-    Vue.axios.defaults.headers.common['Authorization'] = `Bearer ${JwtService.getToken()}`;
+    if (StorageService.getToken()) {
+      Vue.axios.defaults.headers.common['Authorization'] = `Bearer ${StorageService.getToken()}`;
+    }
   },
 
   query(resource, params) {

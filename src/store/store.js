@@ -6,6 +6,7 @@ import auth from './modules/auth';
 import sample from './modules/sample';
 import faq from './modules/faq';
 import file from './modules/file';
+import noti from './modules/noti';
 
 Vue.use(Vuex);
 
@@ -15,5 +16,6 @@ export default new Vuex.Store({
     sample,
     faq,
     file,
+    noti,
   },
 });

@@ -55,4 +55,12 @@ kubectl apply -f ./k8s -n vrd-dev
 ```
 
 
+## 소스 관련
+
+- axios-mock-adapter 적용
+    - 유닛테스트나 서버구동없이 dummy api 연동을 함
+    - https://github.com/ctimmerm/axios-mock-adapter
+    - api 코드 : src/store/api/mock
+    - json 폴더 : src/store/api/moke/data
+
 
