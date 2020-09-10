@@ -20,6 +20,21 @@ const routes = [
     component: () => import('Views/member/Register.vue'),
   },
   {
+    path: '/member/RegisterAgreement',
+    name: 'RegisterAgreement',
+    component: () => import('Views/member/RegisterAgreement.vue'),
+  },
+  {
+    path: '/member/RegisterInfo',
+    name: 'RegisterInfo',
+    component: () => import('Views/member/RegisterInfo.vue'),
+  },
+  {
+    path: '/member/RegisterDone',
+    name: 'RegisterDone',
+    component: () => import('Views/member/RegisterDone.vue'),
+  },
+  {
     path: '/member/Login',
     name: 'Login',
     component: () => import('Views/member/Login.vue'),
