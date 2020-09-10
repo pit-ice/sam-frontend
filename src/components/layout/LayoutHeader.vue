@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Navi from '@/layout/Navi.vue';
-import UtilMenu from '@/layout/UtilMenu.vue';
+import Navi from '@/components/layout/Navi.vue';
+import UtilMenu from '@/components/layout/UtilMenu.vue';
 
 export default {
   components: {

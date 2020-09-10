@@ -14,6 +14,7 @@ const routes = [
     name: 'Sample',
     component: () => import('Views/Sample.vue'),
   },
+  // 회원가입
   {
     path: '/member/Register',
     name: 'Register',
@@ -34,31 +35,37 @@ const routes = [
     name: 'RegisterDone',
     component: () => import('Views/member/RegisterDone.vue'),
   },
+  // 로그인
   {
     path: '/member/Login',
     name: 'Login',
     component: () => import('Views/member/Login.vue'),
   },
+  // 소개
   {
     path: '/introduce/SV',
     name: 'SV',
     component: () => import('Views/introduce/SV.vue'),
   },
+  //제품
   {
     path: '/product/Search',
     name: 'Search',
     component: () => import('Views/product/Search.vue'),
   },
+  // Auto info
   {
     path: '/autoic/Company',
     name: 'Company',
     component: () => import('Views/autoic/Company.vue'),
   },
+  // 고객지원
   {
     path: '/support/Notice',
     name: 'Notice',
     component: () => import('Views/support/Notice.vue'),
   },
+  //Virtual R&D Lab
   {
     path: '/vrdlab/Introduce',
     name: 'Introduce',
