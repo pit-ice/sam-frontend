@@ -49,7 +49,7 @@
 
       <div class="wrap-btn">
         <button class="btn btn-cancel">취소</button>
-        <router-link to="/member/RegisterInfo" tag="button" class="btn btn-agree">동의</router-link>
+        <router-link to="/member/register/info" tag="button" class="btn btn-agree">동의</router-link>
       </div>
     </div>
   </div>

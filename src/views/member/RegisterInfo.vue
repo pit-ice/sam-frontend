@@ -54,7 +54,7 @@
       </div>
       <div class="wrap-btn">
         <button class="btn btn-cancel">취소</button>
-        <router-link to="/member/RegisterDone" tag="button" class="btn btn-regist">가입신청</router-link>
+        <router-link to="/member/register/done" tag="button" class="btn btn-regist">가입신청</router-link>
       </div>
     </div>
   </div>
