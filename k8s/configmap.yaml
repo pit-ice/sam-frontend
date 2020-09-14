@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: sam-frontend-configmap
+  name: pub-frontend-configmap
 data:
   default.conf: |
     server {

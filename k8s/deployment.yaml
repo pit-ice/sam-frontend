@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sam-frontend
+  name: pub-frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sam-frontend
+      app: pub-frontend
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -15,13 +15,13 @@ spec:
   template:
     metadata:
       labels:
-        app: sam-frontend
+        app: pub-frontend
     spec:
       nodeSelector:
         'beta.kubernetes.io/os': linux
       containers:
-        - name: sam-frontend
-          image: bekube/sam-frontend:latest
+        - name: pub-frontend
+          image: bekube/pub-frontend:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80
@@ -58,7 +58,7 @@ spec:
       volumes:
         - name: config
           configMap:
-            name: sam-frontend-configmap
+            name: pub-frontend-configmap
             items:
               - key: default.conf
                 path: default.conf 
