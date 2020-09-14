@@ -7,7 +7,7 @@ const routes = [
   {
     path: '/',
     redirect: '/home',
-    component: () => import('@/components/layout/MainLayout'),
+    component: () => import('@/layout/MainLayout'),
     children: [
       {
         path: 'home',
@@ -24,7 +24,7 @@ const routes = [
   {
     path: '/member',
     redirect: '/member/register',
-    component: () => import('@/components/layout/MainLayout'),
+    component: () => import('@/layout/MainLayout'),
     children: [
       // 회원가입
       {
@@ -57,7 +57,7 @@ const routes = [
   },
   {
     path: '/',
-    component: () => import('@/components/layout/MainLayout'),
+    component: () => import('@/layout/MainLayout'),
     children: [
       // 소개
       {

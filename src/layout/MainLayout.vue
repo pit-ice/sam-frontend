@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import LayoutHeader from '@/components/layout/LayoutHeader.vue';
-import LayoutContent from '@/components/layout/LayoutContent.vue';
-import LayoutFooter from '@/components/layout/LayoutFooter.vue';
+import LayoutHeader from '@/layout/LayoutHeader.vue';
+import LayoutContent from '@/layout/LayoutContent.vue';
+import LayoutFooter from '@/layout/LayoutFooter.vue';
 
 export default {
   name: 'App',
