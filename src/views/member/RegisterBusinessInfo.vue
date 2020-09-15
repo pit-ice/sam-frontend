@@ -1,7 +1,7 @@
 <template>
   <div class="register">
     <div class="title">
-      <h3>회원가입</h3>
+      <h3>회원가입 - 기업</h3>
       <p>세계속 종합 에너지 화학기업에서 제공하는 다양한 Solution 과 Machine Learning을 경험 해 보세요!</p>
     </div>
 
@@ -54,7 +54,7 @@
       </div>
       <div class="wrap-btn">
         <button class="btn btn-cancel">취소</button>
-        <router-link to="/member/register/done" tag="button" class="btn btn-regist">가입신청</router-link>
+        <router-link to="/member/register/business/done" tag="button" class="btn btn-regist">가입신청</router-link>
       </div>
     </div>
   </div>

@@ -32,20 +32,37 @@ const routes = [
         name: 'Register',
         component: () => import('Views/member/Register.vue'),
       },
+      // 회원가입 - 기업회원
       {
-        path: 'register/agreement',
-        name: 'RegisterAgreement',
-        component: () => import('Views/member/RegisterAgreement.vue'),
+        path: 'register/business/agreement',
+        name: 'RegisterBusinessAgreement',
+        component: () => import('Views/member/RegisterBusinessAgreement.vue'),
       },
       {
-        path: 'register/info',
-        name: 'RegisterInfo',
-        component: () => import('Views/member/RegisterInfo.vue'),
+        path: 'register/business/info',
+        name: 'RegisterBusinessInfo',
+        component: () => import('Views/member/RegisterBusinessInfo.vue'),
       },
       {
-        path: 'register/done',
-        name: 'RegisterDone',
-        component: () => import('Views/member/RegisterDone.vue'),
+        path: 'register/business/done',
+        name: 'RegisterBusinessDone',
+        component: () => import('Views/member/RegisterBusinessDone.vue'),
+      },
+      // 회원가입 - 개인회원
+      {
+        path: 'register/indivisual/agreement',
+        name: 'RegisterIndivisualAgreement',
+        component: () => import('Views/member/RegisterIndivisualAgreement.vue'),
+      },
+      {
+        path: 'register/indivisual/info',
+        name: 'RegisterIndivisualInfo',
+        component: () => import('Views/member/RegisterIndivisualInfo.vue'),
+      },
+      {
+        path: 'register/indivisual/done',
+        name: 'RegisterIndivisualDone',
+        component: () => import('Views/member/RegisterIndivisualDone.vue'),
       },
       // 로그인
       {

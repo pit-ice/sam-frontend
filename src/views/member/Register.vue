@@ -18,7 +18,7 @@
             <li>※ 기업등록의 경우 사업자 번호를 요구할 수 있습니다.</li>
             <li>※ 기업코드가 없는경우 이메일 인증 후 기업코드를 발급 받아야 기업 가입이 가능합니다.</li>
           </ul>
-          <div><router-link to="/member/register/agreement" tag="button" class="btn btn-join-corp">기업회원가입</router-link></div>
+          <div><router-link to="/member/register/business/agreement" tag="button" class="btn btn-join-business">기업회원가입</router-link></div>
         </li>
         <li class="reg-indv">
           <ul class="reg-info">
@@ -28,7 +28,7 @@
           <ul class="reg-info2">
             <li>※ 개인회원 가입의 경우 이메일 주소 외 별도의 개인정보를 요구하지 않습니다.</li>
           </ul>
-          <div><button class="btn btn-join-corp">개인회원가입</button></div>
+          <div><router-link to="/member/register/indivisual/agreement" tag="button" class="btn btn-join-indivisual">개인회원가입</router-link></div>
         </li>
       </ul>
     </div>
