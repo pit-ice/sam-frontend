@@ -70,8 +70,34 @@ const routes = [
         name: 'Login',
         component: () => import('Views/member/Login.vue'),
       },
+      // ID/PW찾기
+      {
+        path: 'find',
+        name: 'FindIdPw',
+        component: () => import('Views/member/FindIdPw.vue'),
+      },
     ],
   },
+
+  {
+    path: '/mypage',
+    redirect: '/mypage/mypw',
+    component: () => import('@/layout/MainLayout'),
+    children: [
+      // 마이페이지
+      {
+        path: 'mypw',
+        name: 'MyPw',
+        component: () => import('Views/mypage/MyPw.vue'),
+      },
+      {
+        path: '/mypage/myInfo',
+        name: 'MyInfo',
+        component: () => import('Views/mypage/MyInfo.vue'),
+      },
+    ],
+  },
+
   {
     path: '/',
     component: () => import('@/layout/MainLayout'),

@@ -28,9 +28,9 @@
       </div>
 
       <div class="wrap-btn">
-        <button class="btn btn-find-id">아이디 찾기</button>
-        <button class="btn btn-find-pw">비밀번호 찾기</button>
-        <router-link to="/member/Register" tag="button" class="btn btn-join">회원가입</router-link>
+        <router-link to="/member/find" tag="button" class="btn btn-find-id">아이디 찾기</router-link>
+        <router-link to="/member/find" tag="button" class="btn btn-find-pw">비밀번호 찾기</router-link>
+        <router-link to="/member/register" tag="button" class="btn btn-join">회원가입</router-link>
       </div>
     </fieldset>
   </div>
