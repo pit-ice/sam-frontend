@@ -3,4 +3,6 @@
 @import "layout.scss"; 
 @import "content.scss"; 
 
-
+/* Common */
+.wrap-sticky { position: absolute; top:0; right:0; }
+.sticky-menu { position: sticky; top:10px; right:0; width:100px; height:100px;   background:#bbb ;}

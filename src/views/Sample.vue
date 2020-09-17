@@ -29,7 +29,7 @@
         <p>55</p>
       </div>
     </carousel>
-
+    <!-- 
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
     <h3>scrollto anchor</h3>
@@ -59,7 +59,7 @@
     <div id="section-3" class="section">
       <h1>Section 3</h1>
       <a href="#section-1" class="js-anchor-link">Back to section 1</a>
-    </div>
+    </div> -->
   </div>
 </template>
 

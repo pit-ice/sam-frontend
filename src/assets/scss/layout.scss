@@ -14,7 +14,9 @@
 .header .util-menu a { display: inline-block;padding:0 22px; color:#fff }
 
 .content {
+	position: relative;
 	padding:  10px 20px 100px 20px;
+	margin:0 100px; border:1px solid #000
 }
 .footer {
 	width: 100%;
