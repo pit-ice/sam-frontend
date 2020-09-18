@@ -7,8 +7,6 @@ import StorageService from '@/store/api/storage.service';
 
 import NotificationService from '@/store/api/noti.service';
 
-import WebsocketService from '@/store/api/ws.service';
-
 const state = {
   errors: null,
   user: StorageService.getUser(),
@@ -71,14 +69,12 @@ const mutations = {
       StorageService.saveUser(state.user);
       ApiService.setHeader();
       NotificationService.connect(state.user.username);
-      WebsocketService.connect(state.user.username);
     }
   },
   initAuthAndNotification(state) {
     if (StorageService.getToken()) {
       ApiService.setHeader();
       NotificationService.connect(state.user.username);
-      WebsocketService.connect(state.user.username);
     }
   },
   loginFailure(state) {

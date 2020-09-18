@@ -1,5 +1,6 @@
 <template>
   <div class="float-left">
+    <b-button class="mr-2" variant="success" @click="publishTestEvent"> SEND </b-button>
     <b-dropdown>
       <template v-slot:button-content class="btn btn-primary">
         <strong>Notifications</strong><span class="badge badge-light">{{ newNotiCount }}</span></template
@@ -28,6 +29,16 @@ export default {
   methods: {
     resetCount() {
       this.$store.dispatch('noti/resetNewNotiCount');
+    },
+    publishTestEvent() {
+      let userId = this.$store.state.auth.user.email;
+      let data = {
+        userId: userId,
+        eventId: 'string',
+        eventStatus: 'string',
+        eventType: 'TRAINING',
+      };
+      this.$store.dispatch('noti/publishTestEvent', data);
     },
   },
 };

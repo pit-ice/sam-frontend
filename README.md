@@ -43,9 +43,9 @@ npm run build
 
 - dockerize
 ```sh
-docker build -t sam-frontend .
-docker images
-docker tag sam-frontend bekube/sam-frontend:latest
+docker build -t sam-frontend . &&
+docker images &&
+docker tag sam-frontend bekube/sam-frontend:latest &&
 docker push bekube/sam-frontend:latest
 ```
 
@@ -54,6 +54,10 @@ docker push bekube/sam-frontend:latest
 kubectl apply -f ./k8s -n vrd-dev
 ```
 
+- update 
+``` 
+kubectl rollout restart deployment/sam-frontend
+```
 
 ## 소스 관련
 

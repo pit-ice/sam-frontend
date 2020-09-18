@@ -10,7 +10,7 @@ const NotificationService = {
       return;
     }
 
-    let serverUrl = `${process.env.VUE_APP_PUSH_SERVER_URL}${subPath}`;
+    let serverUrl = `${process.env.VUE_APP_PUSH_SERVER_URL}sub/${subPath}`;
     eventSource = new EventSource(serverUrl);
     eventSource.onmessage = (e) => {
       console.log('onmessage......');
@@ -19,6 +19,26 @@ const NotificationService = {
         eventSource.close();
       }
     };
+
+    eventSource.addEventListener(
+      'open',
+      (e) => {
+        // Connection was opened.
+        console.log(e);
+      },
+      false
+    );
+
+    eventSource.addEventListener(
+      'error',
+      (e) => {
+        if (e.readyState == EventSource.CLOSED) {
+          // Connection was closed.
+          console.log(e);
+        }
+      },
+      false
+    );
 
     eventSource.addEventListener('status', (e) => {
       console.log(e);

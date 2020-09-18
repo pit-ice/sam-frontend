@@ -1,6 +1,9 @@
 /**
  * Notification Module
  */
+
+import axios from 'axios';
+
 const state = {
   newNotiCount: 0,
   notifications: [],
@@ -19,6 +22,15 @@ const actions = {
   },
   async resetNewNotiCount(context) {
     context.commit('resetNewNotiCount');
+  },
+  async publishTestEvent(context, data) {
+    try {
+      let response = await axios.post(`${process.env.VUE_APP_PUSH_SERVER_URL}pub`, data);
+      //context.commit('getSampleData', response.data);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
 
