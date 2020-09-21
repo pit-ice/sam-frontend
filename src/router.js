@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import store from './store/store';
+// import store from './store/store';
 
 Vue.use(VueRouter);
 
@@ -144,26 +144,26 @@ const router = new VueRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
-  const publicPages = ['/auth/login', '/auth/register', '/'];
-  const authRequired = !publicPages.includes(to.path);
-  const isAuthenticated = store.state.auth.isAuthenticated;
+// router.beforeEach((to, from, next) => {
+//   const publicPages = ['/auth/login', '/auth/register', '/'];
+//   const authRequired = !publicPages.includes(to.path);
+//   const isAuthenticated = store.state.auth.isAuthenticated;
 
-  // 인증처리 (auth)
-  if (authRequired && !isAuthenticated) {
-    return next('/auth/login');
-  }
+//   // 인증처리 (auth)
+//   if (authRequired && !isAuthenticated) {
+//     return next('/auth/login');
+//   }
 
-  // 권한처리 (role)
-  const lacksRole = to.matched.some((route) => {
-    return route.meta.roles && !route.meta.roles.includes(store.state.auth.user.role);
-  });
-  if (lacksRole) {
-    //TODO. 접근처리 추가 필요
-    return next(false);
-  }
+//   // 권한처리 (role)
+//   const lacksRole = to.matched.some((route) => {
+//     return route.meta.roles && !route.meta.roles.includes(store.state.auth.user.role);
+//   });
+//   if (lacksRole) {
+//     //TODO. 접근처리 추가 필요
+//     return next(false);
+//   }
 
-  next();
-});
+//   next();
+// });
 
 export default router;
