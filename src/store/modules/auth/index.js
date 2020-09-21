@@ -3,12 +3,14 @@
  */
 
 import ApiService from '@/store/api/api.service';
-import JwtService from '@/store/api/jwt.service';
+import StorageService from '@/store/api/storage.service';
+
+import NotificationService from '@/store/api/noti.service';
 
 const state = {
   errors: null,
-  user: {},
-  isAuthenticated: !!JwtService.getToken(),
+  user: StorageService.getUser(),
+  isAuthenticated: !!StorageService.getToken(),
 };
 
 // getters
@@ -52,6 +54,9 @@ const actions = {
       console.log(error);
     }
   },
+  refresh(context) {
+    context.commit('initAuthAndNotification');
+  },
 };
 
 // mutations
@@ -60,8 +65,16 @@ const mutations = {
     if (user.accessToken) {
       state.isAuthenticated = true;
       state.user = user;
-      JwtService.saveToken(state.user.accessToken);
+      StorageService.saveToken(state.user.accessToken);
+      StorageService.saveUser(state.user);
       ApiService.setHeader();
+      NotificationService.connect(state.user.username);
+    }
+  },
+  initAuthAndNotification(state) {
+    if (StorageService.getToken()) {
+      ApiService.setHeader();
+      NotificationService.connect(state.user.username);
     }
   },
   loginFailure(state) {
@@ -71,7 +84,7 @@ const mutations = {
   logout(state) {
     state.isAuthenticated = false;
     state.user = null;
-    JwtService.destroyToken();
+    StorageService.destroy();
   },
 };
 

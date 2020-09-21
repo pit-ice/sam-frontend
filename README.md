@@ -7,7 +7,14 @@
 npm install
 
 # 개발서버 실행
+#  .env.development 환경파일 사용됨
 npm run serve
+
+# local 환경 실행 
+#  .env.local 환경파일 사용됨
+npm run serve -- --mode local
+# or
+npm run serve-local
 
 # 배포를 위한 빌드
 npm run build
@@ -36,9 +43,9 @@ npm run build
 
 - dockerize
 ```sh
-docker build -t sam-frontend .
-docker images
-docker tag sam-frontend bekube/sam-frontend:latest
+docker build -t sam-frontend . &&
+docker images &&
+docker tag sam-frontend bekube/sam-frontend:latest &&
 docker push bekube/sam-frontend:latest
 ```
 
@@ -47,5 +54,17 @@ docker push bekube/sam-frontend:latest
 kubectl apply -f ./k8s -n vrd-dev
 ```
 
+- update 
+``` 
+kubectl rollout restart deployment/sam-frontend
+```
+
+## 소스 관련
+
+- axios-mock-adapter 적용
+    - 유닛테스트나 서버구동없이 dummy api 연동을 함
+    - https://github.com/ctimmerm/axios-mock-adapter
+    - api 코드 : src/store/api/mock
+    - json 폴더 : src/store/api/moke/data
 
 
