@@ -8,7 +8,7 @@ import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
-import '@/assets/scss/main.scss';
+import '@/assets/scss/global.scss';
 
 // vee-validation
 import '@/vee-validate';

@@ -19,6 +19,9 @@
         </tr>
       </tbody>
     </table>
+    <div>
+      <button type="button" @click="excelDownFunc">Excel download</button>
+    </div>
   </div>
 </template>
 
@@ -35,6 +38,9 @@ export default {
     faqs() {
       return this.$store.state.faq.faqs;
     },
+    rows() {
+      return this.$store.state.faq.faqs.length;
+    },
   },
   created() {
     this.$store.dispatch('faq/getFaqData');
@@ -49,6 +55,20 @@ export default {
         this.clickId = id;
         this.clickOpen = true;
       }
+    },
+    excelDownFunc() {
+      const XLSX = require('xlsx');
+      // 엑셀 워크시트로 json 내보내기
+      // 배열만 가능
+      var dataWS = XLSX.utils.json_to_sheet(this.faqs, this.faqs.length);
+      // 엑셀의 workbook을 만든다
+      // workbook은 엑셀파일에 지정된 이름이다.
+      var wb = XLSX.utils.book_new();
+      // workbook에 워크시트 추가
+      // 시트명은 'nameData'
+      XLSX.utils.book_append_sheet(wb, dataWS, 'nameData');
+      // 엑셀 파일을 내보낸다.
+      XLSX.writeFile(wb, 'example.xlsx');
     },
   },
 };

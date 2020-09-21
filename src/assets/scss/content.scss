@@ -1,0 +1,39 @@
+
+/* button */
+.wrap-btn { padding: 10px 0; text-align: center;}
+.btn { height:30px; padding: 6px 10px; border-radius: 5px; font-size: 13px; line-height: 1; color:#fff;  background:#3e65d1;}
+
+/* title */
+.title { width: 100%; margin:10px 0 30px;}
+.title h3 { font-weight: bold; font-size:25px; color:#e23d60 ;}
+.title p { margin:10px 0 ;}
+
+
+/* join + login */
+.wrap-register { position: relative;}
+.wrap-register ul { overflow: hidden; margin:0 0 20px 0;}
+.wrap-register ul li { float: left; width:50%;   }
+.wrap-register ul li.reg-corp { height:170px; overflow: hidden; border: 1px solid #000; }
+.wrap-register ul li.reg-indv { height:170px; overflow: hidden;  border: 1px solid #000 }
+.wrap-register ul li ul.reg-info { overflow: hidden; }
+.wrap-register ul li ul.reg-info li { float: none; width: 100%;}
+.wrap-register ul li ul.reg-info2 { margin:10px 0 20px 0 }
+.wrap-register ul li ul.reg-info2 li { float: none; width: 100%; color:#e23d60 }
+
+
+.wrap-process { margin:10px 0; }
+.wrap-process ul { text-align: center;}
+.wrap-process ul li { display: inline-block; }
+.wrap-process ul li span { display: inline-block; padding:0 5px; color:#fff; background:#bbb }
+.wrap-process ul li.on span { background:red }
+
+.wrap-reg-agree { position: relative;} 
+.wrap-reg-agree ul { padding:0 0 20px 0; border-bottom: 1px solid #000 ;}
+.wrap-reg-agree ul li { padding:2px; }
+.wrap-reg-agree .box-agree { height: 150px; margin: 10px 0 10px 0; overflow-y: auto; border: 1px solid #a5a5a5; padding:10px; font-size: 12px; line-height: 22px; color: #979797;  background: #fafafa;  } 
+.wrap-reg-agree .txt-agree { text-align: right;}
+ 
+.wrap-reg-form {  width: 100%;}
+.wrap-reg-form2 { padding:0 0 20px 0; border-bottom: 1px solid #000 ;}
+
+.wrap-reg-done {  width: 100%; text-align:center; color:red; font-size:19px}
