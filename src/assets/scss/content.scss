@@ -1,3 +1,30 @@
+/* Main */
+
+.main-carousel {  
+  height: 150px;   
+}
+.main-intro {
+  height: 150px;
+  // background:url('../../assets/img/logo.png') no-repeat ;  
+  
+  background: rgb(216, 184, 184);
+}
+.main-auto {
+  height: 150px;
+  background: rgb(193, 223, 218);
+}
+.main-rnd {
+  height: 150px;
+  background: rgb(228, 221, 197);
+}
+.main-vrd {
+  height: 150px;
+  background: rgb(200, 177, 209);
+}
+.main-link {
+  height: 150px;
+  background: rgb(206, 179, 179);
+} 
 
 /* button */
 .wrap-btn { padding: 10px 0; text-align: center;}
@@ -34,6 +61,23 @@
 .wrap-reg-agree .txt-agree { text-align: right;}
  
 .wrap-reg-form {  width: 100%;}
-.wrap-reg-form2 { padding:0 0 20px 0; border-bottom: 1px solid #000 ;}
+.list-form { padding:0 0 20px 0; border-bottom: 1px solid #000; overflow:hidden ;}
+.list-form dt { float:left; width:30%; padding:0 0 10px 0;  }
+.list-form dd { float:left; width:70%; padding:0 0 10px 0; }
 
 .wrap-reg-done {  width: 100%; text-align:center; color:red; font-size:19px}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

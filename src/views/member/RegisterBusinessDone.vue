@@ -13,7 +13,7 @@
       </ul>
     </div>
 
-    <div class="wrap-reg-done">가입 신청이 완료되었습니다. 이메일 인증을 진행하시면, 회원가입이 완료됩니다.</div>
+    <div class="wrap-reg-done">가입 신청이 완료되었습니다. <br />이메일 인증을 진행하시면, 회원가입이 완료됩니다.</div>
 
     <div class="wrap-btn">
       <router-link to="/home" tag="button" class="btn btn-home">HOME</router-link>

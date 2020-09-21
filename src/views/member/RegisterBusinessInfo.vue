@@ -14,44 +14,41 @@
     </div>
 
     <div class="wrap-reg-form">
-      <div class="wrap-reg-form2">
-        <label>기업코드 입력 </label>
-        <input type="text" id="" placeholder="기업코드" />
-        <button class="btn">기업코드 입력</button>
-        <button class="btn">기업코드발급</button>
-        <br />
+      <dl class="list-form">
+        <dt><label>기업코드 입력 </label></dt>
+        <dd>
+          <input type="text" id="" placeholder="기업코드" />
+          <button class="btn" @click="isShow = !isShow">기업코드 입력</button>
+          <button class="btn">기업코드발급</button>
+          <transition name="slide">
+            <div class="toggle-bs-code" v-if="isShow">
+              <label>기업명</label>: <strong>주식회사세프라</strong><br />
+              <label>사업자 등록 번호</label> : <strong>301-88-●●●●●</strong>
+            </div>
+          </transition>
+        </dd>
+        <dt><label>아이디</label></dt>
+        <dd>
+          <input type="text" id="" placeholder="영문 또는 숫자 20자 이내" />
+          <button class="btn">중복확인</button>
+        </dd>
 
-        <label>아이디</label>
-        <input type="text" id="" placeholder="영문 또는 숫자 20자 이내" />
-        <button class="btn">중복확인</button>
-        <br />
+        <dt><label>비밀번호</label></dt>
+        <dd><input type="password" id="" placeholder="영문, 숫자, 특수문자 조합 8자 이상" /></dd>
 
-        <label>비밀번호</label>
-        <input type="password" id="" placeholder="영문, 숫자, 특수문자 조합 8자 이상" />
-        <br />
-
-        <label>비밀번호 확인</label>
-        <input type="password" id="" placeholder="영문, 숫자, 특수문자 조합 8자 이상" />
-        <span class="txt-point">※ 비밀번호를 확인해주세요.</span>
-        <br />
-
-        <label>이메일 주소</label>
-        <input type="text" id="" placeholder="이메일주소 입력" />
-        <span class="txt-gray">※ 입력한 이메일 주소로 인증메일이 발송됩니다.</span>
-        <br />
-
-        <label>이름 </label>
-        <input type="text" id="" placeholder="이름 입력" />
-        <br />
-
-        <label>부서명 </label>
-        <input type="text" id="" placeholder="부서명을 입력하세요." />
-        <br />
-
-        <label>직위 </label>
-        <input type="text" id="" placeholder="부서명을 입력하세요." />
-        <br />
-      </div>
+        <dt><label>비밀번호 확인</label></dt>
+        <dd>
+          <input type="password" id="" placeholder="영문, 숫자, 특수문자 조합 8자 이상" /> <span class="txt-point">※ 비밀번호를 확인해주세요.</span>
+        </dd>
+        <dt><label>이메일 주소</label></dt>
+        <dd><input type="text" id="" placeholder="이메일주소 입력" /> <span class="txt-gray">※ 입력한 이메일 주소로 인증메일이 발송됩니다.</span></dd>
+        <dt><label>이름 </label></dt>
+        <dd><input type="text" id="" placeholder="이름 입력" /></dd>
+        <dt><label>부서명 </label></dt>
+        <dd><input type="text" id="" placeholder="부서명을 입력하세요." /></dd>
+        <dt><label>직위 </label></dt>
+        <dd><input type="text" id="" placeholder="직위를 입력하세요." /></dd>
+      </dl>
       <div class="wrap-btn">
         <button class="btn btn-cancel">취소</button>
         <router-link to="/member/register/business/done" tag="button" class="btn btn-regist">가입신청</router-link>
@@ -59,3 +56,13 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data: function () {
+    return {
+      isShow: false,
+    };
+  },
+};
+</script>
