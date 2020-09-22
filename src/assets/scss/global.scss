@@ -3,9 +3,31 @@
 @import "layout.scss"; 
 @import "content.scss"; 
 
+
+/* button */
+.wrap-btn { padding: 10px 0; text-align: center;} 
+.btn { height:30px; margin:0 3px; padding: 6px 10px; border-radius: 5px; font-size: 13px; line-height: 1; color:#fff;  background:#3e65d1;}
+
+/* title */
+.title { width: 100%; margin:10px 0 30px;}
+.title h3 { font-weight: bold; font-size:25px; color:#e23d60 ;}
+.title p { margin:10px 0 ;}
+h4 { display: inline-block; margin:0 0 10px 0; text-decoration: underline;   font-size:16px; font-weight: bold; color:#3e65d1;}
+
 /* sticky menu */
 .wrap-sticky { position: absolute; top:0; right:0; }
 .sticky-menu { position: sticky; top:10px; right:0; width:100px; height:100px;   background:#bbb ;}
+
+/* breadcrumb */
+.breadcrumb { display: block; text-align: right; background: #fff;}
+.breadcrumb li { display: inline-block; }
+.breadcrumb li.active { color:red }
+
+/* list-form */
+.list-form { padding:0 0 20px 0; border-bottom: 1px solid #666; overflow:hidden ;}
+.list-form dt { float:left; width:30%; padding:0 0 10px 0;   font-family: 'NanumSquareB'; }
+.list-form dd { float:left; width:70%; padding:0 0 10px 0;   }
+
 
 
 /* transition */

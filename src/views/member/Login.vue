@@ -1,5 +1,6 @@
 <template>
   <div class="login">
+    <BreadScrumb></BreadScrumb>
     <div class="title">
       <h3>로그인</h3>
       <p>SK종합화학에서 제공하는 다양한 서비스를 로그인 후 이용하실 수 있습니다.</p>
@@ -35,3 +36,13 @@
     </fieldset>
   </div>
 </template>
+
+<script>
+import BreadScrumb from '@/components/BreadScrumb.vue';
+
+export default {
+  components: {
+    BreadScrumb,
+  },
+};
+</script>

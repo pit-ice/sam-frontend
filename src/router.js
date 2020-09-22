@@ -19,6 +19,11 @@ const routes = [
         name: 'Sample',
         component: () => import('Views/Sample.vue'),
       },
+      {
+        path: '/guide',
+        name: 'Guide',
+        component: () => import('Views/Guide.vue'),
+      },
     ],
   },
   {
@@ -48,6 +53,17 @@ const routes = [
         name: 'RegisterBusinessDone',
         component: () => import('Views/member/RegisterBusinessDone.vue'),
       },
+      // 회원가입 - 기업회원 - 기업구성원가입
+      {
+        path: 'register/general/info',
+        name: 'RegisterGeneralInfo',
+        component: () => import('Views/member/RegisterGeneralInfo.vue'),
+      },
+      {
+        path: 'register/general/done',
+        name: 'RegisterGeneralDone',
+        component: () => import('Views/member/RegisterGeneralDone.vue'),
+      },
       // 회원가입 - 개인회원
       {
         path: 'register/indivisual/agreement',
@@ -63,6 +79,23 @@ const routes = [
         path: 'register/indivisual/done',
         name: 'RegisterIndivisualDone',
         component: () => import('Views/member/RegisterIndivisualDone.vue'),
+      },
+      // 이메일 미인증
+      {
+        path: 'register/indivisual/email',
+        name: 'RegisterIndivisualEmail',
+        component: () => import('Views/member/RegisterIndivisualEmail.vue'),
+      },
+      {
+        path: 'register/indivisual/emailExpire',
+        name: 'RegisterIndivisualEmailExpire',
+        component: () => import('Views/member/RegisterIndivisualEmailExpire.vue'),
+      },
+      // 개인회원 초대수락
+      {
+        path: 'register/indivisual/invite',
+        name: 'RegisterIndivisualInvite',
+        component: () => import('Views/member/RegisterIndivisualInvite.vue'),
       },
       // 로그인
       {
@@ -96,6 +129,11 @@ const routes = [
         component: () => import('Views/mypage/MyInfo.vue'),
       },
     ],
+  },
+
+  {
+    path: '/email/Email',
+    component: () => import('Views/email/Email.vue'),
   },
 
   {
@@ -140,6 +178,10 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes,
+  // 화면 이동시 상단으로 스크롤 처리
+  scrollBehavior() {
+    return { x: 0, y: 0 };
+  },
 });
 
 export default router;
