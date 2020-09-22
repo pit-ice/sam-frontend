@@ -1,5 +1,7 @@
 <template>
   <div class="register">
+    <BreadScrumb></BreadScrumb>
+
     <div class="title">
       <h3>회원가입 - 기업</h3>
       <p>세계속 종합 에너지 화학기업에서 제공하는 다양한 Solution 과 Machine Learning을 경험 해 보세요!</p>
@@ -14,6 +16,10 @@
     </div>
 
     <div class="wrap-reg-agree">
+      <div class="txt-agree">
+        <input type="checkbox" id="ch" />
+        <label class="checkbox" for="ch"><span class="icon"></span>모든 약관에 동의 합니다.</label>
+      </div>
       <ul>
         <li>
           <h4>회원 약관</h4>
@@ -54,3 +60,13 @@
     </div>
   </div>
 </template>
+
+<script>
+import BreadScrumb from '@/components/BreadScrumb.vue';
+
+export default {
+  components: {
+    BreadScrumb,
+  },
+};
+</script>

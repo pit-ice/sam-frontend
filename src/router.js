@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-// import store from './store/store';
 
 Vue.use(VueRouter);
 
@@ -19,6 +18,11 @@ const routes = [
         path: '/sample',
         name: 'Sample',
         component: () => import('Views/Sample.vue'),
+      },
+      {
+        path: '/guide',
+        name: 'Guide',
+        component: () => import('Views/Guide.vue'),
       },
     ],
   },
@@ -49,6 +53,17 @@ const routes = [
         name: 'RegisterBusinessDone',
         component: () => import('Views/member/RegisterBusinessDone.vue'),
       },
+      // 회원가입 - 기업회원 - 기업구성원가입
+      {
+        path: 'register/general/info',
+        name: 'RegisterGeneralInfo',
+        component: () => import('Views/member/RegisterGeneralInfo.vue'),
+      },
+      {
+        path: 'register/general/done',
+        name: 'RegisterGeneralDone',
+        component: () => import('Views/member/RegisterGeneralDone.vue'),
+      },
       // 회원가입 - 개인회원
       {
         path: 'register/indivisual/agreement',
@@ -65,6 +80,23 @@ const routes = [
         name: 'RegisterIndivisualDone',
         component: () => import('Views/member/RegisterIndivisualDone.vue'),
       },
+      // 이메일 미인증
+      {
+        path: 'register/indivisual/email',
+        name: 'RegisterIndivisualEmail',
+        component: () => import('Views/member/RegisterIndivisualEmail.vue'),
+      },
+      {
+        path: 'register/indivisual/emailExpire',
+        name: 'RegisterIndivisualEmailExpire',
+        component: () => import('Views/member/RegisterIndivisualEmailExpire.vue'),
+      },
+      // 개인회원 초대수락
+      {
+        path: 'register/indivisual/invite',
+        name: 'RegisterIndivisualInvite',
+        component: () => import('Views/member/RegisterIndivisualInvite.vue'),
+      },
       // 로그인
       {
         path: 'login',
@@ -76,6 +108,24 @@ const routes = [
         path: 'find',
         name: 'FindIdPw',
         component: () => import('Views/member/FindIdPw.vue'),
+      },
+      // 로그인 비번오류 메일발송
+      {
+        path: 'loginErrorEmail',
+        name: 'LoginErrorEmail',
+        component: () => import('Views/member/LoginErrorEmail.vue'),
+      },
+      // 로그인 비번오류 재설정
+      {
+        path: 'loginErrorReset',
+        name: 'LoginErrorReset',
+        component: () => import('Views/member/LoginErrorReset.vue'),
+      },
+      // 로그인 비번 경과
+      {
+        path: 'loginExpire',
+        name: 'LoginExpire',
+        component: () => import('Views/member/LoginExpire.vue'),
       },
     ],
   },
@@ -97,6 +147,11 @@ const routes = [
         component: () => import('Views/mypage/MyInfo.vue'),
       },
     ],
+  },
+
+  {
+    path: '/email/Email',
+    component: () => import('Views/email/Email.vue'),
   },
 
   {
@@ -132,7 +187,6 @@ const routes = [
         path: '/vrdlab/Introduce',
         name: 'Introduce',
         component: () => import('Views/vrdlab/Introduce.vue'),
-        // meta: { roles: ['admin'] },
       },
     ],
   },
@@ -142,28 +196,10 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes,
+  // 화면 이동시 상단으로 스크롤 처리
+  scrollBehavior() {
+    return { x: 0, y: 0 };
+  },
 });
-
-// router.beforeEach((to, from, next) => {
-//   const publicPages = ['/auth/login', '/auth/register', '/'];
-//   const authRequired = !publicPages.includes(to.path);
-//   const isAuthenticated = store.state.auth.isAuthenticated;
-
-//   // 인증처리 (auth)
-//   if (authRequired && !isAuthenticated) {
-//     return next('/auth/login');
-//   }
-
-//   // 권한처리 (role)
-//   const lacksRole = to.matched.some((route) => {
-//     return route.meta.roles && !route.meta.roles.includes(store.state.auth.user.role);
-//   });
-//   if (lacksRole) {
-//     //TODO. 접근처리 추가 필요
-//     return next(false);
-//   }
-
-//   next();
-// });
 
 export default router;

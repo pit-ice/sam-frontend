@@ -1,13 +1,32 @@
+/* Main */
 
-/* button */
-.wrap-btn { padding: 10px 0; text-align: center;}
-.btn { height:30px; padding: 6px 10px; border-radius: 5px; font-size: 13px; line-height: 1; color:#fff;  background:#3e65d1;}
+.main-carousel {  
+  height: 150px;   
+}
+.main-intro {
+  height: 150px;
+  // background:url('../../assets/img/logo.png') no-repeat ;  
+  
+  background: rgb(216, 184, 184);
+}
+.main-auto {
+  height: 150px;
+  background: rgb(193, 223, 218);
+}
+.main-rnd {
+  height: 150px;
+  background: rgb(228, 221, 197);
+}
+.main-vrd {
+  height: 150px;
+  background: rgb(200, 177, 209);
+}
+.main-link {
+  height: 150px;
+  background: rgb(206, 179, 179);
+} 
 
-/* title */
-.title { width: 100%; margin:10px 0 30px;}
-.title h3 { font-weight: bold; font-size:25px; color:#e23d60 ;}
-.title p { margin:10px 0 ;}
-
+ 
 
 /* join + login */
 .wrap-register { position: relative;}
@@ -19,11 +38,10 @@
 .wrap-register ul li ul.reg-info li { float: none; width: 100%;}
 .wrap-register ul li ul.reg-info2 { margin:10px 0 20px 0 }
 .wrap-register ul li ul.reg-info2 li { float: none; width: 100%; color:#e23d60 }
-
-
-.wrap-process { margin:10px 0; }
+ 
+.wrap-process { margin:20px 0; border:2px solid #eee; padding:10px;  }
 .wrap-process ul { text-align: center;}
-.wrap-process ul li { display: inline-block; }
+.wrap-process ul li { display: inline-block; margin:0 10px; }
 .wrap-process ul li span { display: inline-block; padding:0 5px; color:#fff; background:#bbb }
 .wrap-process ul li.on span { background:red }
 
@@ -33,7 +51,28 @@
 .wrap-reg-agree .box-agree { height: 150px; margin: 10px 0 10px 0; overflow-y: auto; border: 1px solid #a5a5a5; padding:10px; font-size: 12px; line-height: 22px; color: #979797;  background: #fafafa;  } 
 .wrap-reg-agree .txt-agree { text-align: right;}
  
-.wrap-reg-form {  width: 100%;}
-.wrap-reg-form2 { padding:0 0 20px 0; border-bottom: 1px solid #000 ;}
+.wrap-reg-form {  width: 100%;} 
 
-.wrap-reg-done {  width: 100%; text-align:center; color:red; font-size:19px}
+.wrap-reg-done { width: 100%; }
+.wrap-reg-done .txt-done { margin:20px 0;  text-align:center; color:red; font-size:19px}
+
+
+.txt-certif1 {  margin:0 0 20px 0; color:#3e65d1}
+.box-certifi { width:100%; }
+.box-certifi dt { font-weight: bold;  }
+.box-certifi dd { padding:10px; border: 1px solid #000; ; }
+
+
+.wrap-invite { position: relative;}
+.wrap-invite .txt-invite {  text-align: center;}
+
+
+.wrap-login-error { position: relative;}
+.txt-pw-error { margin:0 0 20px 0; }
+
+
+
+
+
+
+

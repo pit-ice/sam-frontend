@@ -3,7 +3,7 @@
     <BreadScrumb></BreadScrumb>
 
     <div class="title">
-      <h3>회원가입 - 기업</h3>
+      <h3>회원가입 - 기업구성원</h3>
       <p>세계속 종합 에너지 화학기업에서 제공하는 다양한 Solution 과 Machine Learning을 경험 해 보세요!</p>
     </div>
 
@@ -16,7 +16,7 @@
     </div>
 
     <div class="wrap-reg-done">
-      <div class="txt-done">가입 신청이 완료되었습니다. <br />내부 승인 완료 시 로그인 하실 수 있습니다.</div>
+      <div class="txt-done">회원가입이 완료 되었습니다. <br />로그인 후 더 많은 서비스를 이용 해 보세요.</div>
 
       <h4>가입 신청 회사 정보</h4>
       <dl class="list-form">
@@ -43,7 +43,7 @@
         </dd>
       </dl>
 
-      <h4>가입 신청 사용자 정보</h4>
+      <h4>기업 구성원 가입정보</h4>
       <dl class="list-form">
         <dt><label>이름</label></dt>
         <dd>이선호</dd>
