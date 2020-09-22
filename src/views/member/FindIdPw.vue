@@ -1,6 +1,5 @@
 <template>
   <div class="find">
-    <BreadScrumb></BreadScrumb>
     <div class="title">
       <h3>아이디 / 비밀번호 찾기</h3>
       <p>가입하신 이메일 정보를 통하여 아이디, 비밀번호를 확인하실 수 있습니다.</p>
@@ -44,13 +43,3 @@
     </div>
   </div>
 </template>
-
-<script>
-import BreadScrumb from '@/components/BreadScrumb.vue';
-
-export default {
-  components: {
-    BreadScrumb,
-  },
-};
-</script>

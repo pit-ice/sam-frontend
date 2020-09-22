@@ -109,6 +109,24 @@ const routes = [
         name: 'FindIdPw',
         component: () => import('Views/member/FindIdPw.vue'),
       },
+      // 로그인 비번오류 메일발송
+      {
+        path: 'loginErrorEmail',
+        name: 'LoginErrorEmail',
+        component: () => import('Views/member/LoginErrorEmail.vue'),
+      },
+      // 로그인 비번오류 재설정
+      {
+        path: 'loginErrorReset',
+        name: 'LoginErrorReset',
+        component: () => import('Views/member/LoginErrorReset.vue'),
+      },
+      // 로그인 비번 경과
+      {
+        path: 'loginExpire',
+        name: 'LoginExpire',
+        component: () => import('Views/member/LoginExpire.vue'),
+      },
     ],
   },
 
