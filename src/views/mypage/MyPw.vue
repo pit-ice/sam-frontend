@@ -8,7 +8,7 @@
     <div class="wrap-mypw">
       <p class="stit">나의 정보 및 활동 확인을 위한 비밀번호를 입력 해 주세요.</p>
 
-      <dl>
+      <dl class="list-form">
         <dt>아이디</dt>
         <dd><strong>ABCD</strong></dd>
         <dt>비밀번호</dt>

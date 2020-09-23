@@ -141,10 +141,17 @@ const routes = [
         name: 'MyPw',
         component: () => import('Views/mypage/MyPw.vue'),
       },
+      // 개인
       {
         path: '/mypage/myInfo',
-        name: 'MyInfo',
-        component: () => import('Views/mypage/MyInfo.vue'),
+        name: 'MyInfoIndivisual',
+        component: () => import('Views/mypage/MyInfoIndivisual.vue'),
+      },
+      // 기업
+      {
+        path: '/mypage/myInfo',
+        name: 'MyInfoBusiness',
+        component: () => import('Views/mypage/MyInfoBusiness.vue'),
       },
     ],
   },

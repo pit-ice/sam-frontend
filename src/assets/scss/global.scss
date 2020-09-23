@@ -6,6 +6,7 @@
 
 /* button */
 .wrap-btn { padding: 10px 0; text-align: center;} 
+.wrap-btn.right {text-align: right ;} 
 .btn { height:30px; margin:0 3px; padding: 6px 10px; border-radius: 5px; font-size: 13px; line-height: 1; color:#fff;  background:#3e65d1;}
 
 /* title */
@@ -13,6 +14,7 @@
 .title h3 { font-weight: bold; font-size:25px; color:#e23d60 ;}
 .title p { margin:10px 0 ;}
 h4 { display: inline-block; margin:0 0 10px 0; text-decoration: underline;   font-size:16px; font-weight: bold; color:#3e65d1;}
+.stit { margin:0 0 10px 0; }
 
 /* sticky menu */
 .wrap-sticky { position: absolute; top:0; right:0; }
@@ -28,38 +30,40 @@ h4 { display: inline-block; margin:0 0 10px 0; text-decoration: underline;   fon
 .list-form dt { float:left; width:30%; padding:0 0 10px 0;   font-family: 'NanumSquareB'; }
 .list-form dd { float:left; width:70%; padding:0 0 10px 0;   }
 
+/* paging */ 
+.wrap-paging { margin:10px 0 0 0; text-align: center;}
+.wrap-paging li { display: inline-block; margin:0 3px; padding:3px ; border:1px solid #ccc }  
+.wrap-paging li.active { color:red}
 
 
-/* transition */
+/* slide transition  
 .slide-enter-active {
   -moz-transition-duration: 0.3s;
   -webkit-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
-  transition-duration: 0.3s;
+  transition-duration: 1s;
   -moz-transition-timing-function: ease-in;
   -webkit-transition-timing-function: ease-in;
   -o-transition-timing-function: ease-in;
   transition-timing-function: ease-in;
-}
-
+} 
 .slide-leave-active {
   -moz-transition-duration: 0.3s;
   -webkit-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
-  transition-duration: 0.3s;
+  transition-duration: 1s;
   -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
   -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
   -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-}
-
+} 
 .slide-enter-to, .slide-leave {
-  max-height: 100px;
+  max-height: 300px;
   overflow: hidden;
-}
-
+} 
 .slide-enter, .slide-leave-to {
   overflow: hidden;
   max-height: 0;
 }
 
+*/
