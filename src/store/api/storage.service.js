@@ -1,6 +1,9 @@
 const TOKEN_KEY = 'vrd_access_token';
 const USER_KEY = 'vrd_user';
 
+//회원 가입 스텝별 저장
+const AGREE = 'vrd_agree';
+
 export const getToken = () => {
   return window.localStorage.getItem(TOKEN_KEY);
 };
@@ -22,5 +25,13 @@ export const destroy = () => {
   window.localStorage.removeItem(TOKEN_KEY);
   window.localStorage.removeItem(USER_KEY);
 };
+export const saveRegister = (data) => {
+  window.localStorage.setItem(AGREE, JSON.stringify(data));
+};
 
-export default { getToken, saveToken, getUser, saveUser, destroy };
+export const getRegister = () => {
+  let agree = window.localStorage.getItem(AGREE) || '{}';
+  return JSON.parse(agree);
+};
+
+export default { getToken, saveToken, getUser, saveUser, destroy, saveRegister, getRegister };

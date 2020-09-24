@@ -9,26 +9,24 @@
 
     <div class="wrap-process">
       <ul>
-        <li><span>1</span>정보 입력</li>
-        <li><span>2</span>약관 동의</li>
+        <li><span>1</span>약관 동의</li>
+        <li><span>2</span>정보 입력</li>
         <li class="on"><span>3</span>가입신청 완료</li>
       </ul>
     </div>
 
     <div class="wrap-reg-done">
       <div class="txt-done">
-        회원가입이 완료 되었습니다. <br />가입시 입력 한 <strong>master@master.com</strong> 이메일 인증 후 로그인 하실 수있습니다.
+        회원가입이 완료 되었습니다. <br />가입시 입력 한 <strong>{{ member.emailAddr }}</strong> 이메일 인증 후 로그인 하실 수있습니다.
       </div>
 
       <dl class="list-form">
         <dt><label>이름</label></dt>
-        <dd>이선호</dd>
+        <dd>{{ member.mbrId }}</dd>
         <dt><label>ID</label></dt>
-        <dd>abcd</dd>
-        <dt><label>휴대전화번호</label></dt>
-        <dd>010-213-1231</dd>
+        <dd>{{ member.mbrId }}</dd>
         <dt><label>이메일 주소</label></dt>
-        <dd>asd@asd.com</dd>
+        <dd>{{ member.emailAddr }}</dd>
       </dl>
     </div>
 
@@ -45,6 +43,15 @@
 import BreadScrumb from '@/components/BreadScrumb.vue';
 
 export default {
+  computed: {
+    member() {
+      return this.$store.state.member.member;
+    },
+  },
+  created() {
+    this.$store.dispatch('member/memberdetail');
+  },
+
   components: {
     BreadScrumb,
   },

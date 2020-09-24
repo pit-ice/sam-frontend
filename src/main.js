@@ -2,6 +2,7 @@ import Vue from 'vue';
 import App from '@/App.vue';
 import router from '@/router';
 import store from '@/store/store';
+//
 
 // bootstrap-vue
 import BootstrapVue from 'bootstrap-vue';
@@ -17,8 +18,8 @@ import ApiService from '@/store/api/api.service';
 ApiService.init();
 
 // product 환경등 mock 미사용시에는 주석처리.
-// import MockService from '@/store/api/mock/mock.service';
-// MockService.init();
+//import MockService from '@/store/api/mock/mock.service';
+//MockService.init();
 
 Vue.use(BootstrapVue);
 
