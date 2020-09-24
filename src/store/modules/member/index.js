@@ -13,7 +13,10 @@ const state = {
   terms3: false,
   member: {},
   emailauth: {},
-  status: {},
+  idStatus: {},
+  emailStatus: {},
+  isDupId: true,
+  isDupEmail: true,
 };
 
 // getters
@@ -35,13 +38,21 @@ const actions = {
     context.commit('secondStep', data);
   },
 
-  async duplication(context, user) {
+  async idDuplication(context, user) {
     try {
       let response = await ApiService.get('/users/temp/' + user.id);
-      context.commit('setDuplication', response.status);
+      context.commit('setIdDuplication', response.status);
     } catch (error) {
-      console.log(error);
-      context.commit('setDuplication', 404);
+      context.commit('setIdDuplication', 404);
+    }
+  },
+
+  async emailDuplication(context, user) {
+    try {
+      let response = await ApiService.get('/users/email/temp/' + user.email);
+      context.commit('setEmailDuplication', response.status);
+    } catch (error) {
+      context.commit('setEmailDuplication', 404);
     }
   },
 
@@ -62,13 +73,13 @@ const actions = {
       //   compNo: 'string',
       //   compUserClsCd: 'string',
       //   deptNm: 'string',
-      //   emailAddr: 'string',
+      //   emailAddr: user.email,
       //   empDbCfrmYn: 'string',
       //   mbrClsCd: 'string',
       //   mbrFailCnt: 0,
       //   mbrId: user.id,
       //   mbrNo: 0,
-      //   mbrPwd: 'string',
+      //   mbrPwd: user.password,
       //   mngprYn: 'string',
       //   pstnNm: 'string',
       //   redDtm: '2020-09-24T01:04:12.293Z',
@@ -78,11 +89,7 @@ const actions = {
       //   useYn: 'string',
       // };
 
-      let response = await ApiService.post('/users/', params, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      let response = await ApiService.post('/users/temp', params);
 
       context.commit('registerSuccess', response.data);
     } catch (error) {
@@ -134,8 +141,23 @@ const mutations = {
   emailauth(state, emailauth) {
     state.emailauth = emailauth;
   },
-  setDuplication(state, status) {
-    state.status = status;
+  setIdDuplication(state, status) {
+    state.idStatus = status;
+
+    if (status == 404) {
+      state.isDupId = false;
+    } else {
+      state.isDupId = true;
+    }
+  },
+  setEmailDuplication(state, status) {
+    state.emailStatus = status;
+
+    if (status == 404) {
+      state.isDupEmail = false;
+    } else {
+      state.isDupEmail = true;
+    }
   },
 };
 
