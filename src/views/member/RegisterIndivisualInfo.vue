@@ -58,8 +58,8 @@
               <button class="btn" @click="emailDuplication">중복확인</button>
               <span class="txt-gray">※ 입력한 이메일 주소로 인증메일이 발송됩니다.</span>
               <span v-if="errors[0]" class="txt-point">※ {{ errors[0] }}</span>
-              <span v-if="emailStatus == 200" class="txt-point">※ {{ '이미 존재하는 ID입니다.' }}</span>
-              <span v-if="emailStatus == 404" class="txt-point">※ {{ '사용가능한 ID입니다.' }}</span>
+              <span v-if="emailStatus == 200" class="txt-point">※ {{ '이미 존재하는 Email입니다.' }}</span>
+              <span v-if="emailStatus == 404" class="txt-point">※ {{ '사용가능한 Email입니다.' }}</span>
             </ValidationProvider>
           </dd>
           <dt><label>이름 </label></dt>

@@ -17,6 +17,9 @@ const state = {
   emailStatus: {},
   isDupId: true,
   isDupEmail: true,
+  id: {},
+  email: {},
+  name: {},
 };
 
 // getters
@@ -27,7 +30,6 @@ const actions = {
   async getAgree(context) {
     try {
       let response = await ApiService.get('member/agreement');
-      console.log(response.data);
       context.commit('agreement', response.data);
     } catch (error) {
       console.log(error);
@@ -40,7 +42,7 @@ const actions = {
 
   async idDuplication(context, user) {
     try {
-      let response = await ApiService.get('/users/temp/' + user.id);
+      let response = await ApiService.get('/users?checkType=id&id=' + user.id);
       context.commit('setIdDuplication', response.status);
     } catch (error) {
       context.commit('setIdDuplication', 404);
@@ -49,7 +51,7 @@ const actions = {
 
   async emailDuplication(context, user) {
     try {
-      let response = await ApiService.get('/users/email/temp/' + user.email);
+      let response = await ApiService.get('/users?checkType=email&id=' + user.email);
       context.commit('setEmailDuplication', response.status);
     } catch (error) {
       context.commit('setEmailDuplication', 404);
@@ -57,56 +59,42 @@ const actions = {
   },
 
   async register(context, user) {
+    let body = {
+      compClsCd: 'BBBB',
+      compNo: 0,
+      compUserClsCd: 'AAAA',
+      deptNm: 'string',
+      disable: 0,
+      emailAddr: user.email,
+      empDbCfrmYn: 'Y',
+      mbrClsCd: '0000',
+      mbrId: user.id,
+      mbrPwd: user.password,
+      mbrNm: user.name,
+      mngprYn: 'Y',
+      pstnNm: 'string',
+      pwdFailCnt: 0,
+      regprId: user.id,
+      useYn: 'Y',
+    };
     try {
-      let params = {
-        mbrId: user.id,
-        mbrPwd: user.password,
-        emailAddr: user.email,
-        username: user.name,
-        terms1: state.terms1,
-        terms2: state.terms2,
-        terms3: state.terms3,
-      };
-
       // let params = {
-      //   compClsCd: 'string',
-      //   compNo: 'string',
-      //   compUserClsCd: 'string',
-      //   deptNm: 'string',
-      //   emailAddr: user.email,
-      //   empDbCfrmYn: 'string',
-      //   mbrClsCd: 'string',
-      //   mbrFailCnt: 0,
       //   mbrId: user.id,
-      //   mbrNo: 0,
       //   mbrPwd: user.password,
-      //   mngprYn: 'string',
-      //   pstnNm: 'string',
-      //   redDtm: '2020-09-24T01:04:12.293Z',
-      //   regprId: 'string',
-      //   updDtm: '2020-09-24T01:04:12.293Z',
-      //   updrpId: 'string',
-      //   useYn: 'string',
+      //   emailAddr: user.email,
+      //   username: user.name,
+      //   terms1: state.terms1,
+      //   terms2: state.terms2,
+      //   terms3: state.terms3,
       // };
 
-      let response = await ApiService.post('/users/temp', params);
+      let response = await ApiService.post('/member/users/', body);
 
       context.commit('registerSuccess', response.data);
     } catch (error) {
-      //ontext.commit('registerFailure', error);
+      context.commit('registerSuccess', user);
       console.log(error);
     }
-  },
-  memberdetail(context) {
-    let id = 'banha1004';
-
-    ApiService.get('/users/temp/' + id)
-      .then(({ data }) => {
-        context.commit('memberdetail', data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   },
   async emailauth(context) {
     try {
@@ -131,12 +119,10 @@ const mutations = {
     state.terms3 = data.terms3;
     StorageService.saveRegister(data);
   },
-
-  register(state) {
-    state.terms1 = state.agree.terms1;
-  },
-  memberdetail(state, list) {
-    state.member = list;
+  registerSuccess(state, body) {
+    state.id = body.mbrId;
+    state.email = body.emailAddr;
+    state.name = body.mbrNm;
   },
   emailauth(state, emailauth) {
     state.emailauth = emailauth;

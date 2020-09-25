@@ -17,16 +17,16 @@
 
     <div class="wrap-reg-done">
       <div class="txt-done">
-        회원가입이 완료 되었습니다. <br />가입시 입력 한 <strong>{{ member.emailAddr }}</strong> 이메일 인증 후 로그인 하실 수있습니다.
+        회원가입이 완료 되었습니다. <br />가입시 입력 한 <strong>{{ email }}</strong> 이메일 인증 후 로그인 하실 수있습니다.
       </div>
 
       <dl class="list-form">
         <dt><label>이름</label></dt>
-        <dd>{{ member.mbrId }}</dd>
+        <dd>{{ name }}</dd>
         <dt><label>ID</label></dt>
-        <dd>{{ member.mbrId }}</dd>
+        <dd>{{ id }}</dd>
         <dt><label>이메일 주소</label></dt>
-        <dd>{{ member.emailAddr }}</dd>
+        <dd>{{ email }}</dd>
       </dl>
     </div>
 
@@ -44,12 +44,15 @@ import BreadScrumb from '@/components/BreadScrumb.vue';
 
 export default {
   computed: {
-    member() {
-      return this.$store.state.member.member;
+    id() {
+      return this.$store.state.member.id;
     },
-  },
-  created() {
-    this.$store.dispatch('member/memberdetail');
+    email() {
+      return this.$store.state.member.email;
+    },
+    name() {
+      return this.$store.state.member.name;
+    },
   },
 
   components: {
