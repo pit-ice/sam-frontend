@@ -42,7 +42,7 @@ const actions = {
 
   async idDuplication(context, user) {
     try {
-      let response = await ApiService.get('/users?checkType=id&id=' + user.id);
+      let response = await ApiService.get('/member/users?checkType=id&id=' + user.id);
       context.commit('setIdDuplication', response.status);
     } catch (error) {
       context.commit('setIdDuplication', 404);
@@ -51,7 +51,7 @@ const actions = {
 
   async emailDuplication(context, user) {
     try {
-      let response = await ApiService.get('/users?checkType=email&id=' + user.email);
+      let response = await ApiService.get('/member/users?checkType=email&id=' + user.email);
       context.commit('setEmailDuplication', response.status);
     } catch (error) {
       context.commit('setEmailDuplication', 404);
