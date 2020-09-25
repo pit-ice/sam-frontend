@@ -8,15 +8,47 @@
     <div class="wrap-mypw">
       <p class="stit">나의 정보 및 활동 확인을 위한 비밀번호를 입력 해 주세요.</p>
 
-      <dl>
+      <dl class="list-form">
         <dt>아이디</dt>
-        <dd><strong>ABCD</strong></dd>
+        <dd>
+          <strong>{{ userInfo.username }}</strong>
+        </dd>
         <dt>비밀번호</dt>
-        <dd><input type="password" id="" name="" placeholder="비밀번호 입력" /></dd>
+        <dd><input type="password" v-model="password" placeholder="비밀번호 입력" /></dd>
       </dl>
       <div class="wrap-btn">
-        <router-link to="/mypage/myInfo" tag="button" class="btn btn-confirm">확인</router-link>
+        <button class="btn btn-confirm" @click="verifyPassword">확인</button>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      password: '',
+    };
+  },
+  computed: {
+    verifyResult() {
+      return 'result.....';
+    },
+    userInfo() {
+      return this.$store.state.auth.user;
+    },
+  },
+  methods: {
+    verifyPassword() {
+      this.$store
+        .dispatch('auth/verifyPassword', this.password)
+        .then(() => {
+          this.$router.push('/mypage/info');
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    },
+  },
+};
+</script>

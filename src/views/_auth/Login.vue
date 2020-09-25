@@ -6,7 +6,7 @@
         <p class="hint-text"></p>
         <div class="form-group">
           <ValidationProvider name="E-mail" rules="required|email" v-slot="{ errors }">
-            <input class="form-control" v-model="email" type="email" placeholder="Email" />
+            <input class="form-control" v-model="userid" type="text" placeholder="Email" />
             <span v-if="errors[0]" class="alert alert-danger">{{ errors[0] }}</span>
           </ValidationProvider>
         </div>
@@ -32,7 +32,7 @@ export default {
   name: 'Login',
   data() {
     return {
-      email: '',
+      userid: '',
       password: '',
       loading: false,
       message: '',
@@ -45,9 +45,9 @@ export default {
           return;
         }
 
-        this.$store.dispatch('auth/login', { email: this.email, password: this.password }).then(
+        this.$store.dispatch('auth/login', { id: this.userid, password: this.password }).then(
           () => {
-            this.$router.push('/support/faq');
+            this.loading = false;
           },
           (error) => {
             alert(error.message);

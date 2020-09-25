@@ -14,6 +14,17 @@
 .header .nav .depth2 ul li { padding:5px 10px;} 
 .header .util-menu { position: absolute; top:0; right:0; width:auto; }
 .header .util-menu a { display: inline-block;padding:0 22px; color:#fff }
+// navi transition  
+.header .nav .fade-enter-active,
+.header .nav .fade-leave-active {
+  transition-duration: 0.2s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+} 
+.header .nav .fade-enter,
+.header .nav .fade-leave-active {
+  opacity: 0
+}
 
 .content {
 	position: relative;
@@ -28,18 +39,7 @@
  
  
  
-// navi fade  
-.fade-enter-active,
-.fade-leave-active {
-  transition-duration: 0.1s;
-  transition-property: opacity;
-  transition-timing-function: ease;
-}
-
-.fade-enter,
-.fade-leave-active {
-  opacity: 0
-}
+ 
 
 
  

@@ -18,11 +18,12 @@ import ApiService from '@/store/api/api.service';
 ApiService.init();
 
 // product 환경등 mock 미사용시에는 주석처리.
-//import MockService from '@/store/api/mock/mock.service';
-//MockService.init();
+// import MockService from '@/store/api/mock/mock.service';
+// MockService.init();
 
 Vue.use(BootstrapVue);
 
+// 페이지 새로고침 처리 - 인증설정 및 푸쉬서버연결
 store.dispatch('auth/refresh');
 
 Vue.config.productionTip = false;

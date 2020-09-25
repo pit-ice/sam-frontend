@@ -2,6 +2,8 @@ import Vue from 'vue';
 
 var MockAdapter = require('axios-mock-adapter');
 
+let users = require('./data/user.json');
+
 const MockService = {
   init() {
     // this sets the mock adapter on the default instance
@@ -9,7 +11,6 @@ const MockService = {
 
     // mock login request
     mock.onPost('/auth/signin').reply((data) => {
-      const users = require('./data/user.json');
       const credential = JSON.parse(data.data);
       const found = users.find((user) => {
         return credential.username === user.username && credential.password === user.password;
@@ -20,8 +21,39 @@ const MockService = {
       return [401, { errors: ['The login detail is incorrect'] }];
     });
 
+    mock.onPost('/auth/verify_pwd').reply((data) => {
+      const token = data.headers.Authorization.replace('Bearer ', '');
+      const body = JSON.parse(data.data);
+
+      console.log(body);
+
+      const found = users.find((user) => {
+        return token === user.accessToken && body.password === user.password;
+      });
+      if (found) {
+        return [200, found];
+      }
+      return [400, { errors: ['not found user'] }];
+    });
+
+    mock.onPost('/auth/change_pwd').reply((data) => {
+      const token = data.headers.Authorization.replace('Bearer ', '');
+      const body = JSON.parse(data.data);
+
+      console.log(body);
+
+      const found = users.find((user) => {
+        return token === user.accessToken && body.password === user.password;
+      });
+      if (found) {
+        found.password = body.newPassword;
+
+        return [200, found];
+      }
+      return [400, { errors: ['not found user'] }];
+    });
+
     mock.onGet(/\/sample\/?/).reply((data) => {
-      const users = require('./data/user.json');
       const token = data.headers.Authorization.replace('Bearer ', '');
 
       const found = users.find((user) => {
@@ -35,7 +67,6 @@ const MockService = {
     });
 
     mock.onGet('/techsupport/bbs').reply((data) => {
-      const users = require('./data/user.json');
       const token = data.headers.Authorization.replace('Bearer ', '');
 
       const found = users.find((user) => {

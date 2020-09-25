@@ -5,9 +5,12 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        '@': path.join(__dirname, 'src/'),
         Views: path.join(__dirname, 'src/views/'),
       },
     },
   },
+  // chainWebpack: (config) => {
+  //   //config.optimization.delete('splitChunks');
+  //   config.plugins.delete('prefetch');
+  // },
 };

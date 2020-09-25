@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import store from '@/store/store';
+import { Role } from '@/constant';
 
 Vue.use(VueRouter);
 
@@ -18,6 +20,7 @@ const routes = [
         path: '/sample',
         name: 'Sample',
         component: () => import('Views/Sample.vue'),
+        meta: { authorize: [Role.Admin] },
       },
       {
         path: '/guide',
@@ -103,6 +106,12 @@ const routes = [
         name: 'Login',
         component: () => import('Views/member/Login.vue'),
       },
+      // 로그아웃
+      {
+        path: 'logout',
+        name: 'Logout',
+        component: () => import('Views/member/Logout.vue'),
+      },
       // ID/PW찾기
       {
         path: 'find',
@@ -132,19 +141,29 @@ const routes = [
 
   {
     path: '/mypage',
-    redirect: '/mypage/mypw',
+    redirect: '/mypage/info',
     component: () => import('@/layout/MainLayout'),
     children: [
       // 마이페이지
       {
-        path: 'mypw',
+        path: 'confirm',
         name: 'MyPw',
         component: () => import('Views/mypage/MyPw.vue'),
+        meta: {
+          authorize: [],
+        },
       },
+      // 개인
       {
-        path: '/mypage/myInfo',
-        name: 'MyInfo',
-        component: () => import('Views/mypage/MyInfo.vue'),
+        path: 'info',
+        name: 'MyInfoIndivisual',
+        component: () => import('Views/mypage/info/MyInfo.vue'),
+      },
+      // 기업
+      {
+        path: 'info-biz',
+        name: 'MyInfoBusiness',
+        component: () => import('Views/mypage/MyInfoBusiness.vue'),
       },
     ],
   },
@@ -153,7 +172,6 @@ const routes = [
     path: '/email/Email',
     component: () => import('Views/email/Email.vue'),
   },
-
   {
     path: '/',
     component: () => import('@/layout/MainLayout'),
@@ -190,6 +208,7 @@ const routes = [
       },
     ],
   },
+  { path: '*', redirect: '/' },
 ];
 
 const router = new VueRouter({
@@ -200,6 +219,23 @@ const router = new VueRouter({
   scrollBehavior() {
     return { x: 0, y: 0 };
   },
+});
+
+router.beforeEach((to, from, next) => {
+  const { authorize } = to.meta;
+  const isAuthenticated = store.state.auth.isAuthenticated;
+
+  if (authorize) {
+    if (!isAuthenticated) {
+      return next({ path: '/member/login', query: { returnUrl: to.path } });
+    }
+
+    if (authorize.length && !authorize.includes(store.state.auth.role)) {
+      return next({ path: '/' });
+    }
+  }
+
+  next();
 });
 
 export default router;

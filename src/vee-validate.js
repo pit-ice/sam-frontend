@@ -35,3 +35,11 @@ extend('required', {
   ...required,
   message: '{_field_} 항목은 필수 정보입니다',
 });
+
+extend('password', {
+  params: ['target'],
+  validate(value, { target }) {
+    return value === target;
+  },
+  message: 'Password confirmation does not match',
+});
