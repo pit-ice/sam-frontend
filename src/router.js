@@ -85,7 +85,7 @@ const routes = [
       },
       // 이메일 미인증
       {
-        path: 'register/indivisual/email',
+        path: 'register/indivisual/email/:key/:mbrNo',
         name: 'RegisterIndivisualEmail',
         component: () => import('Views/member/RegisterIndivisualEmail.vue'),
       },

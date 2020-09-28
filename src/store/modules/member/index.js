@@ -59,25 +59,25 @@ const actions = {
   },
 
   async register(context, user) {
-    let body = {
-      compClsCd: 'BBBB',
-      compNo: 0,
-      compUserClsCd: 'AAAA',
-      deptNm: 'string',
-      disable: 0,
-      emailAddr: user.email,
-      empDbCfrmYn: 'Y',
-      mbrClsCd: '0000',
-      mbrId: user.id,
-      mbrPwd: user.password,
-      mbrNm: user.name,
-      mngprYn: 'Y',
-      pstnNm: 'string',
-      pwdFailCnt: 0,
-      regprId: user.id,
-      useYn: 'Y',
-    };
     try {
+      let body = {
+        compClsCd: 'BBBB',
+        compNo: 0,
+        compUserClsCd: 'AAAA',
+        deptNm: 'string',
+        disable: 0,
+        emailAddr: user.email,
+        empDbCfrmYn: 'Y',
+        mbrClsCd: '0000',
+        mbrId: user.id,
+        mbrPwd: user.password,
+        mbrNm: user.name,
+        mngprYn: 'Y',
+        pstnNm: 'string',
+        pwdFailCnt: 0,
+        regprId: user.id,
+        useYn: 'Y',
+      };
       // let params = {
       //   mbrId: user.id,
       //   mbrPwd: user.password,
@@ -88,7 +88,7 @@ const actions = {
       //   terms3: state.terms3,
       // };
 
-      let response = await ApiService.post('/member/users/', body);
+      let response = await ApiService.post('/member/users', body);
 
       context.commit('registerSuccess', response.data);
     } catch (error) {
@@ -96,12 +96,12 @@ const actions = {
       console.log(error);
     }
   },
-  async emailauth(context) {
+  async emailauth(context, key) {
     try {
-      let response = await ApiService.get('/member/emailauth');
+      let response = await ApiService.get('/member/email-auth/' + key);
       context.commit('emailauth', response.status);
     } catch (error) {
-      //ontext.commit('registerFailure', error);
+      context.commit('emailauth', 404);
       console.log(error);
     }
   },
@@ -124,8 +124,8 @@ const mutations = {
     state.email = body.emailAddr;
     state.name = body.mbrNm;
   },
-  emailauth(state, emailauth) {
-    state.emailauth = emailauth;
+  emailauth(state, status) {
+    state.emailauth = status;
   },
   setIdDuplication(state, status) {
     state.idStatus = status;

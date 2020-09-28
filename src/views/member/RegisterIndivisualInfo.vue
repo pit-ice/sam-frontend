@@ -21,13 +21,15 @@
         <dl class="list-form">
           <dt><label>아이디</label></dt>
           <dd>
-            <ValidationProvider name="아이디" :rules="{ required: true, regex: [/^[A-Za-z0-9+]*$/], min: 6, max: 20 }" v-slot="{ errors }">
-              <input type="text" v-model="id" placeholder="영문 또는 숫자 6자-20자" />
-              <button class="btn" @click="idDuplication">중복확인</button>
-              <span v-if="errors[0]" class="txt-point">※ {{ errors[0] }}</span>
-              <span v-if="idStatus == 200" class="txt-point">※ {{ '이미 존재하는 ID입니다.' }}</span>
-              <span v-if="idStatus == 404" class="txt-point">※ {{ '사용가능한 ID입니다.' }}</span>
-            </ValidationProvider>
+            <ValidationObserver ref="form" v-slot="{ invalid }">
+              <ValidationProvider name="아이디" :rules="{ required: true, regex: [/^[A-Za-z0-9+]*$/], min: 6, max: 20 }" v-slot="{ errors }">
+                <input type="text" v-model="id" placeholder="영문 또는 숫자 6자-20자" />
+                <button class="btn" @click="idDuplication" :disabled="invalid">중복확인</button>
+                <span v-if="errors[0]" class="txt-point">※ {{ errors[0] }}</span>
+                <span v-if="idStatus == 200" class="txt-point">※ {{ '이미 존재하는 ID입니다.' }}</span>
+                <span v-if="idStatus == 404" class="txt-point">※ {{ '사용가능한 ID입니다.' }}</span>
+              </ValidationProvider>
+            </ValidationObserver>
           </dd>
 
           <dt><label>비밀번호</label></dt>
@@ -53,14 +55,16 @@
             <label>이메일 주소</label>
           </dt>
           <dd>
-            <ValidationProvider name="이메일 주소" rules="required|email" v-slot="{ errors }">
-              <input type="text" v-model="email" placeholder="이메일주소 입력" />
-              <button class="btn" @click="emailDuplication">중복확인</button>
-              <span class="txt-gray">※ 입력한 이메일 주소로 인증메일이 발송됩니다.</span>
-              <span v-if="errors[0]" class="txt-point">※ {{ errors[0] }}</span>
-              <span v-if="emailStatus == 200" class="txt-point">※ {{ '이미 존재하는 Email입니다.' }}</span>
-              <span v-if="emailStatus == 404" class="txt-point">※ {{ '사용가능한 Email입니다.' }}</span>
-            </ValidationProvider>
+            <ValidationObserver ref="form" v-slot="{ invalid }">
+              <ValidationProvider name="이메일 주소" rules="required|email" v-slot="{ errors }">
+                <input type="text" v-model="email" placeholder="이메일주소 입력" />
+                <button class="btn" @click="emailDuplication" :disabled="invalid">중복확인</button>
+                <span class="txt-gray">※ 입력한 이메일 주소로 인증메일이 발송됩니다.</span>
+                <span v-if="errors[0]" class="txt-point">※ {{ errors[0] }}</span>
+                <span v-if="emailStatus == 200" class="txt-point">※ {{ '이미 존재하는 Email입니다.' }}</span>
+                <span v-if="emailStatus == 404" class="txt-point">※ {{ '사용가능한 Email입니다.' }}</span>
+              </ValidationProvider>
+            </ValidationObserver>
           </dd>
           <dt><label>이름 </label></dt>
           <dd>
