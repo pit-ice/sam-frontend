@@ -8,7 +8,6 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@renatodeleao/vue-sticky-directive": "^0.3.0",
     "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
     "bootstrap-vue": "^2.16.0",
@@ -19,7 +18,6 @@
     "vue-owl-carousel": "^2.0.3",
     "vue-router": "^3.2.0",
     "vue-slider-component": "^3.2.5",
-    "vue-sticky-directive": "0.0.10",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
