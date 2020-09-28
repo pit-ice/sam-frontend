@@ -1,11 +1,11 @@
 <template>
   <div class="nav" @mouseover="listOne = true" @mouseleave="listOne = false" @focusin="listOne = true">
     <ul class="depth1">
-      <li class="m1"><router-link to="/introduce/SV">About</router-link></li>
-      <li class="m2"><router-link to="/product/Search">Auto Products</router-link></li>
-      <li class="m3"><router-link to="/autoic/Company">Infor Center</router-link></li>
-      <li class="m5"><router-link to="/vrdlab/Introduce">Virtual R&D Lab</router-link></li>
-      <li class="m4"><router-link to="/support/Notice">Support</router-link></li>
+      <li class="m1"><router-link to="/introduce/SV" tabindex="1">About</router-link></li>
+      <li class="m2"><router-link to="/product/Search" tabindex="2">Auto Products</router-link></li>
+      <li class="m3"><router-link to="/autoic/Company" tabindex="3">Infor Center</router-link></li>
+      <li class="m5"><router-link to="/vrdlab/Introduce" tabindex="4">Virtual R&D Lab</router-link></li>
+      <li class="m4"><router-link to="/support/Notice" tabindex="5">Support</router-link></li>
     </ul>
     <transition name="fade">
       <div class="depth2" v-if="listOne" @click="listOne = false">
@@ -46,7 +46,6 @@ export default {
   data: function () {
     return {
       listOne: false,
-      isHovering: false,
     };
   },
   methods: {

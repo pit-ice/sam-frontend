@@ -3,6 +3,14 @@
 @import "layout.scss"; 
 @import "content.scss"; 
 
+/* slider */
+.vue-slider-dot-tooltip { 
+  visibility: inherit !important;
+}
+
+/* scroll top */
+.wrap-to-top { position: fixed; bottom: 50px; right:0; padding:0 100px;}
+.wrap-to-top button { padding:3px 5px; border:1px solid #000 }
 
 /* button */
 .wrap-btn { padding: 10px 0; text-align: center;} 

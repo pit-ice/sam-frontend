@@ -29,6 +29,7 @@
         <p>55</p>
       </div>
     </carousel>
+
     <!-- 
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
@@ -111,8 +112,11 @@
 <script>
 import carousel from 'vue-owl-carousel';
 import $ from 'jquery';
+
 export default {
-  components: { carousel },
+  components: {
+    carousel,
+  },
   mounted() {
     $('.js-anchor-link').click(function (e) {
       e.preventDefault();
