@@ -9,13 +9,14 @@
 }
 
 /* float menu */
-.wrap-float-menu { position: fixed; top:100px; right:0;  padding:0 20px;  }
-.wrap-float-menu ul { width:80px;  border:1px solid #000}
+.wrap-float-menu { position: sticky; top:10px; float: right; padding:0 20px;  }
+// .wrap-float-menu { position: fixed; top:100px; right:0;  padding:0 20px;  }
+.wrap-float-menu ul { position: relative; right: -130px; width:80px;  border:1px solid #000}
 .wrap-float-menu ul li a { display: block; padding:10px 0;}
 
 /* scroll top */
-.wrap-scroll-top { position: fixed; bottom:50px; right:0; padding:0 50px;  } 
-.wrap-scroll-top button { padding:3px 5px; border:1px solid #000 }
+.wrap-scroll-top { position: fixed; bottom:50px; right:0; padding:0 50px;    } 
+.wrap-scroll-top button {  padding:3px 5px; border:1px solid #000 }
 
 /* button */
 .wrap-btn { padding: 10px 0; text-align: center;} 
@@ -26,7 +27,7 @@
 .title { width: 100%; margin:10px 0 30px;}
 .title h3 { font-weight: bold; font-size:25px; color:#e23d60 ;}
 .title p { margin:10px 0 ;}
-h4 { display: inline-block; margin:0 0 10px 0; text-decoration: underline;   font-size:16px; font-weight: bold; color:#3e65d1;}
+h4 { display: inline-block; margin:0 0 10px 0; text-decoration: underline; font-size:16px; font-weight: bold; color:#3e65d1;}
 .stit { margin:0 0 10px 0; }
 
 /* sticky menu */

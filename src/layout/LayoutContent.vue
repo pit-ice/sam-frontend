@@ -1,9 +1,9 @@
 <template>
   <div class="content">
+    <FloatMenu></FloatMenu>
     <transition name="fade" mode="out-in">
       <router-view></router-view>
     </transition>
-    <FloatMenu></FloatMenu>
     <ScrollTop></ScrollTop>
   </div>
 </template>

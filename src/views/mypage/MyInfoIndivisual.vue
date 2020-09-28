@@ -130,16 +130,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  data: function () {
-    return {
-      show: false,
-      rows: 100,
-      perPage: 10,
-      currentPage: 1,
-    };
-  },
-};
-</script>

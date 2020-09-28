@@ -90,3 +90,18 @@
 .support-list .collapse-cnt { padding:10px; border:1px solid #999; background: #f1f1f1;}
 
  
+/* About */
+.wrap-about { position: relative;}
+.wrap-about .about-nav { position: fixed; top:330px; right:130px; }
+.wrap-about .about-nav li {  }
+.wrap-about .about-nav li a { display: block; margin:0 0 10px 0; width:20px; height:20px; border-radius: 20px; font-size:0; background:#666}
+.wrap-about .about-nav li a.active { background: red; ;}
+
+.wrap-about .sec-about { height:500px; background: #eee; }
+.wrap-about .sec-what { height:500px; background: #dac1c1 }
+.wrap-about .sec-auto { height:500px;  background: #cecbd8}
+.wrap-about .sec-partner { height:500px;  background: #b8d3c9}
+
+
+
+
