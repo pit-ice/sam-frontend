@@ -5,6 +5,8 @@
 import ApiService from '@/store/api/api.service';
 import StorageService from '@/store/api/storage.service';
 
+const BASE_URL = '/member/users';
+
 const state = {
   agreement: [],
   agree: StorageService.getRegister(),
@@ -103,6 +105,26 @@ const actions = {
     } catch (error) {
       context.commit('emailauth', 404);
       console.log(error);
+    }
+  },
+  // 비번 검사
+  async verifyPassword(context, password) {
+    try {
+      let response = await ApiService.post(`${BASE_URL}/${context.rootState.auth.user.mbrId}/password?command=valid&value=${password}`);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  },
+  // 비번 변경
+  async changePassword(context, newPassword) {
+    try {
+      let response = await ApiService.post(`${BASE_URL}/${context.rootState.auth.user.mbrId}/password?command=change&value=${newPassword}`);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+      throw error;
     }
   },
 };

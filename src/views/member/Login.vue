@@ -11,18 +11,14 @@
           <dl class="list-form">
             <dt><label>사용자 </label></dt>
             <dd>
-              <ValidationProvider name="userid" :rules="{ required: true, regex: [/^[A-Za-z0-9+]*$/], min: 6, max: 20 }" v-slot="{ errors }">
+              <ValidationProvider name="userid" :rules="{ required: true }" v-slot="{ errors }">
                 <input v-model="userid" type="test" placeholder="아이디 입력" />
                 <p class="txt_error" v-if="errors[0]">{{ errors[0] }}</p>
               </ValidationProvider>
             </dd>
             <dt><label>비밀번호 확인</label></dt>
             <dd>
-              <ValidationProvider
-                name="password"
-                :rules="{ required: true, regex: [/^.*(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=]).*$/], min: 6, max: 20 }"
-                v-slot="{ errors }"
-              >
+              <ValidationProvider name="password" :rules="{ required: true }" v-slot="{ errors }">
                 <input v-model="password" type="password" placeholder="비밀번호 입력" />
                 <p class="txt_error" v-if="errors[0]">{{ errors[0] }}</p>
               </ValidationProvider>

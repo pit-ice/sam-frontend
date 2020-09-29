@@ -28,6 +28,6 @@ spec:
           servicePort: 8080
         path: /auth/(.*)
       - backend:
-          serviceName: sam-notification
+          serviceName: api-notification
           servicePort: 8080
-        path: /noti/(.*)
+        path: /notification/(.*)

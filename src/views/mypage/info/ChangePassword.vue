@@ -23,7 +23,7 @@
           </ValidationProvider>
         </div>
         <div class="form-group">
-          <ValidationProvider name="ConfirmNewPassword" rules="required|confirmed:비밀번호" v-slot="{ errors }">
+          <ValidationProvider name="ConfirmNewPassword" rules="required|confirmed:NewPassword" v-slot="{ errors }">
             <input class="form-control" v-model="confirmNewPassword" type="password" placeholder="신규 비밀번호 확인" />
             <span v-if="errors[0]" class="alert alert-danger">{{ errors[0] }}</span>
           </ValidationProvider>
@@ -34,7 +34,7 @@
       </b-form>
     </ValidationObserver>
     <!-- 변경 완료 팝업 -->
-    <b-modal title="알림" v-model="showCompleteModal">
+    <b-modal title="알림" v-model="showCompleteModal" @ok="onOk">
       <p class="my-4">비밀번호 변경이 완료되었습니다!</p>
     </b-modal>
   </div>
@@ -57,11 +57,9 @@ export default {
           return;
         }
 
-        let data = { password: this.password, newPassword: this.newPassword };
-        this.$store.dispatch('auth/changePassword', data).then(
+        this.$store.dispatch('member/changePassword', this.newPassword).then(
           () => {
             this.showCompleteModal = true;
-            this.$emit('completed');
           },
           (error) => {
             alert(error.message);
@@ -73,6 +71,9 @@ export default {
           this.$refs.form.reset();
         });
       });
+    },
+    onOk() {
+      this.$emit('completed');
     },
   },
 };

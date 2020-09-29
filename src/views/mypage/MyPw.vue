@@ -11,7 +11,7 @@
       <dl class="list-form">
         <dt>아이디</dt>
         <dd>
-          <strong>{{ userInfo.username }}</strong>
+          <strong>{{ userInfo.mbrId }}</strong>
         </dd>
         <dt>비밀번호</dt>
         <dd><input type="password" v-model="password" placeholder="비밀번호 입력" /></dd>
@@ -41,7 +41,7 @@ export default {
   methods: {
     verifyPassword() {
       this.$store
-        .dispatch('auth/verifyPassword', this.password)
+        .dispatch('member/verifyPassword', this.password)
         .then(() => {
           this.$router.push('/mypage/info');
         })

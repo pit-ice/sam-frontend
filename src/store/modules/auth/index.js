@@ -21,8 +21,8 @@ const actions = {
   async login(context, user) {
     try {
       let params = {
-        username: user.userid,
-        password: user.password,
+        mbrId: user.userid,
+        mbrPwd: user.password,
       };
       let response = await ApiService.post('/auth/signin', params);
 
@@ -56,30 +56,6 @@ const actions = {
   },
   refresh(context) {
     context.commit('initAuthAndNotification');
-  },
-  async verifyPassword(context, password) {
-    try {
-      let params = {
-        password: password,
-      };
-      let response = await ApiService.post('/auth/verify_pwd', params);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  },
-  async changePassword(context, payload) {
-    try {
-      let params = {
-        password: payload.password,
-        newPassword: payload.newPassword,
-      };
-      let response = await ApiService.post('/auth/change_pwd', params);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-      throw error;
-    }
   },
 };
 

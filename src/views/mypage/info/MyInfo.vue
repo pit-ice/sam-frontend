@@ -11,7 +11,7 @@
           <h4>가입자 정보</h4>
           <dl class="list-form">
             <dt><label>아이디</label></dt>
-            <dd>{{ userInfo.username }}</dd>
+            <dd>{{ userInfo.mbrId }}</dd>
             <dt><label>가입자 명 </label></dt>
             <dd>{{ userInfo.email }}</dd>
             <dt><label>비밀번호</label></dt>
