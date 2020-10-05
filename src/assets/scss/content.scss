@@ -93,14 +93,24 @@
 /* About */
 .wrap-about { position: relative;}
 .wrap-about .about-nav { position: fixed; top:330px; right:130px; }
-.wrap-about .about-nav li {  }
+.wrap-about .about-nav li { margin:2px 0;}
 .wrap-about .about-nav li a { display: block; margin:0 0 10px 0; width:20px; height:20px; border-radius: 20px; font-size:0; background:#666}
 .wrap-about .about-nav li a.active { background: red; ;}
 
 .wrap-about .sec-about { height:500px; background: #eee; }
 .wrap-about .sec-what { height:500px; background: #dac1c1 }
+.wrap-about .sec-what ul { overflow: hidden; }
+.wrap-about .sec-what ul li { float:left; width:30%; margin:0 1%; border:1px solid #000;}
+.wrap-about .sec-what ul li dl { overflow: hidden; }
+.wrap-about .sec-what ul li dt { text-align: center; font-size:20px;  }
+.wrap-about .sec-what ul li dd { font-size:12px; }
 .wrap-about .sec-auto { height:500px;  background: #cecbd8}
 .wrap-about .sec-partner { height:500px;  background: #b8d3c9}
+.wrap-about .sec-partner ul { overflow: hidden; }
+.wrap-about .sec-partner ul li { float:left; width:30%; margin:0 1%; border:1px solid #000;}
+.wrap-about .sec-partner ul li dl { overflow: hidden; }
+.wrap-about .sec-partner ul li dt { text-align: center; font-size:20px;  }
+.wrap-about .sec-partner ul li dd {  font-size:12px;}
 
 
 

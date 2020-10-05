@@ -7,13 +7,13 @@
       <li class="m5"><router-link to="/vrdlab/Introduce" tabindex="4">Virtual R&D Lab</router-link></li>
       <li class="m4"><router-link to="/support/Notice" tabindex="5">Support</router-link></li>
     </ul>
-    <transition name="fade">
+    <transition name="slide">
       <div class="depth2" v-if="listOne" @click="listOne = false">
         <ul class="sm1">
-          <li><a href="#" tabindex="1">Platform 소개</a></li>
+          <li><router-link to="/introduce/SV" tabindex="1">Platform 소개</router-link></li>
           <li><a href="#" tabindex="1">SK종합화학의 SV</a></li>
           <li><a href="#" tabindex="1">SK종합화학의 R&D</a></li>
-          <li><a href="#" tabindex="1">Partners</a></li>
+          <li><router-link to="/introduce/Partners" tabindex="1">Partners</router-link></li>
         </ul>
         <ul class="sm2">
           <li><a href="#" tabindex="2">Automotive Polypropylene</a></li>

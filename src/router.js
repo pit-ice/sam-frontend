@@ -171,6 +171,11 @@ const routes = [
         name: 'SV',
         component: () => import('Views/introduce/SV.vue'),
       },
+      {
+        path: '/introduce/Partners',
+        name: 'Partners',
+        component: () => import('Views/introduce/Partners.vue'),
+      },
       //제품
       {
         path: '/product/Search',
