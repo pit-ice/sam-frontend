@@ -1,35 +1,47 @@
 <template>
   <div class="wrap-scroll-top">
-    <button v-show="scrollY > 0" @click="toTop">TOP</button>
+    <button class="btn-to-top" v-if="isVisible" @click="backToTop">TOP</button>
   </div>
 </template>
 
 <script>
+import $ from 'jquery';
 export default {
-  data() {
+  data: function () {
     return {
-      scTimer: 0,
-      scrollY: 0,
+      isVisible: false,
     };
   },
-  mounted() {
-    window.addEventListener('scroll', this.handleScroll);
-  },
   methods: {
-    handleScroll: function () {
-      if (this.scTimer) return;
-      this.scTimer = setTimeout(() => {
-        this.scrollY = window.scrollY;
-        clearTimeout(this.scTimer);
-        this.scTimer = 0;
-      }, 100);
+    initToTopButton: function () {
+      $(document).bind(
+        'scroll',
+        function () {
+          var backToTopButton = $('.btn-to-top');
+          if ($(document).scrollTop() > 450) {
+            backToTopButton.addClass('isVisible');
+            this.isVisible = true;
+          } else {
+            backToTopButton.removeClass('isVisible');
+            this.isVisible = false;
+          }
+        }.bind(this)
+      );
     },
-    toTop: function () {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
+    backToTop: function () {
+      $('html,body').stop().animate(
+        {
+          scrollTop: 0,
+        },
+        'slow',
+        'swing'
+      );
     },
+  },
+  mounted: function () {
+    this.$nextTick(function () {
+      this.initToTopButton();
+    });
   },
 };
 </script>

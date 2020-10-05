@@ -8,10 +8,9 @@
   visibility: inherit !important;
 }
 
-/* float menu */
-.wrap-float-menu { position: sticky; top:10px; float: right; padding:0 20px;  }
-// .wrap-float-menu { position: fixed; top:100px; right:0;  padding:0 20px;  }
-.wrap-float-menu ul { position: relative; right: -130px; width:80px;  border:1px solid #000}
+/* float menu */ 
+.wrap-float-menu { position: fixed; top:100px; right:0;  padding:0 20px;  }
+.wrap-float-menu ul { position: relative;  width:80px;  border:1px solid #000}
 .wrap-float-menu ul li a { display: block; padding:10px 0;}
 
 /* scroll top */
