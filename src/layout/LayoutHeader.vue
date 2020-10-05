@@ -8,6 +8,7 @@
       <UtilMenu></UtilMenu>
       <Navi></Navi>
     </div>
+    <hr class="hidden" />
   </div>
 </template>
 
