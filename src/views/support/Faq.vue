@@ -33,7 +33,7 @@
           </li>
           <li>
             <dl class="faq-head">
-              <dt><span>제품</span></dt>
+              <dt><span>소개</span></dt>
               <dd v-b-toggle.accordion-2>제품 분류기준이 어떻게 되나요?</dd>
             </dl>
             <b-collapse id="accordion-2" accordion="my-accordion">
