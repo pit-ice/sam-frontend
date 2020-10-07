@@ -6,7 +6,7 @@
       <li class="m2"><router-link to="/product/Search" tabindex="2">Auto Products</router-link></li>
       <li class="m3"><router-link to="/autoic/Company" tabindex="3">Infor Center</router-link></li>
       <li class="m5"><router-link to="/vrdlab/Introduce" tabindex="4">Virtual R&D Lab</router-link></li>
-      <li class="m4"><router-link to="/support/Notice" tabindex="5">Support</router-link></li>
+      <li class="m4"><router-link to="/support/Faq" tabindex="5">Support</router-link></li>
     </ul>
     <transition name="slide">
       <div class="depth2" v-if="listOne" @click="listOne = false">
@@ -37,7 +37,7 @@
         </ul>
         <h2 class="hidden">Support</h2>
         <ul class="sm5">
-          <li><a href="#" tabindex="5">FAQ</a></li>
+          <li><router-link to="/support/Faq" tabindex="5">FAQ</router-link></li>
           <li><a href="#" tabindex="5">Q/A</a></li>
           <li><a href="#" tabindex="5">기술문의</a></li>
           <li><a href="#" tabindex="5">기술지원활동</a></li>

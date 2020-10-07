@@ -113,5 +113,17 @@
 .wrap-about .sec-partner ul li dd {  font-size:12px;}
 
 
+/* support */
+.wrap-faq-sort { overflow: hidden;}
+.wrap-faq-sort button { padding:5px; border:1px solid #000; }
+.wrap-faq-sort .active { background: red;}
 
-
+.faq-list li { padding:5px 0;  border-bottom:1px solid #000; }
+.faq-list li .faq-head { position: relative; overflow: hidden; }
+.faq-list li .faq-head dt { position: absolute; top:3px; left:0; width:50px; }
+.faq-list li .faq-head dt span { display: inline-block; padding:2px 4px; color: #fff;  background: rgb(84, 76, 192);}
+.faq-list li .faq-head dd { padding:5px 0 5px 60px;  }
+.faq-list li .faq-head dd:after { position: absolute; top:2px; right:0; width:10px; height:10px; }
+.faq-list li .faq-head dd.collapsed:after { content: '▼'; display: inline-block; }
+.faq-list li .faq-head dd.not-collapsed:after { content: '▲'; display: inline-block;  }
+.faq-list li .faq-cnt { padding:10px; background:#f1f1f1; }

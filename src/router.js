@@ -190,9 +190,9 @@ const routes = [
       },
       // 고객지원
       {
-        path: '/support/Notice',
-        name: 'Notice',
-        component: () => import('Views/support/Notice.vue'),
+        path: '/support/Faq',
+        name: 'Faq',
+        component: () => import('Views/support/Faq.vue'),
       },
       //Virtual R&D Lab
       {

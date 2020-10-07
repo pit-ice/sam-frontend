@@ -272,6 +272,26 @@
           <td></td>
           <td class="txt-left"></td>
         </tr>
+        <tr>
+          <td>소개</td>
+          <td>소개</td>
+          <td></td>
+          <td>회사소개</td>
+          <td><a href="/introduce/SV" target="_blank">SV</a></td>
+          <td>선작업</td>
+          <td></td>
+          <td class="txt-left"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Partners</td>
+          <td></td>
+          <td>파트너지원</td>
+          <td><a href="/introduce/Partners" target="_blank">Partners</a></td>
+          <td>선작업</td>
+          <td></td>
+          <td class="txt-left"></td>
+        </tr>
       </tbody>
     </table>
   </div>
