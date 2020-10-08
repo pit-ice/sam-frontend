@@ -46,7 +46,7 @@ const actions = {
   async idDuplication(context, user) {
     try {
       let response = await ApiService.get('/members/duplicate/id/' + user.id);
-
+      console.log(response.data);
       context.commit('setIdDuplication', response.data);
     } catch (error) {
       context.commit('setIdDuplication', 404);
