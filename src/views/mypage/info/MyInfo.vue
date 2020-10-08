@@ -11,9 +11,9 @@
           <h4>가입자 정보</h4>
           <dl class="list-form">
             <dt><label>아이디</label></dt>
-            <dd>{{ userInfo.mbrId }}</dd>
+            <dd>{{ userInfo.MBR_ID }}</dd>
             <dt><label>가입자 명 </label></dt>
-            <dd>{{ userInfo.email }}</dd>
+            <dd>{{ userInfo.MBR_NM }}</dd>
             <dt><label>비밀번호</label></dt>
             <dd>
               <button class="btn btn-email-certifi" @click="modalShow = true">비밀번호 변경</button>
@@ -21,7 +21,7 @@
             <dt>
               <label>이메일 주소</label>
             </dt>
-            <dd>{{ userInfo.email }}</dd>
+            <dd>{{ userInfo.EMAIL_ADDR }}</dd>
           </dl>
           <div class="wrap-btn">
             <button class="btn btn-cancel">취소</button>
@@ -62,7 +62,7 @@ export default {
       return 'result.....';
     },
     userInfo() {
-      return this.$store.state.auth.user;
+      return this.$store.state.auth.user.data;
     },
   },
   methods: {

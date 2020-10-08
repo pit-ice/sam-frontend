@@ -5,7 +5,7 @@
 import ApiService from '@/store/api/api.service';
 import StorageService from '@/store/api/storage.service';
 
-const BASE_URL = '/member/users';
+const BASE_URL = '/members/users';
 
 const state = {
   agreement: [],
@@ -22,6 +22,7 @@ const state = {
   id: {},
   email: {},
   name: {},
+  msg: {},
 };
 
 // getters
@@ -31,7 +32,7 @@ const getters = {};
 const actions = {
   async getAgree(context) {
     try {
-      let response = await ApiService.get('member/agreement');
+      let response = await ApiService.get('members/agreement');
       context.commit('agreement', response.data);
     } catch (error) {
       console.log(error);
@@ -44,8 +45,9 @@ const actions = {
 
   async idDuplication(context, user) {
     try {
-      let response = await ApiService.get('/member/users?checkType=id&id=' + user.id);
-      context.commit('setIdDuplication', response.status);
+      let response = await ApiService.get('/members/duplicate/id/' + user.id);
+
+      context.commit('setIdDuplication', response.data);
     } catch (error) {
       context.commit('setIdDuplication', 404);
     }
@@ -53,8 +55,8 @@ const actions = {
 
   async emailDuplication(context, user) {
     try {
-      let response = await ApiService.get('/member/users?checkType=email&id=' + user.email);
-      context.commit('setEmailDuplication', response.status);
+      let response = await ApiService.get('/members/duplicate/email/' + user.email);
+      context.commit('setEmailDuplication', response.data);
     } catch (error) {
       context.commit('setEmailDuplication', 404);
     }
@@ -90,9 +92,10 @@ const actions = {
       //   terms3: state.terms3,
       // };
 
-      let response = await ApiService.post('/member/users', body);
+      let response = await ApiService.post('/members/users', body);
 
-      context.commit('registerSuccess', response.data);
+      console.log(response.data.data);
+      context.commit('registerSuccess', response.data.data);
     } catch (error) {
       context.commit('registerSuccess', user);
       console.log(error);
@@ -100,7 +103,7 @@ const actions = {
   },
   async emailauth(context, key) {
     try {
-      let response = await ApiService.get('/member/email-auth/' + key);
+      let response = await ApiService.get('/members/email-auth/' + key);
       context.commit('emailauth', response.status);
     } catch (error) {
       context.commit('emailauth', 404);
@@ -110,7 +113,13 @@ const actions = {
   // 비번 검사
   async verifyPassword(context, password) {
     try {
-      let response = await ApiService.post(`${BASE_URL}/${context.rootState.auth.user.mbrId}/password?command=valid&value=${password}`);
+      let body = {
+        mbrId: context.rootState.auth.user.data.MBR_ID,
+        command: 'valid',
+        mbrPwd: password,
+      };
+
+      let response = await ApiService.post(`${BASE_URL}/me`, body);
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -118,9 +127,16 @@ const actions = {
     }
   },
   // 비번 변경
-  async changePassword(context, newPassword) {
+  async changePassword(context, user) {
     try {
-      let response = await ApiService.post(`${BASE_URL}/${context.rootState.auth.user.mbrId}/password?command=change&value=${newPassword}`);
+      let body = {
+        mbrId: context.rootState.auth.user.data.MBR_ID,
+        command: 'change',
+        mbrPwd: user.password,
+        newMbrPwd: user.newPassword,
+      };
+
+      let response = await ApiService.post(`${BASE_URL}/me`, body);
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -142,26 +158,28 @@ const mutations = {
     StorageService.saveRegister(data);
   },
   registerSuccess(state, body) {
-    state.id = body.mbrId;
-    state.email = body.emailAddr;
-    state.name = body.mbrNm;
+    state.id = body.MBR_ID;
+    state.email = body.EMAIL_ADDR;
+    state.name = body.MBR_NM;
   },
   emailauth(state, status) {
     state.emailauth = status;
   },
-  setIdDuplication(state, status) {
-    state.idStatus = status;
+  setIdDuplication(state, data) {
+    state.idStatus = data.status;
+    state.msg = data.msg;
 
-    if (status == 404) {
+    if (data.status == 404) {
       state.isDupId = false;
     } else {
       state.isDupId = true;
     }
   },
-  setEmailDuplication(state, status) {
-    state.emailStatus = status;
+  setEmailDuplication(state, data) {
+    state.emailStatus = data.status;
+    state.msg = data.msg;
 
-    if (status == 404) {
+    if (data.status == 404) {
       state.isDupEmail = false;
     } else {
       state.isDupEmail = true;

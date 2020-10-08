@@ -24,7 +24,7 @@ const actions = {
         mbrId: user.userid,
         mbrPwd: user.password,
       };
-      let response = await ApiService.post('/auth/signin', params);
+      let response = await ApiService.post('/members/login', params);
 
       context.commit('loginSuccess', response.data);
     } catch (error) {
@@ -62,10 +62,10 @@ const actions = {
 // mutations
 const mutations = {
   loginSuccess(state, user) {
-    if (user.accessToken) {
+    if (user.token) {
       state.isAuthenticated = true;
       state.user = user;
-      StorageService.saveToken(state.user.accessToken);
+      StorageService.saveToken(state.user.token);
       StorageService.saveUser(state.user);
       ApiService.setHeader();
       NotificationService.connect(state.user.username);

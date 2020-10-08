@@ -31,12 +31,16 @@
           <dd>
             <input type="text" id="" placeholder="-포함 입력 (예: 020-123-4567)" />
           </dd>
-          <vue-daum-postcode />
+
           <dt><label>주소</label></dt>
           <dd>
-            <div><input type="text" id="" placeholder="우편번호" /> <button class="btn btn-zipcode">우편번호 검색</button></div>
-            <div><input type="text" id="" placeholder="기본주소" /></div>
-            <div><input type="text" id="" placeholder="상세주소" /></div>
+            <div>
+              <input type="text" v-model="postcode" placeholder="우편번호" />
+              <button class="btn btn-zipcode" @click="execDaumPostcode">우편번호 검색</button>
+              <DaumPostcode :on-complete="handleAddress" :visible.sync="visible" />
+            </div>
+            <div><input type="text" v-model="address" placeholder="기본주소" /></div>
+            <div><input type="text" v-model="extraAddress" ref="extraAddress" placeholder="상세주소" /></div>
           </dd>
           <!-- <dt><label>회사 CI 등록</label></dt>
           <dd>
@@ -134,6 +138,7 @@
 
 <script>
 import BreadScrumb from '@/components/BreadScrumb.vue';
+import DaumPostcode from 'vuejs-daum-postcode';
 
 export default {
   data() {
@@ -143,6 +148,12 @@ export default {
       confirmPassword: '',
       email: '',
       name: '',
+      address: '',
+      postcode: '',
+      extraAddress: '',
+      position: '',
+      department: '',
+      visible: false,
     };
   },
   computed: {
@@ -160,6 +171,24 @@ export default {
     },
   },
   methods: {
+    handleAddress(data) {
+      let fullAddress = data.address;
+      let zonecode = data.zonecode;
+      let extraAddress = '';
+      if (data.addressType === 'R') {
+        if (data.bname !== '') {
+          extraAddress += data.bname;
+        }
+        if (data.buildingName !== '') {
+          extraAddress += extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName;
+        }
+        fullAddress += extraAddress !== '' ? ` (${extraAddress})` : '';
+        this.address = fullAddress;
+      }
+      this.postcode = zonecode;
+      this.address = fullAddress;
+      console.log(fullAddress); // e.g. '서울 성동구 왕십리로2길 20 (성수동1가)'
+    },
     resetForm() {
       const result = confirm('회원가입을취소하시겠습니까? 확인버튼 선택 시 입력한 모든 정보가 삭제 됩니다.');
 
@@ -200,9 +229,13 @@ export default {
         });
       });
     },
+    execDaumPostcode() {
+      this.visible = !this.visible;
+    },
   },
   components: {
     BreadScrumb,
+    DaumPostcode,
   },
 };
 </script>

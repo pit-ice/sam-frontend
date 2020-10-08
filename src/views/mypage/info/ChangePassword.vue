@@ -57,7 +57,7 @@ export default {
           return;
         }
 
-        this.$store.dispatch('member/changePassword', this.newPassword).then(
+        this.$store.dispatch('member/changePassword', { password: this.password, newPassword: this.newPassword }).then(
           () => {
             this.showCompleteModal = true;
           },
