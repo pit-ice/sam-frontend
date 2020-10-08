@@ -37,7 +37,8 @@ export default {
   },
   mounted() {
     let key = this.$route.params.key;
-    this.$store.dispatch('member/emailauth', key);
+    let mbrNo = this.$route.params.mbrNo;
+    this.$store.dispatch('member/emailauth', key, mbrNo);
   },
   components: {
     BreadScrumb,

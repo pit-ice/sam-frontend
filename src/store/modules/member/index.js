@@ -101,9 +101,11 @@ const actions = {
       console.log(error);
     }
   },
-  async emailauth(context, key) {
+  async emailauth(context, key, mbrNo) {
     try {
-      let response = await ApiService.get('/members/email-auth/' + key);
+      console.log(key);
+      console.log(mbrNo);
+      let response = await ApiService.get('/members/email-auth/' + key + '/' + mbrNo);
       context.commit('emailauth', response.status);
     } catch (error) {
       context.commit('emailauth', 404);
