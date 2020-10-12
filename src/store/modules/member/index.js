@@ -65,19 +65,10 @@ const actions = {
   async register(context, user) {
     try {
       let body = {
-        compClsCd: 'BBBB',
-        compNo: 0,
-        compUserClsCd: 'AAAA',
-        deptNm: 'string',
-        disable: 0,
         emailAddr: user.email,
-        empDbCfrmYn: 'Y',
-        mbrClsCd: '0000',
         mbrId: user.id,
         mbrPwd: user.password,
         mbrNm: user.name,
-        mngprYn: 'Y',
-        pstnNm: 'string',
         pwdFailCnt: 0,
         regprId: user.id,
         useYn: 'Y',
