@@ -108,7 +108,7 @@ const actions = {
   async verifyPassword(context, password) {
     try {
       let body = {
-        mbrId: context.rootState.auth.user.data.MBR_ID,
+        mbrId: context.rootState.auth.user.MBR_ID,
         command: 'valid',
         mbrPwd: password,
       };
@@ -124,7 +124,7 @@ const actions = {
   async changePassword(context, user) {
     try {
       let body = {
-        mbrId: context.rootState.auth.user.data.MBR_ID,
+        mbrId: context.rootState.auth.user.MBR_ID,
         command: 'change',
         mbrPwd: user.password,
         newMbrPwd: user.newPassword,
