@@ -24,6 +24,7 @@
               </ValidationProvider>
             </dd>
           </dl>
+          <b-alert show variant="info" v-if="loginStatus == 404">{{ loginMsg }}</b-alert>
           <!-- 
           <p class="txt_error">아이디 또는 비밀번호를 잘못 입력하셨습니다.</p>
           <div class="login-util">
@@ -63,6 +64,14 @@ export default {
       loading: false,
       message: '',
     };
+  },
+  computed: {
+    loginMsg() {
+      return this.$store.state.auth.msg;
+    },
+    loginStatus() {
+      return this.$store.state.auth.status;
+    },
   },
   methods: {
     onSubmit() {

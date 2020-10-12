@@ -2,7 +2,7 @@
   <div class="register">
     <BreadScrumb></BreadScrumb>
 
-    <div class="wrap-certifi-email" v-if="emailauth == 404">
+    <div class="wrap-certifi-email" v-if="emailauth == 500">
       <p class="txt-certif1">이메일 인증시간이 만료되었습니다. 아래의 재발송 버튼을 선택 해 주시고 이메일 인증을 완료 해 주시기 바랍니다</p>
       <!-- <dl class="box-certifi">
         <dt>인증 만료시간</dt>
@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <div class="wrap-certifi-email" v-if="emailauth == 200">
+    <div class="wrap-certifi-email" v-if="emailauth == 201">
       <p class="txt-certif1">이메일 인증이 완료되었습니다. 로그인 후 이용해주시기 바랍니다.</p>
       <!-- <dl class="box-certifi">
         <dt>인증 만료시간</dt>
@@ -38,7 +38,10 @@ export default {
   mounted() {
     let key = this.$route.params.key;
     let mbrNo = this.$route.params.mbrNo;
-    this.$store.dispatch('member/emailauth', key, mbrNo);
+    console.log(key);
+    console.log(mbrNo);
+
+    this.$store.dispatch('member/emailauth', { key: key, mbrNo: mbrNo });
   },
   components: {
     BreadScrumb,

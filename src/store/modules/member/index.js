@@ -6,7 +6,7 @@ import ApiService from '@/store/api/api.service';
 import StorageService from '@/store/api/storage.service';
 
 const BASE_URL = '/members/users';
-
+const AUTH_URL = process.env.AUTH_SERVER;
 const state = {
   agreement: [],
   agree: StorageService.getRegister(),
@@ -94,18 +94,19 @@ const actions = {
 
       let response = await ApiService.post('/members/users', body);
 
-      console.log(response.data.data);
       context.commit('registerSuccess', response.data.data);
     } catch (error) {
       context.commit('registerSuccess', user);
       console.log(error);
     }
   },
-  async emailauth(context, key, mbrNo) {
+  async emailauth(context, auth) {
     try {
-      console.log(key);
-      console.log(mbrNo);
-      let response = await ApiService.get('/members/email-auth/' + key + '/' + mbrNo);
+      let body = {
+        key: auth.key,
+        no: auth.mbrNo,
+      };
+      let response = await ApiService.post(`${AUTH_URL}/email/`, body);
       context.commit('emailauth', response.status);
     } catch (error) {
       context.commit('emailauth', 404);

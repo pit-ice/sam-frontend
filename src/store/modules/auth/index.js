@@ -6,8 +6,11 @@ import ApiService from '@/store/api/api.service';
 import StorageService from '@/store/api/storage.service';
 import NotificationService from '@/store/api/noti.service';
 import router from '@/router';
+const AUTH_URL = process.env.VUE_APP_AUTH_SERVER_URL;
 
 const state = {
+  msg: {},
+  status: {},
   errors: null,
   user: StorageService.getUser(),
   isAuthenticated: !!StorageService.getToken(),
@@ -24,8 +27,8 @@ const actions = {
         mbrId: user.userid,
         mbrPwd: user.password,
       };
-      let response = await ApiService.post('/members/login', params);
-
+      let response = await ApiService.post(`${AUTH_URL}/auth/login`, params);
+      console.log(response);
       context.commit('loginSuccess', response.data);
     } catch (error) {
       context.commit('loginFailure', error);
@@ -39,21 +42,6 @@ const actions = {
       console.log(error);
     }
   },
-  async register(context, user) {
-    try {
-      let params = {
-        username: user.username,
-        password: user.password,
-        email: user.email,
-      };
-      await ApiService.post('/auth/signup', params);
-
-      //context.commit('registerSuccess', response.data);
-    } catch (error) {
-      //ontext.commit('registerFailure', error);
-      console.log(error);
-    }
-  },
   refresh(context) {
     context.commit('initAuthAndNotification');
   },
@@ -61,16 +49,20 @@ const actions = {
 
 // mutations
 const mutations = {
-  loginSuccess(state, user) {
-    if (user.token) {
+  loginSuccess(state, response) {
+    if (response.token) {
       state.isAuthenticated = true;
-      state.user = user;
-      StorageService.saveToken(state.user.token);
+      state.user = response.data;
+      StorageService.saveToken(response.token);
       StorageService.saveUser(state.user);
       ApiService.setHeader();
       NotificationService.connect(state.user.username);
-
+      state.msg = response.msg;
+      state.status = response.status;
       router.push('/');
+    } else {
+      state.msg = response.msg;
+      state.status = response.status;
     }
   },
   initAuthAndNotification(state) {
