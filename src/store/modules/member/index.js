@@ -6,7 +6,7 @@ import ApiService from '@/store/api/api.service';
 import StorageService from '@/store/api/storage.service';
 
 const BASE_URL = '/members/users';
-const AUTH_URL = process.env.AUTH_SERVER;
+const AUTH_URL = process.env.VUE_APP_AUTH_SERVER_URL;
 const state = {
   agreement: [],
   agree: StorageService.getRegister(),
