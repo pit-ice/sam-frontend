@@ -62,7 +62,7 @@ export default {
       return 'result.....';
     },
     userInfo() {
-      return this.$store.state.auth.user.data;
+      return this.$store.state.auth.user;
     },
   },
   methods: {
