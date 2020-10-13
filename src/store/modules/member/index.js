@@ -4,6 +4,7 @@
 
 import ApiService from '@/store/api/api.service';
 import StorageService from '@/store/api/storage.service';
+import router from '@/router';
 
 const BASE_URL = '/members/users';
 const AUTH_URL = process.env.VUE_APP_AUTH_SERVER_URL;
@@ -23,6 +24,7 @@ const state = {
   email: {},
   name: {},
   msg: {},
+  status: {},
 };
 
 // getters
@@ -87,7 +89,6 @@ const actions = {
 
       context.commit('registerSuccess', response.data.data);
     } catch (error) {
-      context.commit('registerSuccess', user);
       console.log(error);
     }
   },
@@ -114,6 +115,7 @@ const actions = {
       };
 
       let response = await ApiService.post(`${BASE_URL}/me`, body);
+      context.commit('verifyPassword', response.data);
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -155,6 +157,7 @@ const mutations = {
     state.id = body.MBR_ID;
     state.email = body.EMAIL_ADDR;
     state.name = body.MBR_NM;
+    StorageService.destoryRegister();
   },
   emailauth(state, status) {
     state.emailauth = status;
@@ -167,6 +170,14 @@ const mutations = {
       state.isDupId = false;
     } else {
       state.isDupId = true;
+    }
+  },
+  verifyPassword(state, response) {
+    state.msg = response.msg;
+    state.status = response.status;
+
+    if (response.status == 200) {
+      router.push('/mypage/info');
     }
   },
   setEmailDuplication(state, data) {

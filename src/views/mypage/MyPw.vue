@@ -20,6 +20,11 @@
         <button class="btn btn-confirm" @click="verifyPassword">확인</button>
       </div>
     </div>
+
+    <!-- 패스워드확인 결과 팝업 -->
+    <b-modal title="알림" v-model="showCompleteModal" @ok="onOk">
+      <p class="my-4">{{ verifyMsg }}</p>
+    </b-modal>
   </div>
 </template>
 
@@ -28,14 +33,18 @@ export default {
   data() {
     return {
       password: '',
+      showCompleteModal: false,
     };
   },
   computed: {
-    verifyResult() {
-      return 'result.....';
-    },
     userInfo() {
       return this.$store.state.auth.user;
+    },
+    verifyMsg() {
+      return this.$store.state.member.msg;
+    },
+    verifyStatus() {
+      return this.$store.state.member.status;
     },
   },
   methods: {
@@ -43,11 +52,14 @@ export default {
       this.$store
         .dispatch('member/verifyPassword', this.password)
         .then(() => {
-          this.$router.push('/mypage/info');
+          this.showCompleteModal = true;
         })
         .catch((error) => {
           alert(error.message);
         });
+    },
+    onOk() {
+      this.$emit('completed');
     },
   },
 };

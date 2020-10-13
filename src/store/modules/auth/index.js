@@ -28,7 +28,8 @@ const actions = {
         mbrPwd: user.password,
       };
       let response = await ApiService.post(`${AUTH_URL}/login`, params);
-      console.log(response);
+
+      console.log(response.data);
       context.commit('loginSuccess', response.data);
     } catch (error) {
       context.commit('loginFailure', error);

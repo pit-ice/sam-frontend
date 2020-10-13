@@ -33,5 +33,8 @@ export const getRegister = () => {
   let agree = window.localStorage.getItem(AGREE) || '{}';
   return JSON.parse(agree);
 };
+export const destoryRegister = () => {
+  window.localStorage.removeItem(AGREE);
+};
 
-export default { getToken, saveToken, getUser, saveUser, destroy, saveRegister, getRegister };
+export default { getToken, saveToken, getUser, saveUser, destroy, saveRegister, getRegister, destoryRegister };

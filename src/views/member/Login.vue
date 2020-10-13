@@ -24,7 +24,7 @@
               </ValidationProvider>
             </dd>
           </dl>
-          <b-alert show variant="info" v-if="loginStatus == 404">{{ loginMsg }}</b-alert>
+
           <!-- 
           <p class="txt_error">아이디 또는 비밀번호를 잘못 입력하셨습니다.</p>
           <div class="login-util">
@@ -51,6 +51,11 @@
         </fieldset>
       </form>
     </ValidationObserver>
+
+    <!-- 로그인 결과 팝업 -->
+    <b-modal title="알림" v-model="showCompleteModal" @ok="onOk">
+      <p class="my-4">{{ loginMsg }}</p>
+    </b-modal>
   </div>
 </template>
 
@@ -63,6 +68,7 @@ export default {
       password: '',
       loading: false,
       message: '',
+      showCompleteModal: false,
     };
   },
   computed: {
@@ -83,6 +89,7 @@ export default {
         this.$store.dispatch('auth/login', { userid: this.userid, password: this.password }).then(
           () => {
             this.loading = false;
+            this.showCompleteModal = true;
           },
           (error) => {
             alert(error.message);
@@ -94,6 +101,9 @@ export default {
           this.$refs.form.reset();
         });
       });
+    },
+    onOk() {
+      this.$emit('completed');
     },
   },
 };
