@@ -24,6 +24,11 @@ const routes = [
         name: 'Guide',
         component: () => import('Views/Guide.vue'),
       },
+      {
+        path: '/component',
+        name: 'Component',
+        component: () => import('Views/Component.vue'),
+      },
     ],
   },
   {
@@ -167,9 +172,19 @@ const routes = [
     children: [
       // 소개
       {
+        path: '/introduce/Introduce',
+        name: 'Introduce',
+        component: () => import('Views/introduce/Introduce.vue'),
+      },
+      {
         path: '/introduce/SV',
         name: 'SV',
         component: () => import('Views/introduce/SV.vue'),
+      },
+      {
+        path: '/introduce/RND',
+        name: 'RND',
+        component: () => import('Views/introduce/RND.vue'),
       },
       {
         path: '/introduce/Partners',
@@ -178,15 +193,51 @@ const routes = [
       },
       //제품
       {
-        path: '/product/Search',
-        name: 'Search',
-        component: () => import('Views/product/Search.vue'),
+        path: '/product/PP',
+        name: 'PP',
+        component: () => import('Views/product/PP.vue'),
+      },
+      {
+        path: '/product/POE',
+        name: 'POE',
+        component: () => import('Views/product/POE.vue'),
+      },
+      {
+        path: '/product/EPDM',
+        name: 'EPDM',
+        component: () => import('Views/product/EPDM.vue'),
       },
       // Auto info
       {
-        path: '/autoic/Company',
-        name: 'Company',
-        component: () => import('Views/autoic/Company.vue'),
+        path: '/autoic/Auto',
+        name: 'Auto',
+        component: () => import('Views/autoic/Auto.vue'),
+      },
+      {
+        path: '/autoic/Material',
+        name: 'Material',
+        component: () => import('Views/autoic/Material.vue'),
+      },
+      {
+        path: '/autoic/Partner',
+        name: 'Partner',
+        component: () => import('Views/autoic/Partner.vue'),
+      },
+      //Virtual R&D Lab
+      {
+        path: '/vrdlab/Introduce',
+        name: 'Introduce',
+        component: () => import('Views/vrdlab/Introduce.vue'),
+      },
+      {
+        path: '/vrdlab/Execution',
+        name: 'Execution',
+        component: () => import('Views/vrdlab/Execution.vue'),
+      },
+      {
+        path: '/vrdlab/Devjoin',
+        name: 'Devjoin',
+        component: () => import('Views/vrdlab/Devjoin.vue'),
       },
       // 고객지원
       {
@@ -194,11 +245,15 @@ const routes = [
         name: 'Faq',
         component: () => import('Views/support/Faq.vue'),
       },
-      //Virtual R&D Lab
       {
-        path: '/vrdlab/Introduce',
-        name: 'Introduce',
-        component: () => import('Views/vrdlab/Introduce.vue'),
+        path: '/support/Qna',
+        name: 'Qna',
+        component: () => import('Views/support/Qna.vue'),
+      },
+      {
+        path: '/support/Tech',
+        name: 'Tech',
+        component: () => import('Views/support/Tech.vue'),
       },
     ],
   },

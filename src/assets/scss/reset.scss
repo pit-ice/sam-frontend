@@ -14,27 +14,82 @@
        url(../../assets/fonts/nanumSquareB.woff) format('woff');
 };
  
+/* font size */
+$fs-default: 14px; 
+$fs-small: 12px; 
+$fs-big: 22px; 
+
+/* font color */
+$fc-default: #333; 
+$fc-link: rgb(54, 102, 173); 
+$fc-point: rgb(223, 26, 26); 
+$fc-black: #000; 
+$fc-light: #999; 
+$fc-white: #fff; 
+
+/* font family */
+$ff-regular : 'NanumSquare', 'Apple Gothic', '돋움', Dotum, '굴림', Gulim, Helvetica, sans-serif;
+$ff-bold : 'NanumSquareB', 'Apple Gothic', '돋움', Dotum, '굴림', Gulim, Helvetica, sans-serif; 
+
+/* Line-height */
+$lh-default: 1.3;
+$lh-small: 1;
+$lh-big: 2;
+
+/* background */
+$bg-light: #fff;
+$bg-gray: #eee;
+$bg-dark: #666;
+
+/* button */
+$btn-default-color: rgb(61, 61, 61);
+$btn-default-bg: rgb(211, 211, 211);
+$btn-default-border: rgb(73, 73, 73); 
+
+$btn-point-color: rgb(156, 3, 3);
+$btn-point-bg: rgb(255, 255, 255);
+$btn-point-border: rgb(150, 38, 38); 
+
+$btn-light-color: rgb(99, 99, 99);
+$btn-light-bg: rgb(255, 255, 255);
+$btn-light-border: rgb(190, 190, 190); 
+ 
+/* margin & padding */
+$sides: (top, bottom, left, right);  
+@for $i from 1 through 999 {
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}-#{$i} {
+      margin-#{$side}: #{$i}px !important;
+    }
+    .p#{str-slice($side, 0, 1)}-#{$i} {
+      padding-#{$side}: #{$i}px !important;
+    }
+  }
+} 
+
+
 /* reset */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin:0; padding:0; border:0; }
 article,aside,canvas,details,figcaption,figure, footer,header,hgroup,menu,nav,section,summary { display:block;}
 * { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 html { height:100%;}
-html, body {  margin:0; padding:0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;   }
-body { position: relative; min-width: 1024px; min-height:100%; background: #ffffff;  font-family:'NanumSquare', 'Apple Gothic', '돋움', Dotum, '굴림', Gulim, Helvetica, sans-serif;  font-size: 13px; font-weight:normal; color:#333; line-height:1.3; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+html, body { margin:0; padding:0; }
+body { position: relative; min-width: 1024px; min-height:100%; background: $bg-light; font-family: $ff-regular; font-size:$fs-default; color:$fc-default; }
 ul, ol, li { list-style:none; }
-input, textarea, select, button { vertical-align:middle; margin:0; padding:0; color:#333; font-size:13px; line-height:1.3; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+input, textarea, select, button { vertical-align:middle; margin:0; padding:0; color:$fc-default; font-size:$fs-default; line-height: $lh-default   }
 legend, caption { visibility:hidden; position:absolute; font-size:0; width:0; height:0; line-height:0; margin:0; padding:0; background:none;  }
 em, address { font-style:normal; }
 table { border-collapse:collapse; border-spacing:0; border:0; } 
 img { vertical-align: top; }
-a { color:#333; text-decoration:none; cursor:pointer; }
-a:hover, a:active, a:focus { color:#3e65d1;  text-decoration:none; } 
+a { color:$fc-link; text-decoration:none; cursor:pointer; }
+a:hover, a:active, a:focus {  color:$fc-point;  text-decoration:none; } 
 ins { display:inline-block; vertical-align:middle; margin:0; text-decoration:none; font-weight:normal; font-style:normal; }
 label, dt, th { font-weight: normal}
 button { border: 0; margin:0; padding:0; text-align: center; text-shadow: none; background:none; cursor: pointer; }
 button:active span, button:focus span {position:relative;top: 0;left: 0;}
-strong { font-family: NanumSquareB;}
+strong { font-family: $ff-bold;}
 select { min-width: 80px;}
 .hidden { visibility:hidden; position:absolute; font-size:0; width:0; height:0; line-height:0; margin:0; padding:0; background:none; }
 textarea { width: 100%;}
+
 

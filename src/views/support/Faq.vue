@@ -53,7 +53,7 @@
 
         <div class="wrap-faq-qna">
           <p>FAQ에 궁금하신점이 없으신 분은 Q&A를 이용 해 주시기 바랍니다.</p>
-          <button class="btn btn-qna">Q&A 바로가기</button>
+          <router-link to="/support/Qna" tag="button" class="btn btn-qna">Q&A 바로가기</router-link>
         </div>
       </div>
     </div>
