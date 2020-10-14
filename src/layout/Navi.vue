@@ -4,7 +4,6 @@
     :class="{ on: slideNav }"
     @mouseover="addParentClass"
     @mouseout="removeParentClass"
-    @click="removeParentClass"
     @focusin="addParentClass"
     @focusout="removeParentClass"
   >
