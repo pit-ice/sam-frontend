@@ -172,9 +172,9 @@ const routes = [
     children: [
       // 소개
       {
-        path: '/introduce/Introduce',
-        name: 'Introduce',
-        component: () => import('Views/introduce/Introduce.vue'),
+        path: '/introduce/About',
+        name: 'About',
+        component: () => import('Views/introduce/About.vue'),
       },
       {
         path: '/introduce/SV',

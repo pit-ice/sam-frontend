@@ -11,9 +11,9 @@
     <h2 class="hidden">GNB</h2>
     <ul class="depth1">
       <li class="m1">
-        <router-link to="/introduce/Introduce" @click.native="activeMenu = 1" :class="{ active: activeMenu == 1 }"><span>About</span></router-link>
+        <router-link to="/introduce/About" @click.native="activeMenu = 1" :class="{ active: activeMenu == 1 }"><span>About</span></router-link>
         <ul class="depth2 sm1">
-          <li><router-link to="/introduce/Introduce" @click.native="activeMenu = 1">Platform 소개</router-link></li>
+          <li><router-link to="/introduce/About" @click.native="activeMenu = 1">Platform 소개</router-link></li>
           <li><router-link to="/introduce/SV" @click.native="activeMenu = 1">SK종합화학의 SV</router-link></li>
           <li><router-link to="/introduce/RND" @click.native="activeMenu = 1">SK종합화학의 R&D</router-link></li>
           <li><router-link to="/introduce/Partners" @click.native="activeMenu = 1">Partners</router-link></li>
