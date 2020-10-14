@@ -7,7 +7,7 @@ const routes = [
   {
     path: '/',
     redirect: '/home',
-    component: () => import('@/layout/MainLayout'),
+    component: () => import('@/layout/LayoutMain'),
     children: [
       {
         path: 'home',
@@ -34,7 +34,7 @@ const routes = [
   {
     path: '/member',
     redirect: '/member/register',
-    component: () => import('@/layout/MainLayout'),
+    component: () => import('@/layout/LayoutSub'),
     children: [
       // 회원가입
       {
@@ -138,7 +138,7 @@ const routes = [
   {
     path: '/mypage',
     redirect: '/mypage/mypw',
-    component: () => import('@/layout/MainLayout'),
+    component: () => import('@/layout/LayoutSub'),
     children: [
       // 마이페이지
       {
@@ -166,11 +166,12 @@ const routes = [
     component: () => import('Views/email/Email.vue'),
   },
 
+  // 서브페이지
   {
     path: '/',
-    component: () => import('@/layout/MainLayout'),
+    component: () => import('@/layout/LayoutSub'),
     children: [
-      // 소개
+      // intro
       {
         path: '/introduce/About',
         name: 'About',
@@ -191,7 +192,7 @@ const routes = [
         name: 'Partners',
         component: () => import('Views/introduce/Partners.vue'),
       },
-      //제품
+      // product
       {
         path: '/product/PP',
         name: 'PP',
@@ -207,7 +208,7 @@ const routes = [
         name: 'EPDM',
         component: () => import('Views/product/EPDM.vue'),
       },
-      // Auto info
+      // info
       {
         path: '/autoic/Auto',
         name: 'Auto',
@@ -239,7 +240,7 @@ const routes = [
         name: 'Devjoin',
         component: () => import('Views/vrdlab/Devjoin.vue'),
       },
-      // 고객지원
+      // supoort
       {
         path: '/support/Faq',
         name: 'Faq',

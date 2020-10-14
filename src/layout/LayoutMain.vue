@@ -1,21 +1,21 @@
 <template>
   <div class="wrapper">
     <LayoutHeader></LayoutHeader>
-    <LayoutContent></LayoutContent>
+    <ContentMain></ContentMain>
     <LayoutFooter></LayoutFooter>
   </div>
 </template>
 
 <script>
 import LayoutHeader from '@/layout/LayoutHeader.vue';
-import LayoutContent from '@/layout/LayoutContent.vue';
+import ContentMain from '@/layout/ContentMain.vue';
 import LayoutFooter from '@/layout/LayoutFooter.vue';
 
 export default {
   name: 'App',
   components: {
     LayoutHeader,
-    LayoutContent,
+    ContentMain,
     LayoutFooter,
   },
 };

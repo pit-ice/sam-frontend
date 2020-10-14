@@ -6,8 +6,9 @@
     <div class="inner">
       <h1 class="logo">LOGO</h1>
       <UtilMenu></UtilMenu>
-      <Navi></Navi>
     </div>
+    <Navi></Navi>
+
     <hr class="hidden" />
   </div>
 </template>

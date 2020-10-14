@@ -92,7 +92,7 @@
  
 /* About */
 .wrap-about { position: relative;}
-.wrap-about .about-nav { position: fixed; top:330px; right:130px; }
+.wrap-about .about-nav { position: fixed; top:40%; width:50px; margin: 0 0 0 950px; z-index: 8;  }
 .wrap-about .about-nav li { margin:2px 0;}
 .wrap-about .about-nav li a { display: block; margin:0 0 10px 0; width:20px; height:20px; border-radius: 20px; font-size:0; background:#666}
 .wrap-about .about-nav li a.active { background: red; ;}

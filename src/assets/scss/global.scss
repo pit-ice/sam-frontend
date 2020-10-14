@@ -30,14 +30,14 @@ input[type=radio]:disabled:checked + .radio .icon { border:1px solid #c0c0c2; ba
   visibility: inherit !important;
 }
 
-/* float menu */ 
-.wrap-float-menu { position: fixed; top:100px; right:0;  padding:0 20px;  }
-.wrap-float-menu ul { position: relative;  width:80px;  border:1px solid #000}
-.wrap-float-menu ul li a { display: block; padding:10px 0;}
+/* sidebar menu */ 
+.sidebar-menu { position: fixed; top:100px; width:80px; margin: 0 0 0 1000px; z-index: 8;  }
+.sidebar-menu ul { position: relative;  width:80px;  border:1px solid #000}
+.sidebar-menu ul li a { display: block; padding:10px 0;}
 
 /* scroll top */
-.wrap-scroll-top { position: fixed; bottom:50px; right:0; padding:0 50px;    } 
-.wrap-scroll-top button {  padding:3px 5px; border:1px solid #000 }
+.scroll-top { position: fixed; bottom:50px; width:50px; margin: 0 0 0 1000px;   } 
+.scroll-top button {  padding:3px 5px; border:1px solid #000 }
 
 /* text */ 
 .txt { font-size: $fs-default; }

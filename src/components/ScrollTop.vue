@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap-scroll-top">
+  <div class="scroll-top">
     <button class="btn-to-top" v-if="isVisible" @click="backToTop">TOP</button>
   </div>
 </template>
