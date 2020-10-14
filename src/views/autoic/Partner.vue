@@ -1,5 +1,19 @@
 <template>
-  <div class="info">
-    <h1>partner</h1>
+  <div class="partner">
+    <BreadScrumb></BreadScrumb>
+    <div class="title">
+      <h3>Partner News</h3>
+      <p>aaaa</p>
+    </div>
   </div>
 </template>
+
+<script>
+import BreadScrumb from '@/components/BreadScrumb.vue';
+
+export default {
+  components: {
+    BreadScrumb,
+  },
+};
+</script>

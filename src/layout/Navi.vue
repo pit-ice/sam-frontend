@@ -24,7 +24,7 @@
         <ul class="depth2 sm2">
           <li><router-link to="/product/PP" @click.native="activeMenu = 2">Automotive Polypropylene</router-link></li>
           <li><router-link to="/product/POE" @click.native="activeMenu = 2">Polyolefin Elastomer</router-link></li>
-          <li><router-link to="/product/EPDM" @click.native="activeMenu = 2">EPDMm</router-link></li>
+          <li><router-link to="/product/EPDM" @click.native="activeMenu = 2">EPDM</router-link></li>
         </ul>
       </li>
       <li class="m3">

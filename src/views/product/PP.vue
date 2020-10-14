@@ -1,6 +1,11 @@
 <template>
   <div class="auto">
-    <h1>제품 검색</h1>
+    <BreadScrumb></BreadScrumb>
+    <div class="title">
+      <h3>Automotive Polypropylene</h3>
+      <p>aaaa</p>
+    </div>
+
     <div>
       ########### 오토소재 PP ###############
 
@@ -39,3 +44,13 @@
     </div>
   </div>
 </template>
+
+<script>
+import BreadScrumb from '@/components/BreadScrumb.vue';
+
+export default {
+  components: {
+    BreadScrumb,
+  },
+};
+</script>

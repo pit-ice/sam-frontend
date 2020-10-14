@@ -1,8 +1,8 @@
 <template>
-  <div class="support">
+  <div class="qna">
     <BreadScrumb></BreadScrumb>
     <div class="title">
-      <h3>Support</h3>
+      <h3>Q&A</h3>
       <p>물성, 소재, 기술개발 등의 분야에 문의 응답 및 문제 해결을 해 드립니다.</p>
     </div>
 

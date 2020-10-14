@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="partners">
     <BreadScrumb></BreadScrumb>
     <div class="title">
       <h3>파트너 지원</h3>
