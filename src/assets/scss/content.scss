@@ -1,32 +1,54 @@
 /* Main */
-
+.main { text-align: center;}
+.txt-main { margin:10px 0 0 0; }
+.txt-main strong { display: block; font-size:$fs-big; }
+.txt-main p { font-size:$fs-small;  }
 .main-carousel {  
   height: 150px;   
-}
-.main-intro {
+} 
+.main-carousel .owl-prev { position: absolute; display: block; top:50px; left:0;;}
+.main-carousel .owl-next { position: absolute; display: block; top:50px; right:0;;}
+.main-carousel .owl-dots { position: absolute; top:118px; left:0; width: 100%; text-align:center;;}
+
+.main-carousel .owl-theme .owl-dots .owl-dot span {
+  width: 20px;
+  height: 3px;
+  margin: 8px 3px;
+  background: #D6D6D6;
+  display: block;  
+  border-radius: 0;
+  transition: all .2s ease;}
+  .main-carousel .owl-theme .owl-dots .owl-dot.active span {  width: 60px; }
+
+.main-about {
   height: 150px;
-  // background:url('../../assets/img/logo.png') no-repeat ;  
-  
-  background: rgb(216, 184, 184);
+  padding:40px 0 0 0;
+  color:$fc-white;
+  background:#3e65d1 url('../../assets/img/img_main_about.png') center no-repeat ; 
+   
 }
-.main-auto {
+.main-product {
   height: 150px;
   background: rgb(193, 223, 218);
 }
+
 .main-rnd {
   height: 150px;
-  background: rgb(228, 221, 197);
+  background: rgb(201, 197, 221);
 }
-.main-vrd {
-  height: 150px;
-  background: rgb(200, 177, 209);
-}
-.main-link {
-  height: 150px;
-  background: rgb(206, 179, 179);
-} 
 
+.main-support {
+  height: 150px;
+  background: rgb(226, 240, 211);
+}
+
+.main-plan {
+  height: 150px;
+  background: rgb(193, 223, 218);
+}
  
+
+
 
 /* join + login */
 .wrap-register { position: relative;}
