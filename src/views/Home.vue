@@ -2,28 +2,26 @@
   <div class="main">
     <div class="main-carousel">
       <div class="inner">
-        <carousel :autoplay="true" :nav="true" :items="1" :loop="true">
-          <div>
-            <p>11</p>
-            <button class="btn">See More</button>
-          </div>
-          <div>
-            <p>22</p>
-            <button class="btn">See More</button>
-          </div>
-          <div>
-            <p>33</p>
-            <button class="btn">See More</button>
-          </div>
-          <div>
-            <p>44</p>
-            <button class="btn">See More</button>
-          </div>
-          <div>
-            <p>55</p>
-            <button class="btn">See More</button>
-          </div>
-        </carousel>
+        <VueSlickCarousel
+          ref="carousel"
+          :autoplay="true"
+          :autoplaySpeed="1000"
+          :pauseOnDotsHover="true"
+          :pauseOnFocus="true"
+          :arrows="true"
+          :dots="true"
+          :slidesToShow="1"
+          :slidesToScroll="1"
+          :infinite="true"
+          :speed="500"
+        >
+          <div>1 <button tabindex="-1">aa1</button></div>
+          <div>2 <button tabindex="-1">aa1</button></div>
+          <div>3 <button tabindex="-1">aa1</button></div>
+          <div>4<button tabindex="-1">aa1</button></div>
+        </VueSlickCarousel>
+        <button @click="slickPause" v-if="playing">slickPause</button>
+        <button @click="slickPlay" v-else>slickPlay</button>
       </div>
     </div>
     <div class="main-about">
@@ -78,11 +76,27 @@
 </template>
 
 <script>
-import carousel from 'vue-owl-carousel';
+import VueSlickCarousel from 'vue-slick-carousel';
+import 'vue-slick-carousel/dist/vue-slick-carousel.css';
 
 export default {
-  components: {
-    carousel,
+  name: 'MyComponent',
+  components: { VueSlickCarousel },
+
+  data: function () {
+    return {
+      playing: true,
+    };
+  },
+  methods: {
+    slickPause() {
+      this.$refs.carousel.pause();
+      this.playing = false;
+    },
+    slickPlay() {
+      this.$refs.carousel.play();
+      this.playing = true;
+    },
   },
 };
 </script>

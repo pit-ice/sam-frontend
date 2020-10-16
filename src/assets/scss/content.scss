@@ -3,23 +3,17 @@
 .txt-main { margin:10px 0 0 0; }
 .txt-main strong { display: block; font-size:$fs-big; }
 .txt-main p { font-size:$fs-small;  }
-.main-carousel {  
-  height: 150px;   
-} 
-.main-carousel .owl-prev { position: absolute; display: block; top:50px; left:0;;}
-.main-carousel .owl-next { position: absolute; display: block; top:50px; right:0;;}
-.main-carousel .owl-dots { position: absolute; top:118px; left:0; width: 100%; text-align:center;;}
+.main-carousel {   } 
+.main-carousel .slick-slider { height: 150px; } 
+.main-carousel .slick-prev { position: absolute; display: block; top:50px; left:0;;}
+.main-carousel .slick-next { position: absolute; display: block; top:50px; right:0;;}
+.main-carousel .slick-dots { position: absolute; top:118px; left:0; width: 100%; text-align:center;;}
+.main-carousel .slick-dots li { display: inline-block;;;}
+.main-carousel .slick-dots li button { width: 20px;height: 3px;margin: 8px 3px; font-size:0; background: #D6D6D6;display: block;  border-radius: 0;transition: all .2s ease;;}
+.main-carousel .slick-dots li.slick-active button { width: 60px; background: #37419c;}
 
-.main-carousel .owl-theme .owl-dots .owl-dot span {
-  width: 20px;
-  height: 3px;
-  margin: 8px 3px;
-  background: #D6D6D6;
-  display: block;  
-  border-radius: 0;
-  transition: all .2s ease;}
-  .main-carousel .owl-theme .owl-dots .owl-dot.active span {  width: 60px; }
-
+ 
+ 
 .main-about {
   height: 150px;
   padding:40px 0 0 0;
