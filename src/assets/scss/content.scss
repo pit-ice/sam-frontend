@@ -1,22 +1,47 @@
 /* Main */
 .main { text-align: center;}  
-.main-carousel { height:725px; overflow: hidden;} 
-.main-carousel .slick-prev { position: absolute; display: none !important; top:50px; left:0; z-index: 2;;}
-.main-carousel .slick-next { position: absolute; display: none !important; top:50px; right:0;z-index: 2;}
-.main-carousel .slick-dots { position: absolute; top:618px; left:50%; width:1280px; margin:0 0 0 -640px; text-align:right;;}
-.main-carousel .slick-dots li { display: inline-block;}
-.main-carousel .slick-dots li button { width:9px;height: 9px;margin: 0 5px; display: block; font-size:0; border-radius:50%; background: #f8f8f8; opacity: 0.5;;}
-.main-carousel .slick-dots li.slick-active button { background: #ff7a00; }
-
-.main-carousel .slick-slide { position: relative; }
-.main-carousel .slick-slide img { width:100% !important; height: auto !important; min-height:725px; min-width:1920px; }
-.main-carousel .slick-slide .txt-visual { position: absolute; top:250px; left:50%; width:1280px; margin:0 0 0 -640px; text-align: left;   ;}
-.main-carousel .slick-slide .txt-visual em { display: block; margin:0 0 70px 0; font-size:32px; color:#ff7a00;}
-.main-carousel .slick-slide .txt-visual p { font-size:55px; color:#fff;}
-.main-carousel .slick-slide .txt-visual span {  display:block; font-size:18px; color:#fff; opacity: 0.7;}
-.main-carousel .slick-slide .txt-visual button { width: 176px; height: 48px; margin:50px 0 0 0; font-size: 18px; line-height: 48px; border:1px solid #fff; text-align: center; color:#fff; ; }
+.main .inner { width:1100px;}
+.main-visual { height:725px; margin:0 0 50px 0; overflow: hidden;} 
+.main-visual .slick-prev { position: absolute; display: none !important; top:50px; left:0; z-index: 2;;}
+.main-visual .slick-next { position: absolute; display: none !important; top:50px; right:0;z-index: 2;}
+.main-visual .slick-dots { position: absolute; top:618px; left:50%; width:1240px; margin:0 0 0 -620px; text-align:right;;}
+.main-visual .slick-dots li { display: inline-block;}
+.main-visual .slick-dots li button { width:9px;height: 9px;margin: 0 5px; display: block; font-size:0; border-radius:50%; background: #f8f8f8; opacity: 0.5;;}
+.main-visual .slick-dots li.slick-active button { background: #ff7a00; }
+.main-visual .slick-slide { position: relative; }
+.main-visual .slick-slide img { width:100% !important; height: auto !important; min-height:725px; min-width:1920px; }
+.main-visual .slick-slide .txt-visual { position: absolute; top:300px; left:50%; width:1240px; margin:0 0 0 -620px; text-align: left;   ;}
+.main-visual .slick-slide .txt-visual em { display: block; margin:0 0 20px 0; font-size:32px; color:#ff7a00;}
+.main-visual .slick-slide .txt-visual p { font-size:55px; color:#fff; font-weight:bold;}
+.main-visual .slick-slide .txt-visual span {  display:block; font-size:18px; color:#fff; opacity: 0.7;}
+.main-visual .slick-slide .txt-visual button { width: 176px; height: 48px; margin:50px 0 0 0; font-size: 18px; line-height: 48px; border:1px solid #fff; text-align: center; color:#fff; ; }
  
-
+.main-card { height:340px; margin:0 0 50px 17px; overflow: hidden; }
+.main-card .inner { width:1120px;}
+.main-card .slick-prev { position: absolute;  top:144px; left:0; z-index: 2; width:48px; height:54px; font-size:0; background:url('../../assets/img/btn_carousel_prev.png') no-repeat center}
+.main-card .slick-next { position: absolute;  top:144px; right:21px;z-index: 2; width:48px; height:54px; font-size:0; background:url('../../assets/img/btn_carousel_next.png') no-repeat center}
+.main-card .slick-slide { position: relative;  overflow: hidden;   } 
+.main-card .slick-slide img { width:352px !important; height: 340px !important;  }
+.main-card .slick-slide .txt-visual { text-align: left;  }
+.main-card .slick-slide .txt-visual a { display: block; position: absolute; top:0; left:0; width:392px;  height: 340px;}
+.main-card .slick-slide .txt-visual em {  position: absolute; top:40px; left:45px; display: block; margin:0 0 70px 0; font-size:33px; color:#fff;}
+.main-card .slick-slide .txt-visual p { position: absolute; top:115px; left:45px; font-size:15px; color:#fff;}
+.main-card .slick-slide .txt-visual .ico { position: absolute; top:45px; left:45px;  display:block; font-size:18px; color:#fff; opacity: 0.7;}
+.main-card .slick-slide .txt-visual button { position: absolute; top:200px; left:45px; width: 160px; height: 48px; margin:50px 0 0 0; font-size: 17px; line-height: 48px; border-bottom:1px solid #fff; text-align: left;  color:#fff; background:url('../../assets/img/ico_arrow.png') no-repeat right center;  }
+ 
+.main-banner { height:200px; margin:0 0 50px 0; overflow: hidden; }
+.main-banner .slick-prev { position: absolute;  top:80px; left:0; z-index: 2; width:48px; height:54px; font-size:0; background:url('../../assets/img/btn_carousel_prev.png') no-repeat center}
+.main-banner .slick-next { position: absolute;  top:80px; right:0;z-index: 2; width:48px; height:54px; font-size:0; background:url('../../assets/img/btn_carousel_next.png') no-repeat center}
+.main-banner .slick-slide { position: relative; overflow: hidden; } 
+.main-banner .slick-slide img { width:1100px !important; height: 200px !important;  }
+.main-banner .slick-slide .txt-visual { text-align: left;  }
+.main-banner .slick-slide .txt-visual a { display: block; position: absolute; top:0; left:0; width:1100px; height: 200px; z-index: 3;}
+.main-banner .slick-slide .txt-visual p { position: absolute; top:115px; left:70px; font-size:22px; color:#fff;}
+.main-banner .slick-slide .txt-visual button { position: absolute; top:35px; left:860px; width: 176px; height: 48px; margin:50px 0 0 0; font-size: 18px; line-height: 48px; border:1px solid #fff; text-align: center; color:#fff; ; }
+.main-banner .slick-dots { position: absolute; top:35px; right:60px;    ;}
+.main-banner .slick-dots li { display: inline-block;}
+.main-banner .slick-dots li button { width:9px;height: 9px;margin: 0 5px; display: block; font-size:0; border-radius:50%; background: #f8f8f8; opacity: 0.5;;}
+.main-banner .slick-dots li.slick-active button { background: #ff7a00; }
 
 /* join + login */
 .login-form { width: 430px; margin:0 auto;}

@@ -13,6 +13,10 @@ import '@/assets/scss/global.scss';
 // vee-validation
 import '@/vee-validate';
 
+// scroll to
+import VueScrollTo from 'vue-scrollto';
+Vue.use(VueScrollTo);
+
 Vue.use(BootstrapVue);
 
 Vue.config.productionTip = false;

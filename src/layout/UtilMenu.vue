@@ -3,7 +3,7 @@
     <h2 class="hidden">유틸메뉴</h2>
     <ul>
       <li class="vrnd">
-        <router-link to="/member/register">VRND LAB <img src="@/assets/img/ico_vrnd.png" /> </router-link>
+        <router-link to="#"><img src="@/assets/img/ico_vrnd.png" /> MY COMPANY</router-link>
       </li>
       <li>
         <div class="gnb-alarm">

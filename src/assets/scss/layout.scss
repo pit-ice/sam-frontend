@@ -1,6 +1,6 @@
 /* 레이아웃 */
 .wrapper {width: 100%; min-width: 1280px;}
-.wrapper .inner { position: relative; width:1280px; margin: 0 auto;   }
+.wrapper .inner { position: relative; width:1240px; margin: 0 auto;   }
 .header { position: fixed; top:0; left:0; width:100%; height:60px; background: #fff; z-index:88; }
 .header .skip-nav {position:absolute;left:0;top:0;z-index:999;width:100%;}
 .header .skip-nav a {position:absolute;left:0;top:-1000em;display:block;height:20px;width:100%;white-space:nowrap;text-align:center;font-size:12px;color:#fff;text-decoration:none;background-color:black;}
@@ -12,7 +12,7 @@
 .header .nav { position:relative; overflow: hidden;  max-height: 61px;  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1); background: #f8f8f8 url('../../assets/img/bg_dot.png') repeat-x left 60px ;}
 .header .nav.on { max-height: 700px; border-bottom:1px solid #e2e2e2; transition: max-height 0.3s cubic-bezier(1, 1, 1, 0);; }
 .header .nav .top-bg { position: absolute;lefT: 0;top: 0;width: 100%;height: 60px;background: white; }
-.header .nav .depth1 { display: table; width:950px; padding:0 0 0 150px; text-align: center;; overflow:hidden;   }
+.header .nav .depth1 { display: table; width:900px; padding:0 0 0 120px; text-align: center;; overflow:hidden;   }
 .header .nav .depth1 li { position:relative; display:table-cell; height:100%;  vertical-align: top; font-size:16px; text-align: center; background:url('../../assets/img/bg_dot.png') repeat-y left; }
 .header .nav .depth1 li:last-child { background:url('../../assets/img/bg_dot.png') repeat-y left, url('../../assets/img/bg_dot.png') repeat-y right }
 .header .nav .depth1 li a { position: absolute; top:0; left:0; display:block; width:100%; height:60px;  line-height: 60px; color:#333; font-weight:bold;  background:#fff; }
@@ -50,7 +50,7 @@
 .header .gnb-alarm .wrap-alarm ul li em { color: #666;}
 
 .content {
-	padding:  60px 0 100px 0;
+	padding:  60px 0 80px 0;
 	position: relative;  
 }
 

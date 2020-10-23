@@ -1,9 +1,7 @@
 @charset "UTF-8"; 
 @import "reset.scss"; 
 @import "layout.scss"; 
-@import "content.scss"; 
-
- 
+@import "content.scss";  
 
 /* Forms  */ 
 input[type="text"], 
@@ -131,3 +129,24 @@ h4 { display: inline-block; margin:0 0 10px 0; text-decoration: underline; font-
 .wrap-paging li.active { color:red}
 
  
+
+
+/* ipad */ 
+@media screen 
+and (min-width : 768px) 
+and (max-width : 1024px)
+and (orientation : portrait){     
+  html { 
+    zoom: 0.6; 
+  }
+}
+@media screen 
+and (min-width : 768px) 
+and (max-width : 1024px) 
+and (orientation : landscape) {   
+  html { 
+    zoom: 0.8; 
+  }
+}
+
+

@@ -1,10 +1,10 @@
 <template>
   <div class="main">
-    <div class="main-carousel">
+    <div class="main-visual">
       <VueSlickCarousel
         ref="carousel"
-        :autoplay="false"
-        :autoplaySpeed="1000"
+        :autoplay="true"
+        :autoplaySpeed="3000"
         :pauseOnDotsHover="true"
         :pauseOnFocus="true"
         :arrows="true"
@@ -42,19 +42,123 @@
           </div>
         </div>
       </VueSlickCarousel>
-      <span class="total-slide">/</span>
+      <!-- <span class="total-slide">/</span>
       <button @click="slickPause" v-if="playing">slickPause</button>
-      <button @click="slickPlay" v-else>slickPlay</button>
+      <button @click="slickPlay" v-else>slickPlay</button> -->
     </div>
     <div class="main-card">
       <div class="inner">
-        <div class="title">
-          <h4>SK종합화학은</h4>
-          <p>
-            SK종합화학은 끊임없는 연구와 지속적인 개발로 <br />고객의 가치를 창출을 위해 새로운 플랫폼을 오픈 하였습니다. <br />우리의 플랫폼은 개인,
-            기업 누구나 SK종합화학과 함께 새로운 연구를 시작합니다.
-          </p>
-        </div>
+        <VueSlickCarousel
+          ref="carousel"
+          :autoplay="false"
+          :autoplaySpeed="3000"
+          :pauseOnDotsHover="true"
+          :pauseOnFocus="true"
+          :arrows="true"
+          :dots="true"
+          :slidesToShow="3"
+          :slidesToScroll="1"
+          :infinite="true"
+          :speed="500"
+        >
+          <div>
+            <img src="@/assets/img/img_main_vrd.png" />
+            <div class="txt-visual">
+              <a href="#">
+                <div class="overlay"></div>
+                <em>Virtual R&D Lab.</em>
+                <p>머신러닝 어렵지않아요. <br />머신러닝에 대한 설명입니다. <br />머신러닝에 대한 설명입니다.</p>
+                <span class="ico"></span>
+                <button>자세히 보기</button>
+              </a>
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/img/img_main_product.png" />
+            <div class="txt-visual">
+              <a href="#">
+                <div class="overlay"></div>
+                <em>Products</em>
+                <p>머신러닝 어렵지않아요. <br />머신러닝에 대한 설명입니다. <br />머신러닝에 대한 설명입니다.</p>
+                <span class="ico"></span>
+                <button>자세히 보기</button>
+              </a>
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/img/img_main_trouble.png" />
+            <div class="txt-visual">
+              <a href="#">
+                <div class="overlay"></div>
+                <em>Troubleshooting</em>
+                <p>머신러닝 어렵지않아요. <br />머신러닝에 대한 설명입니다. <br />머신러닝에 대한 설명입니다.</p>
+                <span class="ico"></span>
+                <button>자세히 보기</button>
+              </a>
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/img/img_main_trouble.png" />
+            <div class="txt-visual">
+              <a href="#">
+                <div class="overlay"></div>
+                <em>Troubleshooting</em>
+                <p>머신러닝 어렵지않아요. <br />머신러닝에 대한 설명입니다. <br />머신러닝에 대한 설명입니다.</p>
+                <span class="ico"></span>
+                <button>자세히 보기</button>
+              </a>
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/img/img_main_trouble.png" />
+            <div class="txt-visual">
+              <a href="#">
+                <div class="overlay"></div>
+                <em>Troubleshooting</em>
+                <p>머신러닝 어렵지않아요. <br />머신러닝에 대한 설명입니다. <br />머신러닝에 대한 설명입니다.</p>
+                <span class="ico"></span>
+                <button>자세히 보기</button>
+              </a>
+            </div>
+          </div>
+        </VueSlickCarousel>
+      </div>
+    </div>
+
+    <div class="main-banner">
+      <div class="inner">
+        <VueSlickCarousel
+          ref="carousel"
+          :autoplay="false"
+          :autoplaySpeed="3000"
+          :pauseOnDotsHover="true"
+          :pauseOnFocus="true"
+          :arrows="true"
+          :dots="true"
+          :slidesToShow="1"
+          :slidesToScroll="1"
+          :infinite="true"
+          :speed="500"
+        >
+          <div>
+            <img src="@/assets/img/img_banner1.png" />
+            <div class="txt-visual">
+              <a href="#">
+                <p>지속가능한 패키징을 위한 Online 소통 공간, 스페이스</p>
+                <button>바로가기</button>
+              </a>
+            </div>
+          </div>
+          <div>
+            <img src="@/assets/img/img_banner1.png" />
+            <div class="txt-visual">
+              <a href="#">
+                <p>지속가능한 패키징을 위한 Online 소통 공간, 스페이스</p>
+                <button>바로가기</button>
+              </a>
+            </div>
+          </div>
+        </VueSlickCarousel>
       </div>
     </div>
   </div>
