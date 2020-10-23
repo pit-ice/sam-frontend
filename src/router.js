@@ -180,17 +180,17 @@ const routes = [
       {
         path: '/introduce/SV',
         name: 'SV',
-        component: () => import('Views/introduce/SV.vue'),
+        component: () => import('Views/introduce/About.vue'),
       },
       {
         path: '/introduce/RND',
         name: 'RND',
-        component: () => import('Views/introduce/RND.vue'),
+        component: () => import('Views/introduce/About.vue'),
       },
       {
         path: '/introduce/Partners',
         name: 'Partners',
-        component: () => import('Views/introduce/Partners.vue'),
+        component: () => import('Views/introduce/About.vue'),
       },
       // product
       {

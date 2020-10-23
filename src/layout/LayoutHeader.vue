@@ -4,7 +4,9 @@
       <a href="#content" tabindex="1">본문 바로가기</a>
     </div>
     <div class="inner">
-      <h1 class="logo">LOGO</h1>
+      <h1 class="logo">
+        <a href="/home"><img src="@/assets/img/logo.png" /></a>
+      </h1>
       <UtilMenu></UtilMenu>
     </div>
     <Navi></Navi>

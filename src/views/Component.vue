@@ -45,13 +45,58 @@
     <div class="box"></div>
     <div class="t2">Forms</div>
     <div class="t3">Input</div>
-    <div class="box">aaaa</div>
+    <div class="box">
+      <h6>Default</h6>
+      <input type="text" class="input" /><br /><br />
+      <h6>Big</h6>
+      <input type="text" class="input big" /><br /><br />
+      <h6>Disabled</h6>
+      <input type="text" value="비활성화" class="input" disabled /><br /><br />
+      <h6>Error</h6>
+      <input type="text" class="input error" />
+      <span class="txt-input-error">데이터가 없습니다.</span>
+      <br /><br />
+    </div>
     <div class="t3">Selecbox</div>
     <div class="box">aaaa</div>
     <div class="t3">Checkbox</div>
-    <div class="box">aaaa</div>
+    <div class="box">
+      <div class="form-inline">
+        <input type="checkbox" id="ch" checked />
+        <label class="checkbox" for="ch"><span class="icon"></span>체크</label>
+      </div>
+      <div class="form-inline">
+        <input type="checkbox" id="ch2" />
+        <label class="checkbox" for="ch2"><span class="icon"></span>체크2</label>
+      </div>
+      <div class="form-inline">
+        <input type="checkbox" id="ch3" />
+        <label class="checkbox" for="ch3"><span class="icon"></span>체크3</label>
+      </div>
+      <div class="form-inline">
+        <input type="checkbox" id="ch4" disabled />
+        <label class="checkbox" for="ch4"><span class="icon"></span>체크3</label>
+      </div>
+    </div>
     <div class="t3">Radio</div>
-    <div class="box">aaaa</div>
+    <div class="box">
+      <div class="form-inline">
+        <input type="radio" id="rd" name="radio" checked />
+        <label class="radio" for="rd"><span class="icon"></span>라디오</label>
+      </div>
+      <div class="form-inline">
+        <input type="radio" id="rd2" name="radio" />
+        <label class="radio" for="rd2"><span class="icon"></span>라디오2</label>
+      </div>
+      <div class="form-inline">
+        <input type="radio" id="rd3" name="radio" />
+        <label class="radio" for="rd3"><span class="icon"></span>라디오3</label>
+      </div>
+      <div class="form-inline">
+        <input type="radio" id="rd4" name="radio" disabled />
+        <label class="radio" for="rd4"><span class="icon"></span>라디오3</label>
+      </div>
+    </div>
     <div class="t3">File</div>
     <div class="box">aaaa</div>
     <div class="t2">Tab menu</div>
@@ -62,7 +107,7 @@
 <style lang="scss" scoped>
 .component {
   padding: 10px;
-  background: #f2f2f2;
+  background: #fff;
 }
 .t1 {
   text-align: center;

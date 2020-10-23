@@ -1,50 +1,32 @@
 /* Main */
-.main { text-align: center;}
-.txt-main { margin:10px 0 0 0; }
-.txt-main strong { display: block; font-size:$fs-big; }
-.txt-main p { font-size:$fs-small;  }
-.main-carousel {   } 
-.main-carousel .slick-slider { height: 150px; } 
-.main-carousel .slick-prev { position: absolute; display: block; top:50px; left:0;;}
-.main-carousel .slick-next { position: absolute; display: block; top:50px; right:0;;}
-.main-carousel .slick-dots { position: absolute; top:118px; left:0; width: 100%; text-align:center;;}
-.main-carousel .slick-dots li { display: inline-block;;;}
-.main-carousel .slick-dots li button { width: 20px;height: 3px;margin: 8px 3px; font-size:0; background: #D6D6D6;display: block;  border-radius: 0;transition: all .2s ease;;}
-.main-carousel .slick-dots li.slick-active button { width: 60px; background: #37419c;}
+.main { text-align: center;}  
+.main-carousel { height:725px; overflow: hidden;} 
+.main-carousel .slick-prev { position: absolute; display: none !important; top:50px; left:0; z-index: 2;;}
+.main-carousel .slick-next { position: absolute; display: none !important; top:50px; right:0;z-index: 2;}
+.main-carousel .slick-dots { position: absolute; top:618px; left:50%; width:1280px; margin:0 0 0 -640px; text-align:right;;}
+.main-carousel .slick-dots li { display: inline-block;}
+.main-carousel .slick-dots li button { width:9px;height: 9px;margin: 0 5px; display: block; font-size:0; border-radius:50%; background: #f8f8f8; opacity: 0.5;;}
+.main-carousel .slick-dots li.slick-active button { background: #ff7a00; }
 
+.main-carousel .slick-slide { position: relative; }
+.main-carousel .slick-slide img { width:100% !important; height: auto !important; min-height:725px; min-width:1920px; }
+.main-carousel .slick-slide .txt-visual { position: absolute; top:250px; left:50%; width:1280px; margin:0 0 0 -640px; text-align: left;   ;}
+.main-carousel .slick-slide .txt-visual em { display: block; margin:0 0 70px 0; font-size:32px; color:#ff7a00;}
+.main-carousel .slick-slide .txt-visual p { font-size:55px; color:#fff;}
+.main-carousel .slick-slide .txt-visual span {  display:block; font-size:18px; color:#fff; opacity: 0.7;}
+.main-carousel .slick-slide .txt-visual button { width: 176px; height: 48px; margin:50px 0 0 0; font-size: 18px; line-height: 48px; border:1px solid #fff; text-align: center; color:#fff; ; }
  
- 
-.main-about {
-  height: 150px;
-  padding:40px 0 0 0;
-  color:$fc-white;
-  background:#3e65d1 url('../../assets/img/img_main_about.png') center no-repeat ; 
-   
-}
-.main-product {
-  height: 150px;
-  background: rgb(193, 223, 218);
-}
-
-.main-rnd {
-  height: 150px;
-  background: rgb(201, 197, 221);
-}
-
-.main-support {
-  height: 150px;
-  background: rgb(226, 240, 211);
-}
-
-.main-plan {
-  height: 150px;
-  background: rgb(193, 223, 218);
-}
- 
-
 
 
 /* join + login */
+.login-form { width: 430px; margin:0 auto;}
+.login-form dl { width: 100%;  } 
+.login-form dt { display: none;; }  
+.login-form dd { margin:0 0 20px 0;}  
+.login-form .wrap-btn { margin:40px 0 0 0;}
+.login-form .wrap-link-find { margin:20px 0 0 0; text-align: center; font-size:14px; color:#cbcbcb}
+.login-form .wrap-link-find a { display: inline-block; margin:0 10px; color:#666666  }
+
 .wrap-register { position: relative;}
 .wrap-register ul { overflow: hidden; margin:0 0 20px 0;}
 .wrap-register ul li { float: left; width:50%;   }
@@ -108,7 +90,7 @@
  
 /* About */
 .wrap-about { position: relative;}
-.wrap-about .about-nav { position: fixed; top:40%; width:50px; margin: 0 0 0 950px; z-index: 8;  }
+.wrap-about .about-nav { position: fixed; top:40%; width:50px; margin: 0 0 0 1200px; z-index: 8;  }
 .wrap-about .about-nav li { margin:2px 0;}
 .wrap-about .about-nav li a { display: block; margin:0 0 10px 0; width:20px; height:20px; border-radius: 20px; font-size:0; background:#666}
 .wrap-about .about-nav li a.active { background: red; ;}

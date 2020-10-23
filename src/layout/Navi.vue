@@ -7,11 +7,12 @@
     @focusin="addParentClass"
     @focusout="removeParentClass"
   >
+    <div class="top-bg"></div>
     <div class="inner">
       <h2 class="hidden">GNB</h2>
       <ul class="depth1">
         <li class="m1">
-          <router-link to="/introduce/About" @click.native="activeMenu = 1" :class="{ active: activeMenu == 1 }"><span>About</span></router-link>
+          <router-link to="/introduce/About" @click.native="activeMenu = 1" :class="{ active: activeMenu == 1 }"><span>ABOUT</span></router-link>
           <ul class="depth2 sm1">
             <li><router-link to="/introduce/About" @click.native="activeMenu = 1">Platform 소개</router-link></li>
             <li><router-link to="/introduce/SV" @click.native="activeMenu = 1">SK종합화학의 SV</router-link></li>
@@ -20,15 +21,19 @@
           </ul>
         </li>
         <li class="m2">
-          <router-link to="/product/PP" @click.native="activeMenu = 2" :class="{ active: activeMenu == 2 }"><span>Products</span></router-link>
+          <router-link to="/product/PP" @click.native="activeMenu = 2" :class="{ active: activeMenu == 2 }"><span>PRODUCTS</span></router-link>
           <ul class="depth2 sm2">
-            <li><router-link to="/product/PP" @click.native="activeMenu = 2">Automotive Polypropylene</router-link></li>
-            <li><router-link to="/product/POE" @click.native="activeMenu = 2">Polyolefin Elastomer</router-link></li>
+            <li>
+              <router-link to="/product/PP" @click.native="activeMenu = 2">Automotive<br />Polypropylene</router-link>
+            </li>
+            <li>
+              <router-link to="/product/POE" @click.native="activeMenu = 2">Polyolefin<br />Elastomer</router-link>
+            </li>
             <li><router-link to="/product/EPDM" @click.native="activeMenu = 2">EPDM</router-link></li>
           </ul>
         </li>
         <li class="m3">
-          <router-link to="/autoic/Auto" @click.native="activeMenu = 3" :class="{ active: activeMenu == 3 }"><span>Info</span></router-link>
+          <router-link to="/autoic/Auto" @click.native="activeMenu = 3" :class="{ active: activeMenu == 3 }"><span>INFO</span></router-link>
           <ul class="depth2 sm3">
             <li><router-link to="/autoic/Auto" @click.native="activeMenu = 3">Auto Value chain</router-link></li>
             <li><router-link to="/autoic/Material" @click.native="activeMenu = 3">Material News</router-link></li>
@@ -46,7 +51,7 @@
           </ul>
         </li>
         <li class="m6">
-          <router-link to="/support/Faq" @click.native="activeMenu = 5" :class="{ active: activeMenu == 5 }"><span>Support</span></router-link>
+          <router-link to="/support/Faq" @click.native="activeMenu = 5" :class="{ active: activeMenu == 5 }"><span>SUPPORT</span></router-link>
           <ul class="depth2 sm5">
             <li><router-link to="/support/Faq" @click.native="activeMenu = 5">FAQ</router-link></li>
             <li><router-link to="/support/Qna" @click.native="activeMenu = 5">Q/A</router-link></li>
@@ -64,15 +69,25 @@ export default {
     return {
       slideNav: false,
       activeMenu: false,
+      scrollPosition: null,
     };
   },
   methods: {
+    /* scroll dynamic class */
+    updateScroll() {
+      this.scrollPosition = window.scrollY;
+    },
+    /* nav add/remv class */
     addParentClass() {
       this.slideNav = true;
     },
     removeParentClass() {
       this.slideNav = false;
     },
+  },
+  mounted() {
+    /* scroll dynamic class */
+    window.addEventListener('scroll', this.updateScroll);
   },
 };
 </script>

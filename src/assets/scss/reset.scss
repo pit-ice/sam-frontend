@@ -15,9 +15,11 @@
 };
  
 /* font size */
-$fs-default: 14px; 
-$fs-small: 12px; 
-$fs-big: 22px; 
+$fs-xsmall: 12px; 
+$fs-small: 16px; 
+$fs-default: 18px;  
+$fs-big: 30px; 
+$fs-xbig: 48px; 
 
 /* font color */
 $fc-default: #333; 
@@ -40,19 +42,7 @@ $lh-big: 2;
 $bg-light: #fff;
 $bg-gray: #eee;
 $bg-dark: #666;
-
-/* button */
-$btn-default-color: rgb(61, 61, 61);
-$btn-default-bg: rgb(211, 211, 211);
-$btn-default-border: rgb(73, 73, 73); 
-
-$btn-point-color: rgb(156, 3, 3);
-$btn-point-bg: rgb(255, 255, 255);
-$btn-point-border: rgb(150, 38, 38); 
-
-$btn-light-color: rgb(99, 99, 99);
-$btn-light-bg: rgb(255, 255, 255);
-$btn-light-border: rgb(190, 190, 190); 
+ 
  
 /* margin & padding */
 $sides: (top, bottom, left, right);  
@@ -92,4 +82,5 @@ select { min-width: 80px;}
 .hidden { visibility:hidden; position:absolute; font-size:0; width:0; height:0; line-height:0; margin:0; padding:0; background:none; }
 textarea { width: 100%;}
 
+.w-100 { width: 100%;}
 
