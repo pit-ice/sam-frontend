@@ -3,7 +3,7 @@
     <div class="main-visual">
       <VueSlickCarousel
         ref="carousel"
-        :autoplay="true"
+        :autoplay="false"
         :autoplaySpeed="3000"
         :pauseOnDotsHover="true"
         :pauseOnFocus="true"
@@ -55,7 +55,7 @@
           :pauseOnDotsHover="true"
           :pauseOnFocus="true"
           :arrows="true"
-          :dots="true"
+          :dots="false"
           :slidesToShow="3"
           :slidesToScroll="1"
           :infinite="true"
@@ -79,18 +79,6 @@
               <a href="#">
                 <div class="overlay"></div>
                 <em>Products</em>
-                <p>머신러닝 어렵지않아요. <br />머신러닝에 대한 설명입니다. <br />머신러닝에 대한 설명입니다.</p>
-                <span class="ico"></span>
-                <button>자세히 보기</button>
-              </a>
-            </div>
-          </div>
-          <div>
-            <img src="@/assets/img/img_main_trouble.png" />
-            <div class="txt-visual">
-              <a href="#">
-                <div class="overlay"></div>
-                <em>Troubleshooting</em>
                 <p>머신러닝 어렵지않아요. <br />머신러닝에 대한 설명입니다. <br />머신러닝에 대한 설명입니다.</p>
                 <span class="ico"></span>
                 <button>자세히 보기</button>

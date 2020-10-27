@@ -1,6 +1,6 @@
 <template>
   <div class="scroll-top">
-    <button class="btn-to-top" v-if="isVisible" @click="backToTop">TOP</button>
+    <button class="btn-to-top" v-if="isVisible" v-scroll-to="{ el: '#app', offset: 0 }">TOP</button>
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
         'scroll',
         function () {
           var backToTopButton = $('.btn-to-top');
-          if ($(document).scrollTop() > 450) {
+          if ($(document).scrollTop() > 100) {
             backToTopButton.addClass('isVisible');
             this.isVisible = true;
           } else {
@@ -26,15 +26,6 @@ export default {
             this.isVisible = false;
           }
         }.bind(this)
-      );
-    },
-    backToTop: function () {
-      $('html,body').stop().animate(
-        {
-          scrollTop: 0,
-        },
-        'slow',
-        'swing'
       );
     },
   },

@@ -5,7 +5,9 @@
     </div>
     <div class="inner">
       <h1 class="logo">
-        <a href="/home"><img src="@/assets/img/logo.png" /></a>
+        <router-link to="/home/"
+          ><span><img src="@/assets/img/logo.png" /></span
+        ></router-link>
       </h1>
       <UtilMenu></UtilMenu>
     </div>

@@ -3,8 +3,10 @@
     <transition name="fade" mode="out-in">
       <router-view></router-view>
     </transition>
-    <Sidebar></Sidebar>
-    <ScrollTop></ScrollTop>
+    <div class="sub-sidebar">
+      <Sidebar></Sidebar>
+      <ScrollTop></ScrollTop>
+    </div>
   </div>
 </template>
 

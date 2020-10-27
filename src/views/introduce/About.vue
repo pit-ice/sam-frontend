@@ -1,14 +1,6 @@
 <template>
   <div class="about">
     <div class="wrap-about">
-      <div class="about-nav">
-        <ul>
-          <li><a href="#sec1" class="active">First</a></li>
-          <li><a href="#sec2">Second</a></li>
-          <li><a href="#sec3">Third</a></li>
-          <li><a href="#sec4">Fourth</a></li>
-        </ul>
-      </div>
       <div class="sections">
         <section id="sec1" class="sec-about">
           새로운 Auto 소재를 개발하기 위해 소재산업체을 주도하고, 기술을을 보유한 업체들과의 협업을 통해 종합화학 산업발전을 이끌어 나아가는
@@ -122,50 +114,10 @@
 
 <script>
 import carousel from 'vue-owl-carousel';
-import $ from 'jquery';
 
 export default {
   components: {
     carousel,
-  },
-  mounted() {
-    var sections = $('section'),
-      nav = $('.about-nav'),
-      nav_height = nav.outerHeight();
-
-    $(window).on('scroll', function () {
-      var cur_pos = $(this).scrollTop();
-
-      sections.each(function () {
-        var top = $(this).offset().top - nav_height,
-          bottom = top + $(this).outerHeight();
-
-        if (cur_pos >= top && cur_pos <= bottom) {
-          nav.find('a').removeClass('active');
-          sections.removeClass('active');
-
-          $(this).addClass('active');
-          nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
-        }
-      });
-    });
-    nav.find('a').on('click', function () {
-      var $el = $(this),
-        id = $el.attr('href');
-
-      $('html, body').animate(
-        {
-          scrollTop: $(id).offset().top - 100,
-        },
-        500
-      );
-
-      // $('html, body').animate({
-      //   scrollTop: $(id).offset().top - nav_height
-      // }, 500);
-
-      return false;
-    });
   },
 };
 </script>

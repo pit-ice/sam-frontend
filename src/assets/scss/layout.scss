@@ -1,7 +1,8 @@
 /* 레이아웃 */
-.wrapper {width: 100%; min-width: 1280px;}
+.wrapper {width: 100%; min-width: 1240px;}
 .wrapper .inner { position: relative; width:1240px; margin: 0 auto;   }
 .header { position: fixed; top:0; left:0; width:100%; height:60px; background: #fff; z-index:88; }
+.header .btn-hamburger { opacity: 0; width:0;height:0px; line-height: 0;  }
 .header .skip-nav {position:absolute;left:0;top:0;z-index:999;width:100%;}
 .header .skip-nav a {position:absolute;left:0;top:-1000em;display:block;height:20px;width:100%;white-space:nowrap;text-align:center;font-size:12px;color:#fff;text-decoration:none;background-color:black;}
 .header .skip-nav a:hover,
@@ -10,23 +11,26 @@
 .header .logo { position: absolute; top:12px; left:0; width:130px; height:60px; overflow: hidden; z-index: 99;   }
 .header .logo a { display:block; }
 .header .nav { position:relative; overflow: hidden;  max-height: 61px;  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1); background: #f8f8f8 url('../../assets/img/bg_dot.png') repeat-x left 60px ;}
-.header .nav.on { max-height: 700px; border-bottom:1px solid #e2e2e2; transition: max-height 0.3s cubic-bezier(1, 1, 1, 0);; }
-.header .nav .top-bg { position: absolute;lefT: 0;top: 0;width: 100%;height: 60px;background: white; }
+.header .nav.on { max-height: 700px; border-bottom:1px solid #e2e2e2; transition: max-height 0.3s cubic-bezier(1, 1, 1, 0) ; }
+.header .nav .top-bg { position: absolute;left: 0;top: 0;width: 100%;height: 60px;background: white; }
 .header .nav .depth1 { display: table; width:900px; padding:0 0 0 120px; text-align: center;; overflow:hidden;   }
 .header .nav .depth1 li { position:relative; display:table-cell; height:100%;  vertical-align: top; font-size:16px; text-align: center; background:url('../../assets/img/bg_dot.png') repeat-y left; }
 .header .nav .depth1 li:last-child { background:url('../../assets/img/bg_dot.png') repeat-y left, url('../../assets/img/bg_dot.png') repeat-y right }
 .header .nav .depth1 li a { position: absolute; top:0; left:0; display:block; width:100%; height:60px;  line-height: 60px; color:#333; font-weight:bold;  background:#fff; }
-.header .nav .depth1 li span { display: block; height:60px; line-height: 60px;  }
-.header .nav .depth1 li:hover a span { color:#ff7a00;} // hover on 
-.header .nav .depth1 li:hover a span { border-bottom:2px solid #ff7a00;} // hover on 
-.header .nav .depth1 li a.active span { color:#ff7a00} // keep on  
+.header .nav .depth1 li span { position:relative; display: block; height:60px; line-height: 60px;  }
+.header .nav .depth1 li em { display: block; }
+.header .nav .depth1 li span::after { display: block; content: ''; position: absolute; top:58px ;left:50%; width:10%; height:2px; margin:0 0 0 -5%; background: none; transition: all 0.3s ease; }
+.header .nav .depth1 li:hover a span { color:#ff7a00; } // hover on 
+.header .nav .depth1 li:hover span::after { left:0; width:100%;  margin:0 ;  background: #ff7a00; }
+.header .nav .depth1 li a.active span, 
+.header .nav .depth1 li a.router-link-active  { color:#ff7a00} // keep on  
 .header .nav .depth2 { display:block; width:100%; height: auto; margin:60px 0 0 0; padding:10px 0 20px 0; overflow:hidden;   }
 .header .nav .depth2 li { display: block; width:100%; margin:0; padding:5px 10px;   font-size:14px; } 
 .header .nav .depth2 li:last-child {background: none;} 
 .header .nav .depth2 li a { position: inherit; height:30px; padding:10px 0 0 0; color:#666666; line-height: 1.2; border: 0; background: none;; }  
 .header .nav .depth2 li a:hover { color:#333333}
 .header .nav .depth2 li a.router-link-exact-active { color:#333333;}  
-.header .nav .depth2.sm2 li a { position: inherit; height:auto; padding:10px 0 0 0; color:#666666; line-height: 1.2; border: 0; background: none;; }  
+.header .nav .depth2.sm2 li a { position: inherit; height:auto; padding:10px 0 0 0; color:#666666; line-height: 1.2; border: 0; background: none;; }   
 .header .util-menu { position: absolute; top:0; right:0; width:auto; height:60px; padding:0 0 30px; z-index: 99;  }
 .header .util-menu li { display: inline-block; padding:0 0; font-size: 13px; line-height:60px; color: #888; vertical-align: top;;  }
 .header .util-menu li a {color:#888  }
@@ -56,14 +60,7 @@
 
  
  
-.footer {
-	position: relative;
-	height: 314px;
-	color:#888888;
-	text-align: left;;
-	font-size:12px;
-	background: #222;
-}
+.footer {position: relative;height: 314px;color:#888888;text-align: left;;font-size:12px;background: #222;}
 .footer a { color: #888888;;}
 .footer a:hover { color: #cccccc !important;}
 .footer .left { font-family: Dotum;}
