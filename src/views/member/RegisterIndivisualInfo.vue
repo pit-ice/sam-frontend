@@ -76,7 +76,7 @@
       </ValidationObserver>
       <vue-recaptcha
         ref="recaptcha"
-        sitekey="6LeNgs8ZAAAAAEsbfPVS9TU0OUjx5AOBAeaV0G4U"
+        sitekey="6LdpsdwZAAAAAGiM9ei5L_b19QKa18DpomMl3yoV"
         :loadRecaptchaScript="true"
         @verify="onVerify"
       ></vue-recaptcha>

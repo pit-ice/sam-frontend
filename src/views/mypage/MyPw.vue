@@ -21,7 +21,7 @@
         <button class="btn btn-confirm" @click="verifyPassword">확인</button>
       </div>
     </div>
-    <vue-recaptcha ref="recaptcha" sitekey="6LeNgs8ZAAAAAEsbfPVS9TU0OUjx5AOBAeaV0G4U" :loadRecaptchaScript="true" @verify="onVerify"></vue-recaptcha>
+    <vue-recaptcha ref="recaptcha" sitekey="6LdpsdwZAAAAAGiM9ei5L_b19QKa18DpomMl3yoV" :loadRecaptchaScript="true" @verify="onVerify"></vue-recaptcha>
     <!-- 패스워드확인 결과 팝업 -->
     <b-modal title="알림" v-model="showCompleteModal" @ok="onOk">
       <p class="my-4">{{ verifyMsg }}</p>
