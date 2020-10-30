@@ -35,7 +35,7 @@
     </ValidationObserver>
     <!-- 변경 완료 팝업 -->
     <b-modal title="알림" v-model="showCompleteModal" @ok="onOk">
-      <p class="my-4">비밀번호 변경이 완료되었습니다!</p>
+      <p class="my-4">{{ verifyMsg }}</p>
     </b-modal>
   </div>
 </template>
@@ -49,6 +49,14 @@ export default {
       confirmNewPassword: '',
       showCompleteModal: false,
     };
+  },
+  computed: {
+    verifyMsg() {
+      return this.$store.state.member.msg;
+    },
+    verifyStatus() {
+      return this.$store.state.member.status;
+    },
   },
   methods: {
     onSubmit() {

@@ -31,7 +31,7 @@ export const saveRegister = (data) => {
 
 export const getRegister = () => {
   let agree = window.localStorage.getItem(AGREE) || '{}';
-  return JSON.parse(agree);
+  return agree;
 };
 export const destoryRegister = () => {
   window.localStorage.removeItem(AGREE);

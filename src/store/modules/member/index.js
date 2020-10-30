@@ -6,14 +6,11 @@ import ApiService from '@/store/api/api.service';
 import StorageService from '@/store/api/storage.service';
 import router from '@/router';
 
-const BASE_URL = '/api/members';
+const BASE_URL = '/members';
 const AUTH_URL = process.env.VUE_APP_AUTH_SERVER_URL;
 const state = {
   agreement: [],
-  agree: StorageService.getRegister(),
-  terms1: false,
-  terms2: false,
-  terms3: false,
+  terms: {},
   member: {},
   emailauth: {},
   idStatus: {},
@@ -25,6 +22,7 @@ const state = {
   name: {},
   msg: {},
   status: {},
+  info: {},
 };
 
 // getters
@@ -32,39 +30,45 @@ const getters = {};
 
 // actions
 const actions = {
+  //약관 리스트
   async getAgree(context) {
     try {
-      let response = await ApiService.get('members/agreement');
+      let response = await ApiService.get(`${BASE_URL}/agreement`);
       context.commit('agreement', response.data);
     } catch (error) {
       console.log(error);
     }
   },
 
+  //동의 약관 저장
   async secondStep(context, data) {
     context.commit('secondStep', data);
   },
 
+  //아이디 중복
   async idDuplication(context, user) {
     try {
       let response = await ApiService.get(`${BASE_URL}/duplicate/id/` + user.id);
-      console.log(response.data);
       context.commit('setIdDuplication', response.data);
     } catch (error) {
       context.commit('setIdDuplication', 404);
     }
   },
 
+  //이메일 중복
   async emailDuplication(context, user) {
     try {
-      let response = await ApiService.get(`${BASE_URL}/duplicate/email/${user.email}`);
+      let response = await ApiService.get(`${BASE_URL}/duplicate/email/` + user.email);
       context.commit('setEmailDuplication', response.data);
     } catch (error) {
       context.commit('setEmailDuplication', 404);
     }
   },
 
+  //임시 회원등록
   async register(context, user) {
+    const agree = JSON.parse(StorageService.getRegister());
+
     try {
       let body = {
         emailAddr: user.email,
@@ -73,8 +77,10 @@ const actions = {
         mbrNm: user.name,
         pwdFailCnt: 0,
         regprId: user.id,
+        useYn: true,
+        terms: agree,
+        r: user.r,
       };
-
       let response = await ApiService.post(`${BASE_URL}/users`, body);
 
       context.commit('registerSuccess', response.data.data);
@@ -82,11 +88,13 @@ const actions = {
       console.log(error);
     }
   },
+
+  //이메일 인증
   async emailauth(context, auth) {
     try {
       let body = {
         key: auth.key,
-        no: auth.mbrNo,
+        memberId: auth.memberId,
       };
       let response = await ApiService.post(`${AUTH_URL}/email/`, body);
       context.commit('emailauth', response.status);
@@ -96,17 +104,16 @@ const actions = {
     }
   },
   // 비번 검사
-  async verifyPassword(context, password) {
+  async verifyPassword(context, user) {
     try {
       let body = {
-        mbrId: context.rootState.auth.user.MBR_ID,
-        command: 'valid',
-        mbrPwd: password,
+        mbrId: context.rootState.auth.user.member_id,
+        mbrPwd: user.password,
+        r: user.r,
       };
-
-      let response = await ApiService.get(`${BASE_URL}/password`, body);
+      console.log(body);
+      let response = await ApiService.post(`${BASE_URL}/password`, body);
       context.commit('verifyPassword', response.data);
-      console.log(response);
     } catch (error) {
       console.log(error);
       throw error;
@@ -116,8 +123,7 @@ const actions = {
   async changePassword(context, user) {
     try {
       let body = {
-        mbrId: context.rootState.auth.user.MBR_ID,
-        command: 'change',
+        mbrId: context.rootState.auth.user.member_id,
         mbrPwd: user.password,
         newMbrPwd: user.newPassword,
         memberId: user.memberId,
@@ -126,7 +132,17 @@ const actions = {
       };
 
       let response = await ApiService.put(`${BASE_URL}/password`, body);
-      console.log(response);
+      context.commit('changePassword', response.data);
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  },
+  // 회원 정보
+  async infoSearch(context) {
+    try {
+      let response = await ApiService.get(`${BASE_URL}`);
+      context.commit('infoSearch', response.data);
     } catch (error) {
       console.log(error);
       throw error;
@@ -174,15 +190,13 @@ const mutations = {
   },
 
   secondStep(state, data) {
-    state.terms1 = data.terms1;
-    state.terms2 = data.terms2;
-    state.terms3 = data.terms3;
+    state.terms = data;
     StorageService.saveRegister(data);
   },
   registerSuccess(state, body) {
-    state.id = body.MBR_ID;
-    state.email = body.EMAIL_ADDR;
-    state.name = body.MBR_NM;
+    state.id = body.member_id;
+    state.email = body.email_address;
+    state.name = body.member_name;
     StorageService.destoryRegister();
   },
   emailauth(state, status) {
@@ -206,6 +220,10 @@ const mutations = {
       router.push('/mypage/info');
     }
   },
+  changePassword(state, response) {
+    state.msg = response.msg;
+    state.status = response.status;
+  },
   setEmailDuplication(state, data) {
     state.emailStatus = data.status;
     state.msg = data.msg;
@@ -216,8 +234,10 @@ const mutations = {
       state.isDupEmail = true;
     }
   },
+  infoSearch(state, response) {
+    state.info = response.data;
+  },
 };
-
 export default {
   namespaced: true,
   state,

@@ -37,7 +37,7 @@
             <div>
               <input type="text" v-model="postcode" placeholder="우편번호" />
               <button class="btn btn-zipcode" @click="execDaumPostcode">우편번호 검색</button>
-              <DaumPostcode :on-complete="handleAddress" :visible.sync="visible" />
+              <!-- <DaumPostcode :on-complete="handleAddress" :visible.sync="visible" /> -->
             </div>
             <div><input type="text" v-model="address" placeholder="기본주소" /></div>
             <div><input type="text" v-model="extraAddress" ref="extraAddress" placeholder="상세주소" /></div>
@@ -138,7 +138,7 @@
 
 <script>
 import BreadScrumb from '@/components/BreadScrumb.vue';
-import DaumPostcode from 'vuejs-daum-postcode';
+//import DaumPostcode from 'vuejs-daum-postcode';
 
 export default {
   data() {
@@ -235,7 +235,7 @@ export default {
   },
   components: {
     BreadScrumb,
-    DaumPostcode,
+    //   DaumPostcode,
   },
 };
 </script>

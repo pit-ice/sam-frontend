@@ -71,16 +71,22 @@
 
         <div class="wrap-btn">
           <button class="btn btn-cancel" @click="resetForm">취소</button>
-          <button class="btn btn-regist" @click="onSubmit" :disabled="invalid || isDupId || isDupEmail">가입신청</button>
+          <button class="btn btn-regist" @click="onSubmit" :disabled="invalid || isDupId || isDupEmail || recaptcha">가입신청</button>
         </div>
       </ValidationObserver>
+      <vue-recaptcha
+        ref="recaptcha"
+        sitekey="6LeNgs8ZAAAAAEsbfPVS9TU0OUjx5AOBAeaV0G4U"
+        :loadRecaptchaScript="true"
+        @verify="onVerify"
+      ></vue-recaptcha>
     </div>
   </div>
 </template>
-
+<script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" async defer></script>
 <script>
 import BreadScrumb from '@/components/BreadScrumb.vue';
-
+import VueRecaptcha from 'vue-recaptcha';
 export default {
   data() {
     return {
@@ -89,6 +95,8 @@ export default {
       confirmPassword: '',
       email: '',
       name: '',
+      recaptcha: true,
+      response: '',
     };
   },
   computed: {
@@ -106,6 +114,12 @@ export default {
     },
   },
   methods: {
+    onVerify(r) {
+      if (r) {
+        this.response = r;
+        this.recaptcha = false;
+      }
+    },
     resetForm() {
       const result = confirm('회원가입을취소하시겠습니까? 확인버튼 선택 시 입력한 모든 정보가 삭제 됩니다.');
 
@@ -129,8 +143,9 @@ export default {
         if (!success) {
           return;
         }
-        let registerUser = { id: this.id, password: this.password, email: this.email, name: this.name };
+        let registerUser = { id: this.id, password: this.password, email: this.email, name: this.name, r: this.response };
 
+        console.log(registerUser);
         this.$store.dispatch('member/register', registerUser).then(
           () => {
             this.$router.push('/member/register/indivisual/done');
@@ -149,6 +164,7 @@ export default {
   },
   components: {
     BreadScrumb,
+    VueRecaptcha,
   },
 };
 </script>

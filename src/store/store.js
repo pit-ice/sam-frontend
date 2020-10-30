@@ -8,7 +8,7 @@ import faq from './modules/faq';
 import file from './modules/file';
 import noti from './modules/noti';
 import member from './modules/member';
-
+import terms from './modules/terms';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -19,5 +19,6 @@ export default new Vuex.Store({
     file,
     noti,
     member,
+    terms,
   },
 });
