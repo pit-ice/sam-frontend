@@ -126,7 +126,7 @@ const routes = [
       },
       // 로그인 비번오류 재설정
       {
-        path: 'loginErrorReset',
+        path: 'loginErrorReset/:key/:memberid',
         name: 'LoginErrorReset',
         component: () => import('Views/member/LoginErrorReset.vue'),
       },

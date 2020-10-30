@@ -24,15 +24,6 @@
               </ValidationProvider>
             </dd>
           </dl>
-
-          <!-- 
-          <p class="txt_error">아이디 또는 비밀번호를 잘못 입력하셨습니다.</p>
-          <div class="login-util">
-            <div class="keep-login">
-              <input type="checkbox" name="" id="keep-login" class="checkbox3" />
-              <label for="keep-login"><span class="icon"></span>로그인 저장</label>
-            </div>
-          </div> -->
           <div class="wrap-btn">
             <button class="btn btn-login" :disabled="invalid" type="submit">로그인</button>
           </div>
@@ -56,6 +47,9 @@
     <b-modal title="알림" v-model="showCompleteModal" @ok="onOk">
       <p class="my-4">{{ loginMsg }}</p>
     </b-modal>
+    <b-modal title="알림" v-model="passwordResetModal" @ok="resetPwd">
+      <p class="my-4">{{ loginMsg }}</p>
+    </b-modal>
   </div>
 </template>
 
@@ -69,6 +63,7 @@ export default {
       loading: false,
       message: '',
       showCompleteModal: false,
+      passwordResetModal: false,
     };
   },
   computed: {
@@ -86,15 +81,15 @@ export default {
           return;
         }
 
-        this.$store.dispatch('auth/login', { userid: this.userid, password: this.password }).then(
-          () => {
-            this.loading = false;
+        this.$store.dispatch('auth/login', { userid: this.userid, password: this.password }).then(() => {
+          this.loading = false;
+          let status = this.$store.state.auth.status;
+          if (status == 406) {
+            this.passwordResetModal = true;
+          } else if (status == 404) {
             this.showCompleteModal = true;
-          },
-          (error) => {
-            alert(error.message);
           }
-        );
+        });
 
         this.userid = this.password = '';
         this.$nextTick(() => {
@@ -104,6 +99,9 @@ export default {
     },
     onOk() {
       this.$emit('completed');
+    },
+    resetPwd() {
+      this.$router.push('/member/loginErrorEmail');
     },
   },
 };
