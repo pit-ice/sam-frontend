@@ -94,7 +94,7 @@ const actions = {
     try {
       let body = {
         key: auth.key,
-        memberId: auth.memberId,
+        no: auth.memberId,
       };
       let response = await ApiService.post(`${AUTH_URL}/email/`, body);
       context.commit('emailauth', response.status);
